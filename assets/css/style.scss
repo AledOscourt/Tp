@@ -1,0 +1,248 @@
+/*-------------------------------------------------------------------------Variable----------------------------------------------------------------------------------*/
+
+$dropdown-min-width: 0px;
+$font-size-carouse-h2-lg: 4rem;
+$font-size-carousel-h3-lg: 2.5rem;
+$font-size-carousel-h2-md: 1.75rem;
+$font-size-carousel-h3-md: 1.25rem;
+$font-size-carousel-h2-sm: 1rem;
+$font-size-carousel-h3-sm: 0.75rem;
+$font-size-carousel-p-lg: 2rem;
+$font-size-carousel-p-md: 1.15rem;
+$font-size-carousel-p-sm: 0.70rem;
+$font-weight-carousel: 600;
+$font-weight-nav: 500;
+$color-blue:#58A4B0;
+$color-black:#020402;
+$color-gray: #1a1f21;
+$color-white:#FFFAFA;
+
+/*-------------------------------------------------------------------------Général----------------------------------------------------------------------------------*/
+
+body {
+    background-image: radial-gradient(circle at 77% 66%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 9%, transparent 9%, transparent 43%, transparent 43%, transparent 100%), radial-gradient(circle at 6% 56%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 20%, transparent 20%, transparent 56%, transparent 56%, transparent 100%), radial-gradient(circle at 48% 45%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 15%, transparent 15%, transparent 85%, transparent 85%, transparent 100%), radial-gradient(circle at 89% 6%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 5%, transparent 5%, transparent 32%, transparent 32%, transparent 100%), radial-gradient(circle at 71% 38%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 14%, transparent 14%, transparent 21%, transparent 21%, transparent 100%), radial-gradient(circle at 84% 78%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 11%, transparent 11%, transparent 85%, transparent 85%, transparent 100%), radial-gradient(circle at 92% 72%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 42%, transparent 42%, transparent 51%, transparent 51%, transparent 100%), radial-gradient(circle at 73% 95%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 48%, transparent 48%, transparent 63%, transparent 63%, transparent 100%), radial-gradient(circle at 29% 29%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 24%, transparent 24%, transparent 73%, transparent 73%, transparent 100%), linear-gradient(90deg, hsl(147, 0%, 99%), hsl(147, 0%, 99%));
+}
+
+.imgLanguage {
+    width: 7vh;
+}
+
+
+/*-------------------------------------------------------------------------Header----------------------------------------------------------------------------------*/
+
+header {
+    background-color: $color-gray;
+    .businessName {
+        text-shadow: 5px 5px 20px $color-blue;
+        color: $color-white;
+        &:hover {
+            text-shadow: 5px 5px 20px $color-white;
+            color: $color-blue;
+        }
+    }
+    .user {
+        color: $color-white;
+        &:hover {
+            text-shadow: 5px 5px 10px $color-blue;
+        }
+    }
+    .userDropdownMenu {
+        position: absolute;
+        inset: auto auto 0px 0px;
+        margin: 0px;
+        transform: translate(0px, -40px);
+    }
+    .star {
+        color: $color-white;
+        &:hover {
+            text-shadow: 5px 5px 10px $color-blue;
+        }
+    }
+}
+
+
+/*-------------------------------------------------------------------------Navbar----------------------------------------------------------------------------------*/
+
+.navbar {
+    z-index: 99;
+    border: 1px solid black;
+    background-color: $color-gray;
+    .businessName {
+        text-shadow: 5px 5px 20px $color-blue;
+    }
+    .navbar-toggler {
+        font-weight: $font-weight-nav;
+        color: $color-white;
+        &:hover {
+            box-shadow: 5px 5px 10px 2px $color-blue;
+            color: $color-white;
+        }
+    }
+    .navbar-toggler-icon {
+        height: 1.5rem;
+    }
+    .navbar-brand {
+        font-weight: $font-weight-nav;
+        color: $color-white;
+    }
+    .nav-link {
+        font-weight: $font-weight-nav;
+        font-style: oblique;
+        color: $color-white;
+        &:hover {
+            background-color: $color-white;
+            box-shadow: 5px 5px 10px 2px $color-blue;
+            color: $color-black;
+        }
+    }
+    /*-----------------------------------------------Second Navbar----------------------------------------------------------------------------------------------------*/
+    &+.secondNavbar {
+        display: none;
+    }
+}
+
+
+/*-------------------------------------------------------------------------Carousel----------------------------------------------------------------------------------*/
+
+.carousel {
+    h2 {
+        font-size: $font-size-carouse-h2-lg;
+        font-style: italic;
+    }
+    h3 {
+        font-size: $font-size-carousel-h3-lg;
+        font-weight: $font-weight-carousel;
+        font-style: italic;
+    }
+    .firstComingSoon {
+        background-image: radial-gradient(circle at center center, rgb(71, 71, 71), rgb(8, 8, 8));
+    }
+    .secondComingSoon {
+        background-image: radial-gradient(circle at center center, rgb(15, 78, 199), rgb(21, 67, 172), rgb(27, 56, 145), rgb(33, 44, 118), rgb(39, 33, 91));
+    }
+    .thirdComingSoon {
+        background-image: radial-gradient(circle at center center, rgb(234, 238, 79), rgb(250, 124, 72));
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+        opacity: 0.2;
+    }
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        opacity: 1;
+        color: $color-white;
+    }
+}
+
+
+/*-------------------------------------------------------------------------Product----------------------------------------------------------------------------------*/
+
+.product {
+    .outer-Border-Article {
+        border: 1px solid $color-black;
+        border-radius: 5px;
+        color: $color-black;
+        .inner-Border-Article {
+            border-radius: 5px;
+        }
+        .inner-Border-Name {
+            p {
+                margin: 0px;
+            }
+            border-radius: 5px;
+            &:hover {
+                box-shadow: 5px 5px 20px 2px $color-gray;
+            }
+        }
+        .inner-Border-Price {
+            p {
+                margin: 0px;
+            }
+            border-radius: 5px;
+        }
+        &:hover {
+            box-shadow: 5px 5px 20px 2px $color-gray;
+        }
+    }
+}
+
+
+/*-------------------------------------------------------------------------Selector----------------------------------------------------------------------------------*/
+
+.selector {
+    .selector-top-banner {
+        background-image: radial-gradient(circle at center center, rgb(71, 71, 71), rgb(8, 8, 8));
+    }
+    .selector-left-banner {
+        background-image: radial-gradient(circle at center center, rgb(15, 78, 199), rgb(21, 67, 172), rgb(27, 56, 145), rgb(33, 44, 118), rgb(39, 33, 91));
+        &:hover {
+            box-shadow: 10px 10px 20px -1px $color-blue;
+            border: 3px solid $color-blue;
+        }
+    }
+    .selector-right-banner {
+        background-image: radial-gradient(circle at center center, rgb(234, 238, 79), rgb(250, 124, 72));
+        &:hover {
+            box-shadow: 10px 10px 20px -1px $color-blue;
+            border: 3px solid $color-blue;
+        }
+    }
+}
+
+footer {
+    img {
+        width: 5vh;
+    }
+}
+
+
+/*-------------------------------------------------------------------------Media----------------------------------------------------------------------------------*/
+
+@media screen AND (max-width: 600px) {
+    .carousel {
+        h2 {
+            font-size: $font-size-carousel-h2-md;
+        }
+        h3 {
+            font-size: $font-size-carousel-h3-md;
+        }
+    }
+    .navbar {
+        .businessName {
+            font-size: $font-size-carousel-h2-md;
+        }
+        &+.secondNavbar {
+            display: none;
+        }
+    }
+}
+
+@media screen AND (max-width: 400px) {
+    .imgLanguage {
+        width: 4vh;
+    }
+    .navbar {
+        .businessName {
+            font-size: $font-size-carousel-h3-md;
+        }
+    }
+    .carousel {
+        h2 {
+            font-size: $font-size-carousel-h2-sm;
+        }
+        h3 {
+            font-size: $font-size-carousel-h3-sm;
+        }
+    }
+    .product {
+        h3 {
+            font-size: $font-size-carousel-h3-sm;
+        }
+        p {
+            font-size: $font-size-carousel-p-sm;
+        }
+        a {
+            font-size: $font-size-carousel-p-sm;
+        }
+    }
+}

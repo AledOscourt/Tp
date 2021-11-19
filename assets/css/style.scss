@@ -20,7 +20,7 @@ $color-white:#FFFAFA;
 /*-------------------------------------------------------------------------Général----------------------------------------------------------------------------------*/
 
 body {
-    background-image: radial-gradient(circle at 77% 66%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 9%, transparent 9%, transparent 43%, transparent 43%, transparent 100%), radial-gradient(circle at 6% 56%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 20%, transparent 20%, transparent 56%, transparent 56%, transparent 100%), radial-gradient(circle at 48% 45%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 15%, transparent 15%, transparent 85%, transparent 85%, transparent 100%), radial-gradient(circle at 89% 6%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 5%, transparent 5%, transparent 32%, transparent 32%, transparent 100%), radial-gradient(circle at 71% 38%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 14%, transparent 14%, transparent 21%, transparent 21%, transparent 100%), radial-gradient(circle at 84% 78%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 11%, transparent 11%, transparent 85%, transparent 85%, transparent 100%), radial-gradient(circle at 92% 72%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 42%, transparent 42%, transparent 51%, transparent 51%, transparent 100%), radial-gradient(circle at 73% 95%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 48%, transparent 48%, transparent 63%, transparent 63%, transparent 100%), radial-gradient(circle at 29% 29%, rgba(164, 228, 255, 0.05) 0%, rgba(164, 228, 255, 0.05) 24%, transparent 24%, transparent 73%, transparent 73%, transparent 100%), linear-gradient(90deg, hsl(147, 0%, 99%), hsl(147, 0%, 99%));
+    background-color: #43d9e8;
 }
 
 .imgLanguage {
@@ -31,7 +31,6 @@ body {
 /*-------------------------------------------------------------------------Header----------------------------------------------------------------------------------*/
 
 header {
-    background-color: $color-gray;
     .businessName {
         text-shadow: 5px 5px 20px $color-blue;
         color: $color-white;
@@ -45,12 +44,12 @@ header {
         &:hover {
             text-shadow: 5px 5px 10px $color-blue;
         }
-    }
-    .userDropdownMenu {
-        position: absolute;
-        inset: auto auto 0px 0px;
-        margin: 0px;
-        transform: translate(0px, -40px);
+        .userDropdownMenu {
+            position: absolute;
+            inset: auto auto 0px 0px;
+            margin: 0px;
+            transform: translate(0px, -40px);
+        }
     }
     .star {
         color: $color-white;
@@ -63,41 +62,52 @@ header {
 
 /*-------------------------------------------------------------------------Navbar----------------------------------------------------------------------------------*/
 
-.navbar {
+.navbarSection {
+    position: relative;
     z-index: 99;
-    border: 1px solid black;
-    background-color: $color-gray;
-    .businessName {
-        text-shadow: 5px 5px 20px $color-blue;
-    }
-    .navbar-toggler {
-        font-weight: $font-weight-nav;
-        color: $color-white;
-        &:hover {
-            box-shadow: 5px 5px 10px 2px $color-blue;
+    border: 1px solid $color-black;
+    .navbar {
+        .businessName {
+            text-shadow: 5px 5px 20px $color-blue;
+        }
+        .navbar-toggler {
+            font-weight: $font-weight-nav;
+            color: $color-white;
+            &:hover {
+                box-shadow: 5px 5px 10px 2px $color-blue;
+                color: $color-white;
+            }
+        }
+        .navbar-toggler-icon {
+            height: 1.5rem;
+        }
+        .navbar-brand {
+            font-weight: $font-weight-nav;
             color: $color-white;
         }
-    }
-    .navbar-toggler-icon {
-        height: 1.5rem;
-    }
-    .navbar-brand {
-        font-weight: $font-weight-nav;
-        color: $color-white;
-    }
-    .nav-link {
-        font-weight: $font-weight-nav;
-        font-style: oblique;
-        color: $color-white;
-        &:hover {
-            background-color: $color-white;
-            box-shadow: 5px 5px 10px 2px $color-blue;
-            color: $color-black;
+        .nav-link {
+            font-weight: $font-weight-nav;
+            font-style: oblique;
+            color: $color-white;
+            &:hover {
+                text-shadow: 7px 5px 5px $color-blue;
+                box-shadow: 5px 5px 10px 2px $color-blue;
+                color: $color-white;
+            }
         }
     }
-    /*-----------------------------------------------Second Navbar----------------------------------------------------------------------------------------------------*/
-    &+.secondNavbar {
-        display: none;
+    /*-------------------------------------------------------------------------Carousel----------------------------------------------------------------------------------*/
+    #secondNavbar {
+        #secondNavList {
+            .nav-link {
+                font-weight: $font-weight-nav;
+                font-style: oblique;
+                color: $color-white;
+                &:hover {
+                    text-shadow: 7px 5px 5px $color-blue;
+                }
+            }
+        }
     }
 }
 
@@ -108,11 +118,13 @@ header {
     h2 {
         font-size: $font-size-carouse-h2-lg;
         font-style: italic;
+        text-shadow: 7px 5px 15px $color-white;
     }
     h3 {
         font-size: $font-size-carousel-h3-lg;
         font-weight: $font-weight-carousel;
         font-style: italic;
+        text-shadow: 3px 2px 10px $color-white;
     }
     .firstComingSoon {
         background-image: radial-gradient(circle at center center, rgb(71, 71, 71), rgb(8, 8, 8));
@@ -141,7 +153,7 @@ header {
     .outer-Border-Article {
         border: 1px solid $color-black;
         border-radius: 5px;
-        color: $color-black;
+        color: $color-white;
         .inner-Border-Article {
             border-radius: 5px;
         }
@@ -151,7 +163,7 @@ header {
             }
             border-radius: 5px;
             &:hover {
-                box-shadow: 5px 5px 20px 2px $color-gray;
+                box-shadow: 5px 5px 20px 2px $color-blue;
             }
         }
         .inner-Border-Price {
@@ -161,7 +173,7 @@ header {
             border-radius: 5px;
         }
         &:hover {
-            box-shadow: 5px 5px 20px 2px $color-gray;
+            box-shadow: 5px 5px 20px 2px $color-blue;
         }
     }
 }
@@ -190,8 +202,14 @@ header {
 }
 
 footer {
-    img {
-        width: 5vh;
+    .row {
+        img {
+            width: 7vh;
+            animation: move 3s ease-out 4s infinite;
+            &:hover {
+                width: 9vh;
+            }
+        }
     }
 }
 
@@ -213,6 +231,29 @@ footer {
         }
         &+.secondNavbar {
             display: none;
+        }
+        #firstNavbar {
+            .nav-link {
+                font-size: $font-size-carousel-p-lg;
+                font-style: oblique;
+                color: $color-white;
+                &:hover {
+                    text-shadow: 7px 5px 5px $color-blue;
+                    color: $color-white;
+                }
+            }
+        }
+        #subNavbar {
+            height: 89.6vh;
+            .nav-link {
+                font-size: $font-size-carousel-p-lg;
+                font-style: oblique;
+                color: $color-white;
+                &:hover {
+                    text-shadow: 7px 5px 5px $color-blue;
+                    color: $color-white;
+                }
+            }
         }
     }
 }

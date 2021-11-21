@@ -14,13 +14,13 @@ $font-weight-carousel: 600;
 $font-weight-nav: 500;
 $color-blue:#58A4B0;
 $color-black:#020402;
-$color-gray: #1a1f21;
+$color-third: #43d9e8;
 $color-white:#FFFAFA;
 
 /*-------------------------------------------------------------------------Général----------------------------------------------------------------------------------*/
 
 body {
-    background-color: #43d9e8;
+    background-color: $color-third;
 }
 
 .imgLanguage {
@@ -32,7 +32,7 @@ body {
 
 header {
     .businessName {
-        text-shadow: 5px 5px 20px $color-blue;
+        text-shadow: 7px 7px 17px $color-blue;
         color: $color-white;
         &:hover {
             text-shadow: 5px 5px 20px $color-white;
@@ -101,7 +101,6 @@ header {
         #secondNavList {
             .nav-link {
                 font-weight: $font-weight-nav;
-                font-style: oblique;
                 color: $color-white;
                 &:hover {
                     text-shadow: 7px 5px 5px $color-blue;
@@ -247,7 +246,6 @@ footer {
             height: 89.6vh;
             .nav-link {
                 font-size: $font-size-carousel-p-lg;
-                font-style: oblique;
                 color: $color-white;
                 &:hover {
                     text-shadow: 7px 5px 5px $color-blue;

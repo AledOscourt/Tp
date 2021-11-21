@@ -16,7 +16,7 @@ function categoryNavbar() {
             secondNavLink.classList.add('nav-link')
             secondNavLink.innerText = categoryLink[i];
         }
-        secondNavList.lastChild.firstChild.setAttribute('href', 'assets/html/shop.html');
+        secondNavList.lastChild.firstChild.setAttribute('href', '../html/shop.html');
     } else {
         for (let i = 0; i < categoryLink.length; i++) {
             let subNavLi = document.createElement('li');
@@ -27,7 +27,7 @@ function categoryNavbar() {
             subNavLink.classList.add('nav-link')
             subNavLink.innerText = categoryLink[i];
         }
-        subSubNavbar.lastElementChild.setAttribute('href', 'assets/html/shop.html');
+        subSubNavbar.lastElementChild.setAttribute('href', '../html/shop.html');
     }
 }
 //Créer les élement de la seconde navbar avec leurs attributs pour franchise
@@ -43,7 +43,7 @@ function brandNavbar() {
             secondNavLink.classList.add('nav-link')
             secondNavLink.innerText = brandLink[i];
         }
-        secondNavList.lastChild.firstChild.setAttribute('href', 'assets/html/shop.html');
+        secondNavList.lastChild.firstChild.setAttribute('href', '../html/shop.html');
     } else {
         for (let i = 0; i < brandLink.length; i++) {
             let subNavLi = document.createElement('li');
@@ -54,7 +54,7 @@ function brandNavbar() {
             subNavLink.classList.add('nav-link')
             subNavLink.innerText = brandLink[i];
         }
-        subSubNavbar.lastElementChild.setAttribute('href', 'assets/html/shop.html');
+        subSubNavbar.lastElementChild.setAttribute('href', '../html/shop.html');
     }
 }
 //Créer les élement de la seconde navbar avec leurs attributs pour exclusivité
@@ -108,6 +108,12 @@ let firstNavbar = document.getElementById('firstNavbar');
 let subNavbar = document.getElementById('subNavbar');
 let subSubNavbar = document.getElementById('subSubNavbar');
 let navBackButton = document.getElementById('navBackButton');
+let categoryShopList = document.getElementById('collapseCategory');
+let categoryShopButton = document.getElementById('categoryShopButton');
+let brandShopList = document.getElementById('collapseBrand');
+let brandShopButton = document.getElementById('brandShopButton');
+let exclusivityShopList = document.getElementById('collapseExclusivity');
+let exclusivityShopButton = document.getElementById('exclusivityShopButton');
 /**-------------------------------------------------------------------------------------------------------------------
  *--------------------------------------------------------------------------------------------------------------------
  -------------------------------------------------------------------------------------------------------------------*/
@@ -121,12 +127,12 @@ window.onmouseover = () => {
         //si la taille de l'écran est inférieure à p60 pixels ne réalise pas les fonction
         category.onmouseover = () => {
                 secondNavList.innerHTML = ' ';
-                categoryNavbar();
+                categoryNavbar()
             }
             //
         brand.onmouseover = () => {
                 secondNavList.innerHTML = ' ';
-                brandNavbar();
+                brandNavbar()
 
             }
             //
@@ -178,6 +184,69 @@ window.onmouseover = () => {
             subNavbar.classList.add('d-none');
             firstNavbar.classList.remove('d-none')
         }
+    }
+}
+
+/**-------------------------------------------------------------------------------------------------------------------
+ *--------------------------------------------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+*------------------------------------------------Function Shop-----------------------------------------------------  
+-------------------------------------------------------------------------------------------------------------------*/
+window.onload = () => {
+    while (collapsed == true) {
+        for (let i = 0; i < categoryLink.length; i++) {
+            let categoryShopLi = document.createElement('li');
+            categoryShopList.appendChild(categoryShopLi);
+            categoryShopLi.classList.add('d-flex', 'align-items-center')
+            let categoryShopInput = document.createElement('input');
+            categoryShopLi.appendChild(categoryShopInput);
+            categoryShopInput.setAttribute('type', 'radio');
+            categoryShopInput.setAttribute('name', 'category');
+            categoryShopInput.setAttribute('id', categoryLink[i]);
+            categoryShopInput.classList.add('form-check-input');
+            let categoryShopLabel = document.createElement('label');
+            categoryShopLi.appendChild(categoryShopLabel);
+            categoryShopLabel.setAttribute('for', categoryLink[i]);
+            categoryShopLabel.classList.add('form-check-label', 'ms-md-5', 'fs-5');
+            categoryShopLabel.innerText = categoryLink[i];
+        }
+        for (let i = 0; i < (brandLink.length); i++) {
+            let brandShopLi = document.createElement('li');
+            brandShopList.appendChild(brandShopLi);
+            brandShopLi.classList.add('d-flex', 'align-items-center')
+            let brandShopInput = document.createElement('input');
+            brandShopLi.appendChild(brandShopInput);
+            brandShopInput.setAttribute('type', 'radio');
+            brandShopInput.setAttribute('name', 'brand');
+            brandShopInput.setAttribute('id', brandLink[i]);
+            brandShopInput.classList.add('form-check-input');
+            let brandShopLabel = document.createElement('label');
+            brandShopLi.appendChild(brandShopLabel);
+            brandShopLabel.setAttribute('for', brandLink[i]);
+            brandShopLabel.classList.add('form-check-label', 'ms-md-5', 'fs-5');
+            brandShopLabel.innerText = brandLink[i];
+        }
+        for (let i = 0; i < (exclusivityLink.length); i++) {
+            let exclusivityShopLi = document.createElement('li');
+            exclusivityShopList.appendChild(exclusivityShopLi);
+            exclusivityShopLi.classList.add('d-flex', 'align-items-center')
+            let exclusivityShopInput = document.createElement('input');
+            exclusivityShopLi.appendChild(exclusivityShopInput);
+            exclusivityShopInput.setAttribute('type', 'radio');
+            exclusivityShopInput.setAttribute('name', 'exclusivity');
+            exclusivityShopInput.setAttribute('id', exclusivityLink[i]);
+            exclusivityShopInput.classList.add('form-check-input');
+            let exclusivityShopLabel = document.createElement('label');
+            exclusivityShopLi.appendChild(exclusivityShopLabel);
+            exclusivityShopLabel.setAttribute('for', exclusivityLink[i]);
+            exclusivityShopLabel.classList.add('form-check-label', 'ms-md-5', 'fs-5');
+            exclusivityShopLabel.innerText = exclusivityLink[i];
+        }
+        categoryShopList.lastChild.firstChild.setAttribute('checked', '');
+        brandShopList.lastChild.firstChild.setAttribute('checked', '');
+        collapsed = false;
     }
 }
 

@@ -21,10 +21,7 @@ $color-white:#FFFAFA;
 
 body {
     background-color: $color-third;
-}
-
-.imgLanguage {
-    width: 7vh;
+    overflow-x: hidden;
 }
 
 
@@ -40,15 +37,11 @@ header {
         }
     }
     .user {
-        color: $color-white;
-        &:hover {
-            text-shadow: 5px 5px 10px $color-blue;
-        }
-        .userDropdownMenu {
-            position: absolute;
-            inset: auto auto 0px 0px;
-            margin: 0px;
-            transform: translate(0px, -40px);
+        #navbarDropdownMenuLink {
+            color: $color-white;
+            &:hover {
+                text-shadow: 5px 5px 10px $color-blue;
+            }
         }
     }
     .star {
@@ -63,10 +56,12 @@ header {
 /*-------------------------------------------------------------------------Navbar----------------------------------------------------------------------------------*/
 
 .navbarSection {
-    position: relative;
     z-index: 99;
     border: 1px solid $color-black;
     .navbar {
+        .imgLanguage {
+            width: 7vh;
+        }
         .businessName {
             text-shadow: 5px 5px 20px $color-blue;
         }
@@ -90,20 +85,27 @@ header {
             font-style: oblique;
             color: $color-white;
             &:hover {
-                text-shadow: 7px 5px 5px $color-blue;
-                box-shadow: 5px 5px 10px 2px $color-blue;
+                text-shadow: 3px 3px 20px $color-white;
                 color: $color-white;
             }
         }
+        .user {
+            #navbarDropdownMenuLink {
+                color: $color-white;
+                &:hover {
+                    text-shadow: 5px 5px 10px $color-blue;
+                }
+            }
+        }
     }
-    /*-------------------------------------------------------------------------Carousel----------------------------------------------------------------------------------*/
+    /*-------------------------------------------------------------------------second navbar----------------------------------------------------------------------------------*/
     #secondNavbar {
         #secondNavList {
             .nav-link {
                 font-weight: $font-weight-nav;
                 color: $color-white;
                 &:hover {
-                    text-shadow: 7px 5px 5px $color-blue;
+                    text-shadow: 7px 5px 20px $color-blue;
                 }
             }
         }
@@ -181,9 +183,6 @@ header {
 /*-------------------------------------------------------------------------Selector----------------------------------------------------------------------------------*/
 
 .selector {
-    .selector-top-banner {
-        background-image: radial-gradient(circle at center center, rgb(71, 71, 71), rgb(8, 8, 8));
-    }
     .selector-left-banner {
         background-image: radial-gradient(circle at center center, rgb(15, 78, 199), rgb(21, 67, 172), rgb(27, 56, 145), rgb(33, 44, 118), rgb(39, 33, 91));
         &:hover {
@@ -212,10 +211,39 @@ footer {
     }
 }
 
+#connexionModal {
+    form {
+        input {
+            border: none;
+            border-bottom: 1px solid $color-blue;
+            outline: none;
+        }
+        &:focus {
+            outline: none;
+            border: none;
+        }
+    }
+}
+
+#inscriptionModal {
+    form {
+        input {
+            border: none;
+            border-bottom: 1px solid $color-blue;
+            outline: none;
+        }
+        &:focus {
+            outline: none;
+            border: none;
+        }
+    }
+}
+
 
 /*-------------------------------------------------------------------------Media----------------------------------------------------------------------------------*/
 
-@media screen AND (max-width: 600px) {
+//media pour 700 pixel
+@media screen AND (max-width: 700px) {
     .carousel {
         h2 {
             font-size: $font-size-carousel-h2-md;
@@ -228,7 +256,7 @@ footer {
         .businessName {
             font-size: $font-size-carousel-h2-md;
         }
-        &+.secondNavbar {
+        &.secondNavbar {
             display: none;
         }
         #firstNavbar {
@@ -237,25 +265,25 @@ footer {
                 font-style: oblique;
                 color: $color-white;
                 &:hover {
-                    text-shadow: 7px 5px 5px $color-blue;
                     color: $color-white;
                 }
             }
         }
         #subNavbar {
-            height: 89.6vh;
+            padding: auto;
+            width: 100%;
+            height: 100vh;
+            z-index: 1500;
             .nav-link {
-                font-size: $font-size-carousel-p-lg;
-                color: $color-white;
                 &:hover {
-                    text-shadow: 7px 5px 5px $color-blue;
-                    color: $color-white;
+                    box-shadow: none;
                 }
             }
         }
     }
 }
 
+//media pour 700 pixel
 @media screen AND (max-width: 400px) {
     .imgLanguage {
         width: 4vh;

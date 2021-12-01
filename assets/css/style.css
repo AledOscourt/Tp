@@ -3,10 +3,7 @@
 /*-------------------------------------------------------------------------Général----------------------------------------------------------------------------------*/
 body {
   background-color: #43d9e8;
-}
-
-.imgLanguage {
-  width: 7vh;
+  overflow-x: hidden;
 }
 
 /*-------------------------------------------------------------------------Header----------------------------------------------------------------------------------*/
@@ -20,20 +17,12 @@ header .businessName:hover {
   color: #58A4B0;
 }
 
-header .user {
+header .user #navbarDropdownMenuLink {
   color: #FFFAFA;
 }
 
-header .user:hover {
+header .user #navbarDropdownMenuLink:hover {
   text-shadow: 5px 5px 10px #58A4B0;
-}
-
-header .user .userDropdownMenu {
-  position: absolute;
-  inset: auto auto 0px 0px;
-  margin: 0px;
-  -webkit-transform: translate(0px, -40px);
-          transform: translate(0px, -40px);
 }
 
 header .star {
@@ -46,10 +35,13 @@ header .star:hover {
 
 /*-------------------------------------------------------------------------Navbar----------------------------------------------------------------------------------*/
 .navbarSection {
-  position: relative;
   z-index: 99;
   border: 1px solid #020402;
-  /*-------------------------------------------------------------------------Carousel----------------------------------------------------------------------------------*/
+  /*-------------------------------------------------------------------------second navbar----------------------------------------------------------------------------------*/
+}
+
+.navbarSection .navbar .imgLanguage {
+  width: 7vh;
 }
 
 .navbarSection .navbar .businessName {
@@ -83,10 +75,16 @@ header .star:hover {
 }
 
 .navbarSection .navbar .nav-link:hover {
-  text-shadow: 7px 5px 5px #58A4B0;
-  -webkit-box-shadow: 5px 5px 10px 2px #58A4B0;
-          box-shadow: 5px 5px 10px 2px #58A4B0;
+  text-shadow: 3px 3px 20px #FFFAFA;
   color: #FFFAFA;
+}
+
+.navbarSection .navbar .user #navbarDropdownMenuLink {
+  color: #FFFAFA;
+}
+
+.navbarSection .navbar .user #navbarDropdownMenuLink:hover {
+  text-shadow: 5px 5px 10px #58A4B0;
 }
 
 .navbarSection #secondNavbar #secondNavList .nav-link {
@@ -95,7 +93,7 @@ header .star:hover {
 }
 
 .navbarSection #secondNavbar #secondNavList .nav-link:hover {
-  text-shadow: 7px 5px 5px #58A4B0;
+  text-shadow: 7px 5px 20px #58A4B0;
 }
 
 /*-------------------------------------------------------------------------Carousel----------------------------------------------------------------------------------*/
@@ -173,10 +171,6 @@ header .star:hover {
 }
 
 /*-------------------------------------------------------------------------Selector----------------------------------------------------------------------------------*/
-.selector .selector-top-banner {
-  background-image: radial-gradient(circle at center center, #474747, #080808);
-}
-
 .selector .selector-left-banner {
   background-image: radial-gradient(circle at center center, #0f4ec7, #1543ac, #1b3891, #212c76, #27215b);
 }
@@ -207,8 +201,30 @@ footer .row img:hover {
   width: 9vh;
 }
 
+#connexionModal form input {
+  border: none;
+  border-bottom: 1px solid #58A4B0;
+  outline: none;
+}
+
+#connexionModal form:focus {
+  outline: none;
+  border: none;
+}
+
+#inscriptionModal form input {
+  border: none;
+  border-bottom: 1px solid #58A4B0;
+  outline: none;
+}
+
+#inscriptionModal form:focus {
+  outline: none;
+  border: none;
+}
+
 /*-------------------------------------------------------------------------Media----------------------------------------------------------------------------------*/
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .carousel h2 {
     font-size: 1.75rem;
   }
@@ -218,7 +234,7 @@ footer .row img:hover {
   .navbar .businessName {
     font-size: 1.75rem;
   }
-  .navbar + .secondNavbar {
+  .navbar.secondNavbar {
     display: none;
   }
   .navbar #firstNavbar .nav-link {
@@ -227,19 +243,17 @@ footer .row img:hover {
     color: #FFFAFA;
   }
   .navbar #firstNavbar .nav-link:hover {
-    text-shadow: 7px 5px 5px #58A4B0;
     color: #FFFAFA;
   }
   .navbar #subNavbar {
-    height: 89.6vh;
-  }
-  .navbar #subNavbar .nav-link {
-    font-size: 2rem;
-    color: #FFFAFA;
+    padding: auto;
+    width: 100%;
+    height: 100vh;
+    z-index: 1500;
   }
   .navbar #subNavbar .nav-link:hover {
-    text-shadow: 7px 5px 5px #58A4B0;
-    color: #FFFAFA;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
 }
 

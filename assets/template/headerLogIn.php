@@ -15,7 +15,7 @@
     <!--**********************************************************************Header*********************************************************************** -->
     <header class="container-fluid bg-dark">
         <div class="row align-items-center py-2 d-lg-flex d-none">
-            <h1 class=" col text-start "><a class="ms-lg-2 text-decoration-none  businessName" href="index.php">CollectingPop</a></h1>
+            <h1 class=" col text-start "><a class="ms-lg-2 text-decoration-none  businessName" href="logInHome.php">CollectingPop</a></h1>
             <form class="d-lg-flex col">
                 <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
@@ -31,7 +31,7 @@
                             <a class="dropdown-item " href="profil.php">Profil</a>
                         </li>
                         <li>
-                            <a class="dropdown-item " href="envyList.php">Liste d'envie</a>
+                            <a class="dropdown-item" href="envyList.php">Liste d'envie</a>
                         </li>
                         <li>
                             <a class="dropdown-item text-danger" href="index.php">Deconnexion</a>
@@ -48,16 +48,16 @@
             <button class="navbar-toggler col-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon align-items-center"><i class="fas fa-bars"></i></span>
             </button>
-            <a class="navbar-brand d-lg-none d-flex h2 col-6 text-center businessName" href="index.php">CollectingPop</a>
+            <a class="navbar-brand d-lg-none d-flex h2 col-6 text-center businessName" href="logInHome.php">CollectingPop</a>
             <div class="d-lg-none col align-items-center fs-6 d-flex">
-                <a class="navbar-brand text-decoration-none col-2 me-3"><i class="fas fa-star"></i></a>
+                <a class="navbar-brand text-decoration-none col-2 me-3" href="envyList.php"><i class="fas fa-star"></i></a>
                 <a class="navbar-brand text-decoration-none user" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true"><i class="fas fa-user"></i></a>
                 <ul class="dropdown-menu text-center text-decoration-none p-2  " aria-labelledby="navbarDropdownMenuLink">
                     <li>
-                        <a class="dropdown-item " href="profil.php">Profil</a>
+                        <a class="dropdown-item" href="profil.php">Profil</a>
                     </li>
                     <li>
-                        <a class="dropdown-item " href="envyList.php">Liste d'envie</a>
+                    <a class="dropdown-item" href="envyList.php">Liste d'envie</a>
                     </li>
                     <li>
                         <a class="dropdown-item text-danger" href="index.php">Deconnexion</a>

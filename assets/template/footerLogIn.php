@@ -12,40 +12,40 @@
         </div>
         <div class="row ">
             <div class="d-grid col-md mb-md mb-2 text-center ">
-                <h4 class="fs-5">Aide et Information :</h3>
+                <h4 class="fs-5 text-white">Aide et Information :</h3>
                     <button type="button" class="btn my-1 btn-outline-primary">Aide et conseil</button>
                     <button type="button" class="btn my-1  btn-outline-primary">Nous contacter</button>
             </div>
             <div class="d-grid col-md text-center mb-md mb-2">
-                <h4 class="fs-5">Exclusivité</h3>
+                <h4 class="fs-5 text-white">Exclusivité</h3>
                     <a class="text-decoration-none" href="#">Géant</a>
                     <a class="text-decoration-none" href="#">Mini</a>
                     <a class="text-decoration-none" href="#">Rare</a>
                     <a class="text-decoration-none" href="#">Perfect</a>
             </div>
             <div class="d-grid col-md text-center mb-md mb-2">
-                <h4 class="fs-5">Catégorie</h3>
+                <h4 class="fs-5 text-white">Catégorie</h3>
                     <a class="text-decoration-none" href="#">Anime</a>
                     <a class="text-decoration-none" href="#">Gaming</a>
                     <a class="text-decoration-none" href="#">Dessin anime</a>
                     <a class="text-decoration-none" href="shop.php">See All</a>
             </div>
             <div class="d-grid col-md text-center mb-md mb-2">
-                <h4 class="fs-5">Franchise</h3>
+                <h4 class="fs-5 text-white">Franchise</h3>
                     <a class="text-decoration-none" href="#">One Piece</a>
                     <a class="text-decoration-none" href="#">SNK</a>
                     <a class="text-decoration-none" href="#">Simpsons</a>
                     <a class="text-decoration-none" href="shop.php">See All</a>
             </div>
             <div class="d-grid col-md text-center mb-md mb-2">
-                <h4 class="fs-5">Mon compte</h3>
+                <h4 class="fs-5 text-white">Mon compte</h3>
                     <a class="text-decoration-none" href="profil.php">Profil</a>
                     <a class="text-decoration-none" href="envyList.php">Liste d'envie</a>
-                    <a class="text-decoration-none text-danger" href="index.php">Deconnexion</a>
+                    <button type="button" class="dropdown-item text-danger">Deconnexion <?php $_SESSION['connected'] = false; ?></button>
             </div>
         </div>
         <div class="row text-center">
-            <p class="fs-5">© COPYRIGHT PAR JF</p>
+            <p class="fs-4 text-white">© COPYRIGHT PAR JF</p>
         </div>
     </footer>
     <!--**********************************************************************Script*********************************************************************** -->

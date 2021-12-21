@@ -49,7 +49,7 @@
         <!--**********************************************************************New*********************************************************************** -->
         <!------------------------------------------------------------------ titre ------------------------------------------------------------------------------------>
         <div class="container-fluid product ">
-            <div class="row mb-2 mx-3 align-items-center">
+            <div class="row mb-2 mx-3 text-white align-items-center">
                 <h3 class="col">New</h3>
                 <div class="col text-end"> <a class="text-decoration-none" href="#">Voir Tout</a></div>
             </div>
@@ -95,7 +95,7 @@
         <!------------------------------------------------------------------ titre ------------------------------------------------------------------------------------>
 
         <div class="container-fluid product">
-            <div class="row mb-2 mx-3 align-items-center">
+            <div class="row mb-2 mx-3 text-white align-items-center">
                 <h3 class="col">Populaire</h3>
                 <div class="col text-end"> <a class="text-decoration-none" href="#">Voir Tout</a></div>
             </div>

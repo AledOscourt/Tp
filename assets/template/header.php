@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -22,14 +25,14 @@
             </form>
             <div class="d-flex col align-items-center justify-content-start fs-4">
                 <div class="col text-end">
-                    <a class="text-decoration-none star" href="#"><i class="fas fa-star"></i></a>
+                    <a class="text-decoration-none star" href="logIn.php"><i class="fas fa-star"></i></a>
                 </div>
                 <div class="col text-center user">
                     <a class="text-decoration-none" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true"><i class="fas fa-user"></i></a>
                     <ul class="dropdown-menu text-decoration-none text-center" aria-labelledby="navbarDropdownMenuLink">
                         <li class="">
-                            <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target="#connexionModal">Connexion</a>
-                            <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target="#inscriptionModal">Insciption</a>
+                            <a class="dropdown-item " href="logIn.php">Connexion</a>
+                            <a class="dropdown-item " href="signUp.php">Insciption</a>
                         </li>
                     </ul>
                 </div>
@@ -41,16 +44,16 @@
         <nav class="navbar navbar-expand-lg bg-dark" id="navbar">
 
             <button class="navbar-toggler col-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon align-items-center"><i class="fas fa-bars"></i></span>
+                <span class="navbar-toggler-icon align-items-center"><i class="fas fa-bars"></i></span>
             </button>
             <a class="navbar-brand d-lg-none d-flex h2 col-6 text-center businessName" href="index.php">CollectingPop</a>
             <div class="d-lg-none col align-items-center fs-6 d-flex">
-                <a class="navbar-brand text-decoration-none col-2 me-3"><i class="fas fa-star"></i></a>
+                <a class="navbar-brand text-decoration-none col-2 me-3" href="logIn.php"><i class="fas fa-star"></i></a>
                 <a class="navbar-brand text-decoration-none user" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true"><i class="fas fa-user"></i></a>
-                <ul class="dropdown-menu text-center text-decoration-none p-2  " aria-labelledby="navbarDropdownMenuLink">
-                    <li>
-                        <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target="#connexionModal">Connexion</a>
-                        <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target="#inscriptionModal">Insciption</a>
+                <ul class="dropdown-menu text-decoration-none text-center" aria-labelledby="navbarDropdownMenuLink">
+                    <li class="">
+                        <a class="dropdown-item " href="logIn.php">Connexion</a>
+                        <a class="dropdown-item " href="signUp.php">Insciption</a>
                     </li>
                 </ul>
             </div>

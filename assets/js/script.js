@@ -96,34 +96,6 @@ function exclusivityNavbar() {
 let categoryLink = ['Anime', 'Comics', 'Dessin Animé', 'Gaming', 'Music', 'Movie', 'Serie', 'See All'];
 let brandLink = ['One Piece', 'Simpsons', 'Game Of Thrones', 'Rick & Morty', 'Borderlands', 'Star War', 'Attack on Titans', 'See All'];
 let exclusivityLink = ['Rare', 'Mini', 'Géant', 'Perfect'];
-//variable d'élément
-let secondNavList = document.getElementById('secondNavList');
-let category = document.getElementById('category');
-let brand = document.getElementById('brand');
-let exclusivity = document.getElementById('exclusivity');
-let comingSoon = document.getElementById('comingSoon');
-let secondNavbar = document.getElementById('secondNavbar');
-let firstNavbar = document.getElementById('firstNavbar');
-let subNavbar = document.getElementById('subNavbar');
-let subSubNavbar = document.getElementById('subSubNavbar');
-let navBackButton = document.getElementById('navBackButton');
-//Shop category
-let categoryShopList = document.getElementById('collapseCategory');
-let categoryShopButton = document.getElementById('categoryShopButton');
-//Shop brand
-let brandShopList = document.getElementById('collapseBrand');
-let brandShopButton = document.getElementById('brandShopButton');
-//Shop exclusivity
-let exclusivityShopList = document.getElementById('collapseExclusivity');
-let exclusivityShopButton = document.getElementById('exclusivityShopButton');
-//Shop price range
-let inputRangePrice = document.getElementById('inputRangePrice');
-let priceRangePrice = document.getElementById('priceRangePrice');
-//My account Var
-let myAccountCoordinateBtn = document.getElementById('myAccountCoordinateBtn');
-let myAccountSellOrdersBtn = document.getElementById('myAccountSellOrdersBtn');
-let myAccountConctact = document.getElementById('myAccountConctact');
-let myAccountOrders = document.getElementById('myAccountOrders');
 
 /**-------------------------------------------------------------------------------------------------------------------
  *--------------------------------------------------------------------------------------------------------------------
@@ -210,6 +182,7 @@ window.onmouseover = () => {
 -------------------------------------------------------------------------------------------------------------------*/
 
 window.onload = () => {
+    priceRangePrice.innerText = `${inputRangePrice.value} €`;
     /**-------------------------------------------------------------------------------------------------------------------
      *-----------------------création de l'intérieure du collapse de categorie------------------------------------*/
     for (let i = 0; i < categoryLink.length; i++) {
@@ -268,6 +241,7 @@ window.onload = () => {
      *-----------------------mettre les input radio des collapse categorie et franchise en checked-----------------------------------------*/
     categoryShopList.lastChild.firstChild.setAttribute('checked', '');
     brandShopList.lastChild.firstChild.setAttribute('checked', '');
+
     /**-------------------------------------------------------------------------------------------------------------------
      *-----------------------mettre la valeur du range de prix à 0 au moment du collapse-----------------------------------------*/
     document.getElementById('priceShopButton').onclick = () => {
@@ -301,12 +275,28 @@ window.onload = () => {
         /**-------------------------------------------------------------------------------------------------------------------
          *-----------------------mettre la valeur du range de prix à 500 au moment du click sur la radio 500-----------------------------------------*/
     document.getElementById('priceSelector500').onclick = () => {
-        inputRangePrice.value = 500;
+            inputRangePrice.value = 500;
+            priceRangePrice.innerText = `${inputRangePrice.value} €`;
+        }
+        /**-------------------------------------------------------------------------------------------------------------------
+         *-----------------------mettre la valeur du range de prix à 1000 au moment du click sur la radio 1000-----------------------------------------*/
+    document.getElementById('priceSelector1000').onclick = () => {
+            inputRangePrice.value = 1000;
+            priceRangePrice.innerText = `${inputRangePrice.value} €`;
+        }
+        /**-------------------------------------------------------------------------------------------------------------------
+         *-----------------------mettre la valeur du range de prix à 1000 au moment du click sur la radio 1000-----------------------------------------*/
+    document.getElementById('priceSelector1000').onclick = () => {
+            inputRangePrice.value = 1000;
+            priceRangePrice.innerText = `${inputRangePrice.value} €`;
+        }
+        /**-------------------------------------------------------------------------------------------------------------------
+         *-----------------------mettre la valeur du range de prix à 1000 au moment du click sur la radio 1000-----------------------------------------*/
+    document.getElementById('priceSelector2500').onclick = () => {
+        inputRangePrice.value = 2500;
         priceRangePrice.innerText = `${inputRangePrice.value} €`;
     }
 }
-
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 *--------------------------------------------------------------------------------------------------------------------

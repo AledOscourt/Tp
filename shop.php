@@ -1,9 +1,10 @@
+
 <?php include('assets/template/header.php');?>
 <!--**********************************************************************Shop*********************************************************************** -->
     <!------------------------------------------------------- title ---------------------------------------------------------------------->
     <div class="container-fluid my-md-5 my-3">
         <div class="row text-center mb-md-4 mb-2">
-            <h2 class="fs-1">Shop</h2>
+            <h2 class="fs-1 text-white pagesTitles">Shop</h2>
         </div>
         <div class="row ms-md-5">
             <!------------------------------------------------------- trier par ---------------------------------------------------------------------->
@@ -25,7 +26,7 @@
             <!------------------------------------------------------- formulaire des choix ---------------------------------------------------------------------->
             <form class="col-md-3 ms-md-5 bg-dark my-md-0 mb-4">
                 <!------------------------------------------------------- type d'annonce ---------------------------------------------------------------------->
-                <fieldset class=" col-auto d-grid mt-4 mx-3me-auto">
+                <fieldset class=" d-grid mt-4 mx-3">
                     <legend class="text-center">
                         <button class="btn btn-outline-light text-center" id="TypeOfShopButton" type="button" data-bs-toggle="collapse" href="#collapseTypeOf" role="button" aria-expanded="false" aria-controls="collapseTypeOf">
                             Type d'annonce
@@ -75,7 +76,7 @@
                     </legend>
                     <ul class="mx-3 collapse show animate__animated animate__fadeIn animate__slower" id="collapsePrice">
                         <li class="d-flex align-items-center">
-                            <input type="range" class="col-9 form-range-input" name="inputRangePrice" min="0" max="2500" id="inputRangePrice" /><label for="inputRangePrice" id="priceRangePrice" class="col text-center form-range-label"></label>
+                            <input type="range" class="col-9 form-range-input" name="inputRangePrice" min="0" max="2500" value="2500" id="inputRangePrice" /><label for="inputRangePrice" id="priceRangePrice" class="col text-center form-range-label"></label>
                         </li>
                         <li class="d-flex align-items-center ms-5">
                             <input type="radio" class="form-check-input" name="priceSelector" id="priceSelector20" /><label for="priceSelector20" class="form-check-label ms-3 fs-5">0 à 20€</label>
@@ -88,6 +89,12 @@
                         </li>
                         <li class="d-flex align-items-center ms-5">
                             <input type="radio" class="form-check-input" name="priceSelector" id="priceSelector500" /><label for="priceSelector500" class="form-check-label ms-3 fs-5">100 à 500€</label>
+                        </li>
+                        <li class="d-flex align-items-center ms-5">
+                            <input type="radio" class="form-check-input" name="priceSelector" id="priceSelector1000" /><label for="priceSelector1000" class="form-check-label ms-3 fs-5">500 à 1000€</label>
+                        </li>
+                        <li class="d-flex align-items-center ms-5">
+                            <input type="radio" class="form-check-input" name="priceSelector" id="priceSelector2500" /><label for="priceSelector2500" class="form-check-label ms-3 fs-5">1000 à 2500€</label>
                         </li>
                     </ul>
                 </fieldset>
@@ -335,9 +342,5 @@
         </div>
     </div>
 
-    <!--**********************************************************************Modal*********************************************************************** -->
-        <!--------------------------------------------------------- Modal Inscription ----------------------------------------------------------->
-        <?php include('assets/template/modalSignUp.php');?>
-        <!--------------------------------------------------------- Modal Connexion ----------------------------------------------------------->
-        <?php include('assets/template/modalLogIn.php');?>
+    
 <?php include('assets/template/footer.php');?>

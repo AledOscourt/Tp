@@ -16,6 +16,17 @@ $color-blue:#58A4B0;
 $color-black:#020402;
 $color-third: #43d9e8;
 $color-white:#FFFAFA;
+$color-pink:#e840ba;
+$color-purple:#6e41be;
+$text-shadow-pink: 0px 0px 5px $color-pink,
+0px 0px 10px$color-black,
+0px 0px 15px $color-pink;
+$text-shadow-purple: 0px 0px 5px $color-purple,
+0px 0px 10px$color-black,
+0px 0px 15px $color-purple;
+$text-shadow-blue: 0px 0px 5px $color-blue,
+0px 0px 10px$color-black,
+0px 0px 15px $color-blue;
 
 /*-------------------------------------------------------------------------Général----------------------------------------------------------------------------------*/
 
@@ -24,30 +35,33 @@ body {
     overflow-x: hidden;
 }
 
+.pagesTitles {
+    text-shadow: 0px 0px 5px $color-pink, 0px 0px 10px $color-blue, 0px 0px 25px $color-white;
+}
+
 
 /*-------------------------------------------------------------------------Header----------------------------------------------------------------------------------*/
 
 header {
     .businessName {
-        text-shadow: 7px 7px 17px $color-blue;
+        text-shadow: 0px 0px 5px $color-white, 0px 0px 15px $color-blue;
         color: $color-white;
         &:hover {
-            text-shadow: 5px 5px 20px $color-white;
-            color: $color-blue;
+            text-shadow: 0px 0px 5px $color-white, 0px 0px 10px $color-blue, 0px 0px 20px $color-pink;
         }
     }
     .user {
         #navbarDropdownMenuLink {
             color: $color-white;
             &:hover {
-                text-shadow: 5px 5px 10px $color-blue;
+                text-shadow: 0px 0px 5px $color-white, 0px 0px 10px $color-blue, 0px 0px 20px $color-pink;
             }
         }
     }
     .star {
         color: $color-white;
         &:hover {
-            text-shadow: 5px 5px 10px $color-blue;
+            text-shadow: 0px 0px 5px $color-white, 0px 0px 5px $color-blue, 0px 0px 20px $color-pink;
         }
     }
 }
@@ -63,13 +77,13 @@ header {
             width: 7vh;
         }
         .businessName {
-            text-shadow: 5px 5px 20px $color-blue;
+            text-shadow: 0px 0px 5px $color-white, 0px 0px 10px $color-blue, 0px 0px 20px $color-pink;
         }
         .navbar-toggler {
             font-weight: $font-weight-nav;
             color: $color-white;
             &:hover {
-                box-shadow: 5px 5px 10px 2px $color-blue;
+                box-shadow: 5px 5px 10px 2px $color-pink;
                 color: $color-white;
             }
         }
@@ -85,7 +99,7 @@ header {
             font-style: oblique;
             color: $color-white;
             &:hover {
-                text-shadow: 3px 3px 20px $color-white;
+                text-shadow: 0px 0px 2px $color-white, 0px 0px 5px $color-blue, 0px 0px 10px $color-pink;
                 color: $color-white;
             }
         }
@@ -93,7 +107,7 @@ header {
             #navbarDropdownMenuLink {
                 color: $color-white;
                 &:hover {
-                    text-shadow: 5px 5px 10px $color-blue;
+                    text-shadow: 0px 0px 5px $color-white, 0px 0px 10px $color-blue, 0px 0px 20px $color-pink;
                 }
             }
         }
@@ -105,7 +119,7 @@ header {
                 font-weight: $font-weight-nav;
                 color: $color-white;
                 &:hover {
-                    text-shadow: 7px 5px 20px $color-blue;
+                    text-shadow: 0px 0px 2px $color-white, 0px 0px 5px $color-blue, 0px 0px 10px $color-pink;
                 }
             }
         }
@@ -119,13 +133,13 @@ header {
     h2 {
         font-size: $font-size-carouse-h2-lg;
         font-style: italic;
-        text-shadow: 7px 5px 15px $color-white;
+        text-shadow: 0px 0px 5px $color-pink, 0px 0px 10px $color-blue, 0px 0px 25px $color-white;
     }
     h3 {
         font-size: $font-size-carousel-h3-lg;
         font-weight: $font-weight-carousel;
         font-style: italic;
-        text-shadow: 3px 2px 10px $color-white;
+        text-shadow: 0px 0px 5px $color-pink, 0px 0px 10px $color-blue, 0px 0px 25px $color-white;
     }
     .firstComingSoon {
         background-image: radial-gradient(circle at center center, rgb(71, 71, 71), rgb(8, 8, 8));
@@ -163,9 +177,6 @@ header {
                 margin: 0px;
             }
             border-radius: 5px;
-            &:hover {
-                box-shadow: 5px 5px 20px 2px $color-blue;
-            }
         }
         .inner-Border-Price {
             p {
@@ -174,7 +185,7 @@ header {
             border-radius: 5px;
         }
         &:hover {
-            box-shadow: 5px 5px 20px 2px $color-blue;
+            box-shadow: 5px -5px 20px 2px $color-black;
         }
     }
 }
@@ -186,18 +197,23 @@ header {
     .selector-left-banner {
         background-image: radial-gradient(circle at center center, rgb(15, 78, 199), rgb(21, 67, 172), rgb(27, 56, 145), rgb(33, 44, 118), rgb(39, 33, 91));
         &:hover {
-            box-shadow: 10px 10px 20px -1px $color-blue;
+            z-index: 99;
+            box-shadow: 0px 0px 20px 2px $color-blue, inset 0px 0px 20px 2px $color-blue;
             border: 3px solid $color-blue;
         }
     }
     .selector-right-banner {
         background-image: radial-gradient(circle at center center, rgb(234, 238, 79), rgb(250, 124, 72));
         &:hover {
-            box-shadow: 10px 10px 20px -1px $color-blue;
+            z-index: 99;
+            box-shadow: 0px 0px 20px 2px $color-blue, inset 0px 0px 20px 2px $color-blue;
             border: 3px solid $color-blue;
         }
     }
 }
+
+
+/*------------------------------------------------------------------------- Footer ----------------------------------------------------------------------------------*/
 
 footer {
     .row {
@@ -209,21 +225,31 @@ footer {
             }
         }
     }
-}
-
-#connexionModal {
-    form {
-        input {
-            border: none;
-            border-bottom: 1px solid $color-blue;
-            outline: none;
-        }
-        &:focus {
-            outline: none;
-            border: none;
+    .socialDivider {
+        box-shadow: $text-shadow-pink, $text-shadow-purple, $text-shadow-blue;
+    }
+    .footerLinks {
+        a {
+            &:hover {
+                text-shadow: $text-shadow-pink, $text-shadow-purple, $text-shadow-blue;
+            }
         }
     }
 }
+
+
+/*------------------------------------------------------------------------- Connexion ----------------------------------------------------------------------------------*/
+
+.logIn {
+    a {
+        &:hover {
+            text-shadow: $text-shadow-pink, $text-shadow-purple, $text-shadow-blue;
+        }
+    }
+}
+
+
+/*------------------------------------------------------------------------- Modal d'inscription ----------------------------------------------------------------------------------*/
 
 #inscriptionModal {
     form {
@@ -237,6 +263,28 @@ footer {
             border: none;
         }
     }
+}
+
+
+/*------------------------------------------------------------------------- Photo de Profil ----------------------------------------------------------------------------------*/
+
+.myAccountProfilPhoto {
+    aspect-ratio: 1;
+    width: 30vh;
+}
+
+
+/*------------------------------------------------------------------------- Offres Profil ----------------------------------------------------------------------------------*/
+
+.myAccountOffers {
+    box-shadow: 0px 0px 10px 0px $color-pink, 0px 0px 10px 2px #6e41c0, inset 0px 0px 10px 0px #e840ba, inset 0px 0px 10px 2px #6e41c0;
+}
+
+
+/*-------------------------------------------------------------------------Liste d'envie----------------------------------------------------------------------------------*/
+
+.productEnvyList {
+    box-shadow: 0px 0px 5px 0px $color-pink, 0px 0px 10px 2px $color-pink, 0px 0px 10px 3px #6e41c0, inset 0px 0px 5px 0px #e840ba, inset 0px 0px 10px 2px #e840ba, inset 0px 0px 10px 3px #6e41c0;
 }
 
 
@@ -274,11 +322,6 @@ footer {
             width: 100%;
             height: 100vh;
             z-index: 1500;
-            .nav-link {
-                &:hover {
-                    box-shadow: none;
-                }
-            }
         }
     }
 }

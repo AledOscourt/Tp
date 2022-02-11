@@ -174,7 +174,92 @@ window.onmouseover = () => {
     }
 }
 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
-    return new bootstrap.Popover(popoverTriggerEl)
-})
+/**-------------------------------------------------------------------------------------------------------------------
+ *--------------------------------------------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------*/
+const ctx2 = document.getElementById('chartUsers').getContext('2d');
+const chartUsers = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre', ],
+        datasets: [{
+                label: 'Nouvels utilisateurs',
+                data: [25, 50, 40, 50, 90, 30, 70, 25, 35, 10, 20, 60],
+                backgroundColor: [
+                    'rgba(47,107,47,0.4)',
+
+                ],
+                borderColor: [
+                    'rgba(47,107,47,0.4)',
+
+                ],
+                borderWidth: 1,
+                stack: 0,
+            },
+            {
+                label: 'Visiteurs',
+                data: [-25, -15, -8, -35, -20, -45, -10, -25, -5, -10, -2, -8],
+                backgroundColor: [
+                    'rgba(255,40,40,0.4)',
+
+                ],
+                borderColor: [
+                    'rgba(255,40,40,0.4)',
+
+                ],
+                borderWidth: 1,
+                stack: 0,
+            }
+        ]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+const ctx1 = document.getElementById('chartOffers').getContext('2d');
+const chartOffers = new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre', ],
+        datasets: [{
+            label: 'Offres créer',
+            data: [25, 50, 40, 50, 90, 30, 70, 25, 35, 10, 20, 60],
+            backgroundColor: [
+                'rgba(47,107,47,0.4)',
+
+            ],
+            borderColor: [
+                'rgba(47,107,47,0.4)',
+
+            ],
+            borderWidth: 1,
+            stack: 0,
+        }, {
+            label: 'Offres vendu',
+            data: [-25, -15, -8, -35, -20, -45, -10, -25, -5, -10, -2, -8],
+            backgroundColor: [
+                'rgba(255,40,40,0.4)',
+
+            ],
+            borderColor: [
+                'rgba(255,40,40,0.4)',
+
+            ],
+            borderWidth: 1,
+            stack: 0,
+
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});

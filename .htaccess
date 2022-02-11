@@ -1,0 +1,28 @@
+RewriteEngine On
+
+RewriteRule ^Dashboard$   admin/admin.php
+RewriteRule ^admin_liste_users$   admin/usersGestion.php
+RewriteRule ^admin_liste_offres$   admin/offerList.php
+RewriteRule ^admin_liste_avis$   admin/opinionList.php
+RewriteRule ^admin_liste_pops$   admin/popList.php
+RewriteRule ^admin_ajout_pops$   admin/addPop.php
+RewriteRule ^admin_ajout_categorie$   admin/addCategory.php
+RewriteRule ^admin_liste_categorie$   admin/categoryList.php
+RewriteRule ^admin_ajout_franchise$   admin/addBrands.php
+RewriteRule ^admin_liste_franchise$   admin/brandsList.php
+RewriteRule ^admin_modification_franchise_([0-9]+)$   admin/updateBrands.php?id=$1
+RewriteRule ^admin_modification_categorie_([0-9]+)$   admin/updateCategories.php?id=$1
+RewriteRule ^admin_modification_pops_([0-9]+)$   admin/updatePop.php?id=$1
+RewriteRule ^admin_profil_pop_([0-9]+)$   admin/popProfile.php?id=$1
+
+
+RewriteRule ^Article$   articleTest.php
+RewriteRule ^Nouveauté$   comingSoon.php
+RewriteRule ^Liste_d-envie$   envyList.php
+RewriteRule ^Accueil$   index.php
+RewriteRule ^Modification_profil$   modifUsers.php
+RewriteRule ^Ajout_d-offre$   offer.php
+RewriteRule ^Profil$   profile.php
+RewriteRule ^Boutique$   shop.php
+RewriteRule ^Inscription$   register.php
+RewriteRule ^Connexion$   logIn.php

@@ -2,22 +2,51 @@
 /*-------------------------------------------------------------------------Variable----------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------Général----------------------------------------------------------------------------------*/
 body {
-  background-color: #43d9e8;
   overflow-x: hidden;
 }
 
+body::-webkit-scrollbar {
+  width: 2px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #FFFAFA;
+}
+
+body .imgNavbarLogIn {
+  height: 3rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
 .pagesTitles {
-  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #58A4B0, 0px 0px 25px #FFFAFA;
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba;
+  margin: 0 !important;
 }
 
 /*-------------------------------------------------------------------------Header----------------------------------------------------------------------------------*/
+header {
+  z-index: 199;
+  position: relative;
+  /*-------------------------------------------------------------------------Navbar----------------------------------------------------------------------------------*/
+}
+
 header .businessName {
-  text-shadow: 0px 0px 5px #FFFAFA, 0px 0px 15px #58A4B0;
+  text-shadow: 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0;
   color: #FFFAFA;
 }
 
 header .businessName:hover {
-  text-shadow: 0px 0px 5px #FFFAFA, 0px 0px 10px #58A4B0, 0px 0px 20px #e840ba;
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+}
+
+header .user {
+  position: relative;
 }
 
 header .user #navbarDropdownMenuLink {
@@ -25,7 +54,41 @@ header .user #navbarDropdownMenuLink {
 }
 
 header .user #navbarDropdownMenuLink:hover {
-  text-shadow: 0px 0px 5px #FFFAFA, 0px 0px 10px #58A4B0, 0px 0px 20px #e840ba;
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+}
+
+header .user .userDropdownMenu {
+  inset: auto !important;
+  -webkit-transform: none !important;
+          transform: none !important;
+  margin-left: calc(50% - 5rem) !important;
+  text-shadow: none;
+  background-color: #1b0943 !important;
+  border-radius: 5px;
+}
+
+header .user .userDropdownMenu a {
+  color: #FFFAFA;
+}
+
+header .user .userDropdownMenu a:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  background-color: #1a0933;
+  border-radius: 5px;
+}
+
+header .user .userDropdownMenu a:active {
+  color: #FFFAFA;
+  background-color: #1a0933;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+header .user .userDropdownMenu a:focus {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  background-color: #1a0933;
 }
 
 header .star {
@@ -33,84 +96,90 @@ header .star {
 }
 
 header .star:hover {
-  text-shadow: 0px 0px 5px #FFFAFA, 0px 0px 5px #58A4B0, 0px 0px 20px #e840ba;
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
 }
 
-/*-------------------------------------------------------------------------Navbar----------------------------------------------------------------------------------*/
-.navbarSection {
-  z-index: 99;
+header .navbarSection {
   border: 1px solid #020402;
   /*-------------------------------------------------------------------------second navbar----------------------------------------------------------------------------------*/
 }
 
-.navbarSection .navbar .imgLanguage {
+header .navbarSection .navbar .imgLanguage {
   width: 7vh;
 }
 
-.navbarSection .navbar .businessName {
-  text-shadow: 0px 0px 5px #FFFAFA, 0px 0px 10px #58A4B0, 0px 0px 20px #e840ba;
-}
-
-.navbarSection .navbar .navbar-toggler {
+header .navbarSection .navbar .navbar-toggler {
   font-weight: 500;
   color: #FFFAFA;
 }
 
-.navbarSection .navbar .navbar-toggler:hover {
-  -webkit-box-shadow: 5px 5px 10px 2px #e840ba;
-          box-shadow: 5px 5px 10px 2px #e840ba;
+header .navbarSection .navbar .navbar-toggler:hover {
+  -webkit-box-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+          box-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
   color: #FFFAFA;
 }
 
-.navbarSection .navbar .navbar-toggler-icon {
+header .navbarSection .navbar .navbar-toggler-icon {
   height: 1.5rem;
 }
 
-.navbarSection .navbar .navbar-brand {
+header .navbarSection .navbar .navbar-brand {
   font-weight: 500;
   color: #FFFAFA;
 }
 
-.navbarSection .navbar .nav-link {
+header .navbarSection .navbar .nav-link {
   font-weight: 500;
   font-style: oblique;
   color: #FFFAFA;
 }
 
-.navbarSection .navbar .nav-link:hover {
-  text-shadow: 0px 0px 2px #FFFAFA, 0px 0px 5px #58A4B0, 0px 0px 10px #e840ba;
+header .navbarSection .navbar .nav-link:hover {
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
   color: #FFFAFA;
 }
 
-.navbarSection .navbar .user #navbarDropdownMenuLink {
+header .navbarSection .navbar .user {
+  position: relative;
+}
+
+header .navbarSection .navbar .user #navbarDropdownMenuLink {
   color: #FFFAFA;
 }
 
-.navbarSection .navbar .user #navbarDropdownMenuLink:hover {
-  text-shadow: 0px 0px 5px #FFFAFA, 0px 0px 10px #58A4B0, 0px 0px 20px #e840ba;
+header .navbarSection .navbar .user #navbarDropdownMenuLink:hover {
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
 }
 
-.navbarSection #secondNavbar #secondNavList .nav-link {
+header .navbarSection .navbar .user .userDropdownMenu {
+  margin-left: -7.1rem !important;
+}
+
+header .navbarSection #secondNavbar #secondNavList .nav-link {
   font-weight: 500;
   color: #FFFAFA;
 }
 
-.navbarSection #secondNavbar #secondNavList .nav-link:hover {
-  text-shadow: 0px 0px 2px #FFFAFA, 0px 0px 5px #58A4B0, 0px 0px 10px #e840ba;
+header .navbarSection #secondNavbar #secondNavList .nav-link:hover {
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
 }
 
 /*-------------------------------------------------------------------------Carousel----------------------------------------------------------------------------------*/
+.carousel {
+  height: 68vh;
+}
+
 .carousel h2 {
   font-size: 4rem;
   font-style: italic;
-  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #58A4B0, 0px 0px 25px #FFFAFA;
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 12.5px #58A4B0, 0px 0px 17.5px #020402, 0px 0px 20px #FFFAFA;
 }
 
 .carousel h3 {
   font-size: 2.5rem;
   font-weight: 600;
   font-style: italic;
-  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #58A4B0, 0px 0px 25px #FFFAFA;
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 12.5px #58A4B0, 0px 0px 17.5px #020402, 0px 0px 20px #FFFAFA;
 }
 
 .carousel .firstComingSoon {
@@ -137,6 +206,14 @@ header .star:hover {
 }
 
 /*-------------------------------------------------------------------------Product----------------------------------------------------------------------------------*/
+.product .seeAllLink:hover {
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be, 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0;
+}
+
+.product .homeProductTitle {
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be, 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0;
+}
+
 .product .outer-Border-Article {
   border: 1px solid #020402;
   border-radius: 5px;
@@ -164,13 +241,21 @@ header .star:hover {
 }
 
 .product .outer-Border-Article:hover {
-  -webkit-box-shadow: 5px -5px 20px 2px #020402;
-          box-shadow: 5px -5px 20px 2px #020402;
+  -webkit-box-shadow: 0px 0px 5px 1px #020402, 0px 0px 10px 2px #020402, 0px 0px 20px 5px #020402;
+          box-shadow: 0px 0px 5px 1px #020402, 0px 0px 10px 2px #020402, 0px 0px 20px 5px #020402;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 /*-------------------------------------------------------------------------Selector----------------------------------------------------------------------------------*/
+.selector {
+  -webkit-box-shadow: 0px 0px 20px 2px #020402;
+          box-shadow: 0px 0px 20px 2px #020402;
+}
+
 .selector .selector-left-banner {
   background-image: radial-gradient(circle at center center, #0f4ec7, #1543ac, #1b3891, #212c76, #27215b);
+  height: 30vh;
 }
 
 .selector .selector-left-banner:hover {
@@ -178,10 +263,13 @@ header .star:hover {
   -webkit-box-shadow: 0px 0px 20px 2px #58A4B0, inset 0px 0px 20px 2px #58A4B0;
           box-shadow: 0px 0px 20px 2px #58A4B0, inset 0px 0px 20px 2px #58A4B0;
   border: 3px solid #58A4B0;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .selector .selector-right-banner {
   background-image: radial-gradient(circle at center center, #eaee4f, #fa7c48);
+  height: 30vh;
 }
 
 .selector .selector-right-banner:hover {
@@ -189,6 +277,8 @@ header .star:hover {
   -webkit-box-shadow: 0px 0px 20px 2px #58A4B0, inset 0px 0px 20px 2px #58A4B0;
           box-shadow: 0px 0px 20px 2px #58A4B0, inset 0px 0px 20px 2px #58A4B0;
   border: 3px solid #58A4B0;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 /*------------------------------------------------------------------------- Footer ----------------------------------------------------------------------------------*/
@@ -199,12 +289,15 @@ footer .row img {
 }
 
 footer .row img:hover {
-  width: 9vh;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 footer .socialDivider {
-  -webkit-box-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be, 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0;
-          box-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be, 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0;
+  -webkit-box-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be, inset 0px 0px 5px #e840ba, inset 0px 0px 10px #020402, inset 0px 0px 15px #e840ba, inset 0px 0px 5px #6e41be, inset 0px 0px 10px #020402, inset 0px 0px 15px #6e41be;
+          box-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be, inset 0px 0px 5px #e840ba, inset 0px 0px 10px #020402, inset 0px 0px 15px #e840ba, inset 0px 0px 5px #6e41be, inset 0px 0px 10px #020402, inset 0px 0px 15px #6e41be;
+  height: 2px;
+  background-color: transparent;
 }
 
 footer .footerLinks a:hover {
@@ -216,22 +309,14 @@ footer .footerLinks a:hover {
   text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be, 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0;
 }
 
-/*------------------------------------------------------------------------- Modal d'inscription ----------------------------------------------------------------------------------*/
-#inscriptionModal form input {
-  border: none;
-  border-bottom: 1px solid #58A4B0;
-  outline: none;
-}
-
-#inscriptionModal form:focus {
-  outline: none;
-  border: none;
-}
-
 /*------------------------------------------------------------------------- Photo de Profil ----------------------------------------------------------------------------------*/
 .myAccountProfilPhoto {
   aspect-ratio: 1;
   width: 30vh;
+}
+
+.logoImageProfil {
+  font-size: 13rem;
 }
 
 /*------------------------------------------------------------------------- Offres Profil ----------------------------------------------------------------------------------*/
@@ -246,8 +331,210 @@ footer .footerLinks a:hover {
           box-shadow: 0px 0px 5px 0px #e840ba, 0px 0px 10px 2px #e840ba, 0px 0px 10px 3px #6e41c0, inset 0px 0px 5px 0px #e840ba, inset 0px 0px 10px 2px #e840ba, inset 0px 0px 10px 3px #6e41c0;
 }
 
+/*-------------------------------------------------------------------------Description d'état----------------------------------------------------------------------------------*/
+#statusDescription {
+  height: 13vh;
+  resize: none;
+}
+
+#statusDescription::-webkit-scrollbar {
+  width: 3px;
+}
+
+#statusDescription::-webkit-scrollbar-track {
+  background-color: inherit;
+}
+
+#statusDescription::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #FFFAFA;
+}
+
+/*-------------------------------------------------------------------------Admin sidebar----------------------------------------------------------------------------------*/
+.adminSidebar {
+  list-style: none;
+  height: 60vh;
+  font-size: 1.2rem;
+}
+
+.adminSidebar li {
+  cursor: pointer;
+}
+
+.adminSidebar li:hover {
+  background-color: #1b0943;
+}
+
+.adminSidebar li:hover a {
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  margin-left: 30px;
+}
+
+.adminSidebar li:active {
+  background-color: #1b0943;
+}
+
+.adminSidebar li:active a {
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  margin-left: 30px;
+}
+
+.adminSidebar .gestionBtnActive {
+  background-color: #1b0943;
+}
+
+.adminSidebar .gestionBtnActive a {
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  margin-left: 45px;
+}
+
+.adminSidebar .adminSubSidebar {
+  list-style: none;
+  background-color: #17052b;
+}
+
+.adminSidebar .adminSubSidebar li {
+  cursor: pointer;
+}
+
+.adminSidebar .adminSubSidebar li:hover {
+  background-color: #1a0933;
+}
+
+.adminSidebar .adminSubSidebar li:hover a {
+  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  margin-left: 20px;
+}
+
+.adminSidebar .adminSubSidebar .gestionBtnActive a {
+  margin-left: 25px;
+}
+
+/*-------------------------------------------------------------------------tableaux admin----------------------------------------------------------------------------------*/
+.tableAdmin tbody tr {
+  border-top: 1px solid #020402;
+}
+
+.tableDashboard {
+  height: 18vh;
+}
+
+.tableSeeAll {
+  height: 40vh;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.tableSeeAll::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+.tableSeeAll::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.tableSeeAll::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #FFFAFA;
+}
+
+.tableSeeAll thead {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #1a0933;
+}
+
+/*-------------------------------------------------------------------------Selecteur d'image ----------------------------------------------------------------------------------*/
+.articleImageSelector img {
+  cursor: pointer;
+}
+
+.carouselArticle {
+  height: 55vh;
+}
+
 /*-------------------------------------------------------------------------Media----------------------------------------------------------------------------------*/
+@media screen and (max-width: 1100px) {
+  .carousel {
+    height: 30vh;
+  }
+  .selector .selector-left-banner {
+    height: 20vh;
+  }
+  .selector .selector-right-banner {
+    height: 20vh;
+  }
+  .adminSidebar {
+    height: 70vh;
+    font-size: 1.1rem;
+  }
+  .adminSidebar li {
+    cursor: pointer;
+  }
+  .adminSidebar li:hover {
+    background-color: #1b0943;
+  }
+  .adminSidebar li:hover a {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    margin-left: 10px;
+  }
+  .adminSidebar li:active {
+    background-color: #1b0943;
+  }
+  .adminSidebar li:active a {
+    text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    margin-left: 10px;
+  }
+  .adminSidebar .gestionBtnActive {
+    background-color: #1b0943;
+  }
+  .adminSidebar .gestionBtnActive a {
+    text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    margin-left: 25px;
+  }
+  .adminSidebar .adminSubSidebar {
+    list-style: none;
+    background-color: #17052b;
+  }
+  .adminSidebar .adminSubSidebar li {
+    cursor: pointer;
+  }
+  .adminSidebar .adminSubSidebar li:hover {
+    background-color: #1a0933;
+  }
+  .adminSidebar .adminSubSidebar li:hover a {
+    text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    margin-left: 10px;
+  }
+  .adminSidebar .adminSubSidebar .gestionBtnActive a {
+    margin-left: 10px;
+  }
+  .imgNavbarLogIn {
+    height: 2rem;
+  }
+}
+
 @media screen and (max-width: 700px) {
+  .carousel {
+    height: 15vh;
+  }
   .carousel h2 {
     font-size: 1.75rem;
   }
@@ -274,6 +561,19 @@ footer .footerLinks a:hover {
     height: 100vh;
     z-index: 1500;
   }
+  #statusDescription {
+    height: 25vh;
+  }
+  /*-------------------------------------------------------------------------Selector----------------------------------------------------------------------------------*/
+  .selector .selector-left-banner {
+    height: 15vh;
+  }
+  .selector .selector-right-banner {
+    height: 15vh;
+  }
+  .carouselArticle {
+    height: 38vh;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -297,6 +597,12 @@ footer .footerLinks a:hover {
   }
   .product a {
     font-size: 0.7rem;
+  }
+  #statusDescription {
+    height: 36vh;
+  }
+  .imgNavbarLogIn {
+    height: 1rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

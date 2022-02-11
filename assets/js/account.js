@@ -174,7 +174,40 @@ window.onmouseover = () => {
     }
 }
 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
-    return new bootstrap.Popover(popoverTriggerEl)
-})
+/**-------------------------------------------------------------------------------------------------------------------
+ *--------------------------------------------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------*/
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*------------------------------------------------Function My Account-----------------------------------------------------  
+-------------------------------------------------------------------------------------------------------------------*/
+
+myAccountCoordinateBtn.onclick = () => {
+    myAccountCoordinateBtn.classList.add('active');
+    myAccountConctact.classList.remove('d-none');
+    myAccountSellOrdersBtn.classList.remove('active');
+    myAccountOrders.classList.add('d-none');
+    myAccountOpinionsBtn.classList.remove('active');
+    myAccountOpinions.classList.add('d-none');
+}
+myAccountSellOrdersBtn.onclick = () => {
+    myAccountCoordinateBtn.classList.remove('active');
+    myAccountConctact.classList.add('d-none');
+    myAccountSellOrdersBtn.classList.add('active');
+    myAccountOrders.classList.remove('d-none');
+    myAccountOpinionsBtn.classList.remove('active');
+    myAccountOpinions.classList.add('d-none');
+}
+myAccountOpinionsBtn.onclick = () => {
+    myAccountCoordinateBtn.classList.remove('active');
+    myAccountSellOrdersBtn.classList.remove('active');
+    myAccountConctact.classList.add('d-none');
+    myAccountOpinionsBtn.classList.add('active');
+    myAccountOrders.classList.add('d-none');
+    myAccountOpinions.classList.remove('d-none');
+}
+
+/**-------------------------------------------------------------------------------------------------------------------
+*--------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------*/

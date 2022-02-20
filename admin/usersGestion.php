@@ -1,9 +1,16 @@
 <?php
 session_start();
+if($_SESSION['user']->id_roles != 1 & !$_SESSION){
+    header('Location: Accueil');
+exit;
+}
+$pagesTitle = 'Gestion des utilisateur';
+
 require_once '../models/database.php';
 require_once '../models/usersModel.php';
 require_once 'controllers/adminGestionControllers.php';
 require_once '../include/header.php';
+
 ?>
 
 

@@ -1,5 +1,6 @@
 <?php
 session_start();
+$pagesTitle = 'Liste d\'envie';
 require_once 'include/header.php';
 ?>
 <div class="container">

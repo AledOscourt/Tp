@@ -1,13 +1,19 @@
 <?php
 session_start();
+if($_SESSION['user']->id_roles != 1 & !$_SESSION){
+    header('Location: Accueil');
+exit;
+}
+$pagesTitle = 'Liste de catégorie';
 require_once '../models/database.php';
 require_once '../models/brandsModel.php';
 require_once '../models/categoryModel.php';
 require_once '../models/categorybrandslinkModel.php';
 require_once '../models/popsModel.php';
 require_once 'controllers/categoryListController.php';
-require_once '../include/header.php'; ?>
+require_once '../include/header.php'; 
 
+?>
 
 <div class="container-fluid my-5 py-3 shadow-lg">
     <div class="row mb-3">

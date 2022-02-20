@@ -1,11 +1,17 @@
 <?php
 session_start();
+if($_SESSION['user']->id_roles != 1 & !$_SESSION){
+    header('Location: Accueil');
+exit;
+}
+$pagesTitle = 'Liste de franchise';
 require_once '../models/database.php';
 require_once '../models/brandsModel.php';
 require_once '../models/popsModel.php';
 require_once '../models/categorybrandslinkModel.php';
 require_once 'controllers/brandsListController.php';
 require_once '../include/header.php'; 
+
 ?>
 
 

@@ -1,5 +1,6 @@
 <?php
 session_start();
+$pagesTitle = 'Connexion';
 require_once 'config.php';
 require_once 'models/database.php';
 require_once 'models/usersModel.php';

@@ -1,4 +1,5 @@
 <?php
+
 $brands = new brands();
 $categories = new category();
 $categoriesBrandsLink = new categoriesBrandsLink();
@@ -34,3 +35,4 @@ if (count($_POST) > 0) {
         }
     }
 }
+

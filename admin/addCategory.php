@@ -1,10 +1,16 @@
 <?php
 session_start();
+if($_SESSION['user']->id_roles != 1 & !$_SESSION){
+    header('Location: Accueil');
+exit;
+}
+$pagesTitle = 'Ajout de catégorie';
 require_once '../config.php';
 require_once '../models/database.php';
 require_once '../models/categoryModel.php';
 require_once 'controllers/addcategoryController.php';
 require_once '../include/header.php'; 
+
 ?>
 
 

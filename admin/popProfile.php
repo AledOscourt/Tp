@@ -1,9 +1,15 @@
 <?php
 session_start();
+if($_SESSION['user']->id_roles != 1 & !$_SESSION){
+    header('Location: Accueil');
+exit;
+}
+$pagesTitle = 'Affichage de pop';
 require_once '../models/database.php';
 require_once '../models/popsModel.php';
 require_once 'controllers/popProfileController.php';
 require_once '../include/header.php';
+
 ?>
 
 

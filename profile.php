@@ -1,5 +1,6 @@
 <?php
 session_start();
+$pagesTitle = 'Profil';
 require_once 'models/database.php';
 require_once 'models/usersModel.php';
 require_once 'controllers/profileController.php';

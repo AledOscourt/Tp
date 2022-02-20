@@ -1,5 +1,10 @@
 <?php
 session_start();
+if($_SESSION['user']->id_roles != 1 & !$_SESSION){
+    header('Location: Accueil');
+exit;
+}
+$pagesTitle = 'Ajout de franchise';
 require_once '../config.php';
 require_once '../models/database.php';
 require_once '../models/brandsModel.php';

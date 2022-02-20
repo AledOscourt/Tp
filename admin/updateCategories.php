@@ -1,10 +1,17 @@
 <?php
 session_start();
+if($_SESSION['user']->id_roles != 1 & !$_SESSION){
+    header('Location: Accueil');
+exit;
+}
+$pagesTitle = 'Modification de catégorie';
+
 require_once '../models/database.php';
 require_once '../models/categoryModel.php';
 require_once '../models/categorybrandslinkModel.php';
 require_once 'controllers/updateCategoriesController.php';
 require_once '../include/header.php'; 
+
 ?>
 
 

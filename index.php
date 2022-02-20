@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$pagesTitle = 'Accueil';
 require_once 'include/header.php';
 require_once 'models/database.php';
 require_once 'models/usersModel.php'; 

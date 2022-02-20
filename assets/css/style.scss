@@ -327,6 +327,28 @@ footer {
     font-size: 13rem;
 }
 
+.updateProfileImg {
+    aspect-ratio: 1;
+    width: 0vh;
+    position: absolute;
+    opacity: 0;
+    transition: 0.75s ease;
+}
+
+.profileImageContainer {
+    position: relative;
+    &:hover {
+        .updateProfileImg {
+            aspect-ratio: 1;
+            width: 30vh;
+            background-color: #020402;
+            z-index: 3;
+            opacity: 0.5;
+            box-shadow: $inset-text-shadow-pink, $inset-text-shadow-blue, $inset-text-shadow-purple, $text-shadow-pink, $text-shadow-blue, $text-shadow-purple;
+        }
+    }
+}
+
 
 /*------------------------------------------------------------------------- Offres Profil ----------------------------------------------------------------------------------*/
 

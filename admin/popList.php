@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../models/database.php';
-require_once 'models/popsModel.php';
+require_once '../models/popsModel.php';
 require_once 'controllers/popsListController.php';
 require_once '../include/header.php';
 ?>
@@ -33,7 +33,7 @@ require_once '../include/header.php';
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($popsList as $p) { ?>
+                        <?php foreach($popsList as $p) { ?>
                             <tr>
                                 <th scope="row"><?= $p->id; ?></th>
                                 <td><?= $p->name; ?></td>

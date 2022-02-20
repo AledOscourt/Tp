@@ -27,6 +27,6 @@ if (count($_POST) > 0) {
         $brands->updateBrand();
         $categoriesBrandsLink->updateBrandLink();
         header('Location: admin_liste_franchise');
-        exit;
+            exit;
     }     
 }

@@ -20,11 +20,7 @@ if (count($_POST) > 0) {
     if (!empty($_POST['password'])) {
         if (isset($hash)) {
             if (password_verify($_POST['password'], $hash->password)) {
-                $users = $user->getUserbyMail();
-                $_SESSION['user']->id = $users->id;
-                $_SESSION['user']->profilePicture = $users->profilePicture;
-                $_SESSION['user']->userName = $users->userName;
-                $_SESSION['user']->id_roles = $users->id_roles;
+                $_SESSION['user'] = $user->getUserbyMail();
                 header('Location: Accueil');
                 exit;
             } else {

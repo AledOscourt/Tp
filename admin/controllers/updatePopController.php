@@ -60,7 +60,7 @@ if (count($_POST) > 0) {
             $formErrors['imagePopBox'] = 'Veuillez selectionner une image.';
         }
     } else {
-        $formErrors['imagePopBox'] = 'Veuillez insérer une image.';
+        $pops->officialPopImageInTheBox=$pop->officialPopImageInTheBox;
     }
 
     if ($_FILES['imagePop']['error'] == 0) {
@@ -82,7 +82,7 @@ if (count($_POST) > 0) {
             $formErrors['imagePop'] = 'Veuillez selectionner une image.';
         }
     } else {
-        $formErrors['imagePop'] = 'Veuillez insérer une image.';
+        $pops->officialPopImageOutBox=$pop->officialPopImageOutBox;
     }
 
 

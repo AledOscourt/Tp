@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../models/database.php';
-require_once 'models/usersModel.php';
+require_once '../models/usersModel.php';
 require_once 'controllers/adminGestionControllers.php';
 require_once '../include/header.php';
 ?>

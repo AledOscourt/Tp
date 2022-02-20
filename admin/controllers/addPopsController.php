@@ -88,7 +88,7 @@ if (count($_POST) > 0) {
 
     if (count($formErrors) == 0) {
         $pops->addPop();
-        header('Location: admin_ajout_pops');
+        header('Location: admin_liste_pops');
          exit;
     }
 }

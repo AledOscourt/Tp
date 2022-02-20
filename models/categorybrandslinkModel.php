@@ -4,7 +4,7 @@ class categoriesBrandsLink extends database
     public $id_brands;
     public $id_categories;
 
-    protected $db;
+    private $db;
 
     public function __construct()
     {

@@ -2,8 +2,8 @@
 session_start();
 require_once '../config.php';
 require_once '../models/database.php';
-require_once 'models/popsModel.php';
-require_once 'models/brandsModel.php';
+require_once '../models/popsModel.php';
+require_once '../models/brandsModel.php';
 require_once 'controllers/addPopsController.php';
 require_once '../include/header.php';
 ?>

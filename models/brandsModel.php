@@ -29,13 +29,7 @@ class brands extends database
         $queryExecute = $this->db->query($query);
         return $queryExecute->fetchAll(PDO::FETCH_OBJ);
     }
-    public function getLastBrand()
-    {
-        $query = 'SELECT max(b.id) AS bLastID
-        FROM `s4u3u_brands` AS b';
-        $queryExecute = $this->db->query($query);
-        return $queryExecute->fetch(PDO::FETCH_OBJ);
-    }
+    
     public function updateBrand()
     {
         $query = 'UPDATE `s4u3u_brands` SET `name` = :name  WHERE id=:id';
@@ -77,6 +71,18 @@ class brands extends database
         FROM `s4u3u_brands`;';
         $queryExecute = $this->db->query($query);
         return $queryExecute->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function getPopListbyBrand()
+    {
+        $query = 'SELECT id_brands
+        FROM `s4u3u_brands`
+        INNER JOIN `s4u3u_pops`
+        ON s4u3u_brands.id = s4u3u_pops.id_brands 
+        where s4u3u_brands.id=:id;';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $queryPrepare->execute();
+        return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }
     public function brandsExist()
     {

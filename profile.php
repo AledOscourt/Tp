@@ -19,10 +19,13 @@ require_once 'include/header.php';
     </div>
     <!-------------------------------------------------------------------- My Account Profil -------------------------------------------->
     <div class="row">
-        <div class="col-md-4 col justify-content-center align-items-center text-center mt-4 my-md-4">
-            <?php if (!is_null($user->profilePicture)) { ?> <img src="<?= $user->profilePicture; ?>" class="rounded-circle myAccountProfilPhoto img-fluid" id="myAccountImageProfil" alt="profilPhoto">
+        <div class="col-md-4 col d-flex justify-content-center align-items-center text-center mt-4 my-md-4 profileImageContainer">
+            <?php if (!is_null($user->profilePicture)) { ?>
+                 <img src="<?= $user->profilePicture; ?>" class="rounded-circle myAccountProfilPhoto img-fluid" id="myAccountImageProfil" alt="profilPhoto">
+                 <a href="Modification_image-de-profil" class="rounded-circle d-flex updateProfileImg align-items-center justify-content-center"><i class="far fa-edit text-secondary"></i></a>
             <?php } else { ?>
                 <i class="fas fa-user text-white logoImageProfil"></i>
+                <a href="Modification_image-de-profil" class="rounded d-flex updateProfileImg align-items-center justify-content-center"><i class="far fa-edit text-secondary"></i></a>
             <?php } ?>
         </div>
         <div class="col-md-6 col-12 d-grid my-auto">

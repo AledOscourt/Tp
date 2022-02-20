@@ -2,10 +2,8 @@
 $brands = new brands();
 $categories = new category();
 $categoriesBrandsLink = new categoriesBrandsLink();
-
+$transaction = new transaction();
 $categoryList = $categories->getCategory();
-$brand = $brands->getLastBrand();
-$categoriesBrandsLink->id_brands = ($brand->bLastID) + 1;
 $formErrors = [];
 
 /**
@@ -23,10 +21,16 @@ if (count($_POST) > 0) {
     }
 
     if (count($formErrors) == 0) {
-        $brands->addBrands();
-        
-        $categoriesBrandsLink->addBrandsLink();
-        header('Location: admin_ajout_franchise');
-        exit;
+        try {
+            $transaction->beginTransaction();
+            $brands->addBrands();
+            $categoriesBrandsLink->id_brands = $transaction->lastInsertId();
+            $categoriesBrandsLink->addBrandsLink();
+            $transaction->commit();
+            header('Location: admin_liste_franchise');
+            exit;
+        } catch (Exception $e) {
+            $transaction->rollBack();
+        }
     }
 }

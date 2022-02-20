@@ -2,6 +2,7 @@
 $category = new category();
 $categoriesBrandsLink = new categoriesBrandsLink();
 $brands = new brands();
+$pops = new pops();
 if (!empty($_POST['deleteCategory'])) {
     /**
      * $_POST['deleteCategory'] permet de récupérer l'id de la catégorie que l'on supprime
@@ -15,10 +16,15 @@ if (!empty($_POST['deleteCategory'])) {
      *$category->deleteCategory(); supprime la catégorie en fonction de l'id au dessus
      */
     $categoriesBrandsLink->id_categories = $_POST['deleteCategory'];
-    $categoriesLinkList=$categoriesBrandsLink->getIDBrand();
-    foreach($categoriesLinkList as $categoriesLinkBrand){
+    $categoriesLinkList = $categoriesBrandsLink->getIDBrand();
+    foreach ($categoriesLinkList as $categoriesLinkBrand) {
         $brands->id = $categoriesLinkBrand->bID;
         $categoriesBrandsLink->deleteCategoryLink();
+        $brandList = $brands->getPopListbyBrand();
+        foreach ($brandList as $b) {
+            $pops->id_brands = $b->id_brands;
+            $pops->deletePopsById_brands();
+        }
         $brands->deleteBrand();
     }
     $category->id = $_POST['deleteCategory'];

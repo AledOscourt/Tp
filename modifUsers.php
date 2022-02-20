@@ -15,15 +15,7 @@ require_once 'include/header.php'; ?>
     <div class="container text-white">
         <div class="row">
             <div class="container d-grid gap-4">
-                <fieldset class="row">
-                    <div class="col-md-9 col-11 border  mx-auto form-floating">
-                        <input class="form-control <?= isset($formErrors['myAccountProfilImage']) ? 'is-invalid' : '' ?>" type="file" name="myAccountProfilImage" id="myAccountProfilImage" accept="image/*" />
-                        <label for="myAccountProfilImage" class="form-label ms-1 text-white pt-1 mt-1">Image de profil</label>
-                        <?php if (isset($formErrors['myAccountProfilImage'])) { ?>
-                        <p class="invalid-feedback text-center"> <?= $formErrors['myAccountProfilImage'] ?> </p>
-                    <?php } ?>
-                    </div>
-                </fieldset>
+                
                 <fieldset class="row">
                     <div class="col-md-9 col-11 border border-bottom border-light mx-auto form-floating">
                         <input class="form-control <?= isset($formErrors['myAccountUsernameInput']) ? 'is-invalid' : '' ?>" value="<?= $user->userName; ?>" type="text" name="myAccountUsernameInput" id="myAccountUsernameInput" autocomplete="off" placeholder="#">

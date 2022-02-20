@@ -88,14 +88,15 @@
     <script src="assets/js/account.js"></script>
 <?php } else if ($_SERVER['PHP_SELF'] == '/TP/admin/admin.php') { ?>
     <script src="assets/js/admin.js"></script>
-<?php } else if ($_SERVER['PHP_SELF'] == '/TP/admin/userGestion.php') { ?>
-    <script src="assets/js/userGestion.js"></script>
+
 <?php } else if ($_SERVER['PHP_SELF'] == '/TP/admin/brandsList.php') { ?>
     <script src="assets/js/brandsGestion.js"></script>
 <?php } else if ($_SERVER['PHP_SELF'] == '/TP/admin/categoryList.php') { ?>
     <script src="assets/js/categoryGestion.js"></script>
-    <?php } else if ($_SERVER['PHP_SELF'] == '/TP/admin/popList.php') { ?>
+<?php } else if ($_SERVER['PHP_SELF'] == '/TP/admin/popList.php') { ?>
     <script src="assets/js/popsGestion.js"></script>
+<?php } else if ($_SERVER['PHP_SELF'] == '/TP/admin/usersGestion.php') { ?>
+    <script src="assets/js/userGestion.js"></script>
 <?php } else { ?>
     <script src="assets/js/script.js"></script>
 <?php } ?>

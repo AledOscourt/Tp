@@ -1,11 +1,8 @@
 <?php
 $formErrors = [];
-
-$regex = [
-    'popName' => '#^([A-Za-zÀ-ÖØ-öø-ÿ]+)$#',
-    'phone' => '#^([0-9]+)$#',
-];
-
+$offer = new offers();
+$pops = new pops();
+$images = new images();
 /**
  * la fonction count sert à compter le nombre d'élément dans un tableaux
  * ici elle à savoir si le formulaire à été envoyer
@@ -23,24 +20,6 @@ if (count($_POST) > 0) {
         $formErrors['popName'] = 'Veuillez saisir le nom de la figurine pop.';
     }
 
-    if (!empty($_POST['categoryOffer'])) {
-        $category = strip_tags($_POST['categoryOffer']);
-    } else {
-        $formErrors['categoryOffer'] = 'Veuillez saisir une catégorie.';
-    }
-
-    if (!empty($_POST['brandOffer'])) {
-        $brandOffer = strip_tags($_POST['brandOffer']);
-    } else {
-        $formErrors['brandOffer'] = 'Veuillez saisir une franchise.';
-    }
-
-    if (!empty($_POST['statusDescription'])) {
-        $statusDescription = strip_tags($_POST['statusDescription']);
-    } else {
-        $formErrors['statusDescription'] = 'Veuillez saisir une description d\'état.';
-    }
-
     if (!empty($_POST['tags'])) {
         if (preg_match($regex['number'], $_POST['tags'])) {
             $tags = strip_tags($_POST['tags']);
@@ -53,22 +32,33 @@ if (count($_POST) > 0) {
 
     if (!empty($_POST['price'])) {
         if (preg_match($regex['number'], $_POST['price'])) {
-            $price = strip_tags($_POST['price']);
+            $offer->price = strip_tags($_POST['price']);
         } else {
             $formErrors['price'] = 'Veuillez vérifier le nombre en haut à droite de la figurine pop.';
         }
     } else {
         $formErrors['price'] = 'Veuillez saisir le nombre en haut à droite de la figurine pop.';
     }
-
-    if (!empty($_POST['reference'])) {
-        if (preg_match($regex['number'], $_POST['reference'])) {
-            $reference = strip_tags($_POST['reference']);
+    if (!empty($_POST['statusDescription'])) {
+        if (preg_match($regex['content'], $_POST['statusDescription'])) {
+            $price = strip_tags($_POST['statusDescription']);
         } else {
-            $formErrors['reference'] = 'Veuillez vérifier la référence (UPC) de la figurine Pop. Celle-ci doit comprendre 12 chiffres.';
+            $formErrors['statusDescription'] = 'Veuillez vérifier le nombre en haut à droite de la figurine pop.';
         }
     } else {
-        $formErrors['reference'] = 'Veuillez saisir la référence (UPC) de la figurine Pop.';
+        $formErrors['statusDescription'] = 'Veuillez saisir le nombre en haut à droite de la figurine pop.';
+    }
+
+
+
+    if (!empty($_POST['statusTitle'])) {
+        if (preg_match($regex['contentTitle'], $_POST['statusTitle'])) {
+            $price = strip_tags($_POST['statusTitle']);
+        } else {
+            $formErrors['statusTitle'] = 'Veuillez vérifier le nombre en haut à droite de la figurine pop.';
+        }
+    } else {
+        $formErrors['statusTitle'] = 'Veuillez saisir le nombre en haut à droite de la figurine pop.';
     }
 
     if ($_FILES['imagePopInHerBox']['error'] == 0) {
@@ -82,7 +72,7 @@ if (count($_POST) > 0) {
         if (array_key_exists($photoExtensionimagePopInHerBox, $authorizedMimeTypes) && mime_content_type($_FILES['imagePopInHerBox']['tmp_name']) == $authorizedMimeTypes[$photoExtensionimagePopInHerBox]) {
             if (move_uploaded_file($_FILES['imagePopInHerBox']['tmp_name'], 'uploads/' . $_FILES['imagePopInHerBox']['name'])) {
                 chmod('uploads/' . $_FILES['imagePopInHerBox']['name'], 0644);
-                $imagePopInHerBox = 'uploads/' . $_FILES['imagePopInHerBox']['name'];
+                $images->image = 'uploads/' . $_FILES['imagePopInHerBox']['name'];
             } else {
                 $formErrors['imagePopInHerBox'] = 'Veuillez reessayer plus tard.';
             }
@@ -105,7 +95,7 @@ if (count($_POST) > 0) {
         if (array_key_exists($photoExtensionimagePop, $authorizedMimeTypes) && mime_content_type($_FILES['imagePop']['tmp_name']) == $authorizedMimeTypes[$photoExtensionimagePop]) {
             if (move_uploaded_file($_FILES['imagePop']['tmp_name'], 'uploads/' . $_FILES['imagePop']['name'])) {
                 chmod('uploads/' . $_FILES['imagePop']['name'], 0644);
-                $imagePop = 'uploads/' . $_FILES['imagePop']['name'];
+                $images->image = 'uploads/' . $_FILES['imagePop']['name'];
             } else {
                 $formErrors['imagePop'] = 'Veuillez reessayer plus tard.';
             }
@@ -125,12 +115,25 @@ if (count($_POST) > 0) {
         if (array_key_exists($photoExtensionimageBox, $authorizedMimeTypes) && mime_content_type($_FILES['imageBox']['tmp_name']) == $authorizedMimeTypes[$photoExtensionimageBox]) {
             if (move_uploaded_file($_FILES['imageBox']['tmp_name'], 'uploads/' . $_FILES['imageBox']['name'])) {
                 chmod('uploads/' . $_FILES['imageBox']['name'], 0644);
-                $imageBox = 'uploads/' . $_FILES['imageBox']['name'];
+                $images->image = 'uploads/' . $_FILES['imageBox']['name'];
             } else {
                 $formErrors['imageBox'] = 'Veuillez reessayer plus tard.';
             }
         } else {
             $formErrors['imageBox'] = 'Veuillez selectionner une image.';
+        }
+    }
+    $offer->id_exclusivities = $_POST['exclusivities'];
+    
+    if (count($formErrors) == 0) {
+        try {
+            $transaction->beginTransaction();
+            $transaction->lastInsertId();
+            $transaction->commit();
+            header('Location: admin_liste_franchise');
+            exit;
+        } catch (Exception $e) {
+            $transaction->rollBack();
         }
     }
 }

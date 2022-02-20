@@ -1,5 +1,10 @@
 <?php
 session_start();
+require_once 'config.php';
+require_once 'models/database.php';
+require_once 'models/popsModel.php';
+require_once 'models/imagesModel.php';
+require_once 'models/offersModel.php';
 require_once 'controllers/offerController.php';
 require_once 'include/header.php'; ?>
 
@@ -7,7 +12,7 @@ require_once 'include/header.php'; ?>
     <div class="row">
         <h3 class="text-center fs-1 text-white mb-3">Ordre de vente</h3>
     </div>
-    <div class="row d-flex justify-content-end mb-3">
+    <div class="row d-flex justify-content-end mb-4">
         <button type="button" class="btn btn-outline-secondary col-auto" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover" data-bs-html="true" data-bs-content="Il faut saisir au moins le nom <br /> de la pop ou son numéro">
             <i class="fas fa-info-circle"></i>
         </button>

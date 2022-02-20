@@ -14,7 +14,7 @@ if (count($_POST) > 0) {
     }
     if (count($formErrors) == 0) {
         $category->addCategory();
-        header('Location: admin_ajout_categorie');
+        header('Location: admin_liste_categorie');
     exit;
     }
         

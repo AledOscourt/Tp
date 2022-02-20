@@ -35,7 +35,9 @@
                             <a class="text-decoration-none star" href="Liste_d-envie"><i class="fas fa-star"></i></a>
                         </div>
                         <div class="col text-center user">
-                            <a class="text-decoration-none justify-content-center m-0 d-flex" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true"><?php if (!is_null($_SESSION['user']->profilePicture)) { ?> <img src="<?= $_SESSION['user']->profilePicture; ?>" class="imgNavbarLogIn" alt="profilPhoto">
+                            <a class="text-decoration-none justify-content-center m-0 d-flex" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                             aria-expanded="true"><?php if (!is_null($_SESSION['user']->profilePicture)) { ?> 
+                                <img src="<?= $_SESSION['user']->profilePicture; ?>" class="imgNavbarLogIn" alt="profilPhoto">
                                 <?php } else { ?>
                                     <i class="fas fa-user"></i>
                                 <?php } ?></a>

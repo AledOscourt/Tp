@@ -52,15 +52,22 @@ class users extends database
 
     public function updateUser()
     {
-        $query = 'UPDATE `s4u3u_users` SET `profilePicture` =:profilePicture,`userName` = :userName,`email` = :email  WHERE id=:id';
+        $query = 'UPDATE `s4u3u_users` SET `userName` = :userName,`email` = :email  WHERE id=:id';
         $queryPrepare = $this->db->prepare($query);
         $queryPrepare->bindValue(':id', $this->id, PDO::PARAM_INT);
         $queryPrepare->bindValue(':userName', $this->userName, PDO::PARAM_STR);
-        $queryPrepare->bindValue(':profilePicture', $this->profilePicture, PDO::PARAM_STR);
         $queryPrepare->bindValue(':email', $this->email, PDO::PARAM_STR);
         return $queryPrepare->execute();
     }
 
+    public function updateUserImg()
+    {
+        $query = 'UPDATE `s4u3u_users` SET `profilePicture` = :profilePicture  WHERE id=:id';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $queryPrepare->bindValue(':profilePicture', $this->profilePicture, PDO::PARAM_STR);
+        return $queryPrepare->execute();
+    }
     public function getUser()
     {
         $query = 'SELECT `profilePicture`,`userName`,`email` FROM `s4u3u_users` WHERE id=:id';

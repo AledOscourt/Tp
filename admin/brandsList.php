@@ -1,8 +1,9 @@
 <?php
 session_start();
 require_once '../models/database.php';
-require_once 'models/brandsModel.php';
-require_once 'models/categorybrandslinkModel.php';
+require_once '../models/brandsModel.php';
+require_once '../models/popsModel.php';
+require_once '../models/categorybrandslinkModel.php';
 require_once 'controllers/brandsListController.php';
 require_once '../include/header.php'; 
 ?>

@@ -1,9 +1,11 @@
 <?php
 session_start();
+require_once '../config.php';
 require_once '../models/database.php';
-require_once 'models/brandsModel.php';
-require_once 'models/categoryModel.php';
-require_once 'models/categorybrandslinkModel.php';
+require_once '../models/brandsModel.php';
+require_once '../models/categoryModel.php';
+require_once '../models/categorybrandslinkModel.php';
+require_once '../models/transaction.php';
 require_once 'controllers/addBrandsController.php';
 require_once '../include/header.php';
 ?>
@@ -19,14 +21,14 @@ require_once '../include/header.php';
 
         <fieldset class="d-grid gap-3">
 
-            <div class="col-md-8 form-floating mx-auto">
+            <div class="col-md-7 form-floating mx-auto">
                 <input class="form-control <?= isset($formErrors['brandInput']) ? 'is-invalid' : '' ?>" type="text" name="brandInput" id="brandInput" placeholder=" ">
                 <label class="ms-3 text-white" for="brandInput">Franchise</label>
                 <?php if (isset($formErrors['brandInput'])) { ?>
                     <p class="invalid-feedback text-center"> <?= $formErrors['brandInput'] ?> </p>
                 <?php } ?>
             </div>
-            <div class="col-md-8 form-floating mx-auto">
+            <div class="col-md-7 form-floating mx-auto">
                 <select class="form-select" name="categoriesSelect" id="categoriesSelect">
                     <?php foreach ($categoryList as $c) { ?>
                         <option value="<?= $c->cID; ?>"><?= $c->cName; ?></option>

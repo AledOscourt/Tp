@@ -21,6 +21,7 @@ RewriteRule ^Nouveauté$   comingSoon.php
 RewriteRule ^Liste_d-envie$   envyList.php
 RewriteRule ^Accueil$   index.php
 RewriteRule ^Modification_profil$   modifUsers.php
+RewriteRule ^Modification_image-de-profil$   updateProfileImage.php
 RewriteRule ^Ajout_d-offre$   offer.php
 RewriteRule ^Profil$   profile.php
 RewriteRule ^Boutique$   shop.php

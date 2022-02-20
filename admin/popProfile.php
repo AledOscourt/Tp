@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../models/database.php';
-require_once 'models/popsModel.php';
+require_once '../models/popsModel.php';
 require_once 'controllers/popProfileController.php';
 require_once '../include/header.php';
 ?>

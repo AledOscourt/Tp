@@ -319,6 +319,29 @@ footer .footerLinks a:hover {
   font-size: 13rem;
 }
 
+.updateProfileImg {
+  aspect-ratio: 1;
+  width: 0vh;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: 0.75s ease;
+  transition: 0.75s ease;
+}
+
+.profileImageContainer {
+  position: relative;
+}
+
+.profileImageContainer:hover .updateProfileImg {
+  aspect-ratio: 1;
+  width: 30vh;
+  background-color: #020402;
+  z-index: 3;
+  opacity: 0.5;
+  -webkit-box-shadow: inset 0px 0px 5px #e840ba, inset 0px 0px 10px #020402, inset 0px 0px 15px #e840ba, inset 0px 0px 5px #58A4B0, inset 0px 0px 10px #020402, inset 0px 0px 15px #58A4B0, inset 0px 0px 5px #6e41be, inset 0px 0px 10px #020402, inset 0px 0px 15px #6e41be, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+          box-shadow: inset 0px 0px 5px #e840ba, inset 0px 0px 10px #020402, inset 0px 0px 15px #e840ba, inset 0px 0px 5px #58A4B0, inset 0px 0px 10px #020402, inset 0px 0px 15px #58A4B0, inset 0px 0px 5px #6e41be, inset 0px 0px 10px #020402, inset 0px 0px 15px #6e41be, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+}
+
 /*------------------------------------------------------------------------- Offres Profil ----------------------------------------------------------------------------------*/
 .myAccountOffers {
   -webkit-box-shadow: 0px 0px 10px 0px #e840ba, 0px 0px 10px 2px #6e41c0, inset 0px 0px 10px 0px #e840ba, inset 0px 0px 10px 2px #6e41c0;

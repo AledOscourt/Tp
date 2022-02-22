@@ -10,7 +10,7 @@ require_once 'include/header.php'; ?>
 <form action="Connexion" method="POST" class="container my-5 d-grid gap-2 logIn">
 
     <div class="row">
-        <h3 class="text-center fs-1 text-white">Connexion</h3>
+        <h3 class="text-center fs-1 text-white pagesTitles">Connexion</h3>
     </div>
     <div class="row">
         <small class="text-center my-2 "><a class="text-white" href="Inscription"> Vous ne possédez pas de compte ?</a></small>
@@ -40,9 +40,8 @@ require_once 'include/header.php'; ?>
     <div class="row">
         <small class="text-center my-2"><a class="text-white" href="#"> Mot de passe oublié ?</a></small>
     </div>
-    <div class="row mx-lg-5 mx-2 justify-content-around ">
-        <a type="button" class="btn btn-outline-secondary col-lg-3 col-5" href="index.php">Annuler</a>
-        <button type="submit" class="btn btn-outline-primary col-lg-3 col-5">Connexion</button>
+    <div class="row mx-lg-5 mx-2 justify-content-center ">
+        <button type="submit" class="btn btn-outline-secondary col-lg-3 col-5">Connexion</button>
     </div>
 
 </form>

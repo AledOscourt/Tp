@@ -1,4 +1,4 @@
-<footer class="container-fluid bg-dark pt-4">
+<footer class="container-fluid bg-dark pt-4 shadow-lg">
     <div class="row justify-content-end  mx-md-5 mb-2">
         <?php if (!$_SESSION) { ?>
             <div class="d-md-flex d-none col-7">
@@ -75,13 +75,12 @@
     </div>
 </footer>
 <!--**********************************************************************Script*********************************************************************** -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/17e4bc2abc.js" crossorigin="anonymous"></script>
-<script src="https://www.google.com/recaptcha/api.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <?php if ($_SERVER['PHP_SELF'] == '/TP/shop.php') { ?>
     <script src="assets/js/shop.js"></script>
 <?php } else if ($_SERVER['PHP_SELF'] == '/TP/profile.php') { ?>

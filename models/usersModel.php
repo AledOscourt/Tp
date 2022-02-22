@@ -52,10 +52,17 @@ class users extends database
 
     public function updateUser()
     {
-        $query = 'UPDATE `s4u3u_users` SET `userName` = :userName,`email` = :email  WHERE id=:id';
+        $query = 'UPDATE `s4u3u_users` SET `userName` = :userName  WHERE id=:id';
         $queryPrepare = $this->db->prepare($query);
         $queryPrepare->bindValue(':id', $this->id, PDO::PARAM_INT);
         $queryPrepare->bindValue(':userName', $this->userName, PDO::PARAM_STR);
+        return $queryPrepare->execute();
+    }
+    public function updateUserEmail()
+    {
+        $query = 'UPDATE `s4u3u_users` SET `email` = :email  WHERE id=:id';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':id', $this->id, PDO::PARAM_INT);
         $queryPrepare->bindValue(':email', $this->email, PDO::PARAM_STR);
         return $queryPrepare->execute();
     }

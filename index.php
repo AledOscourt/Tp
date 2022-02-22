@@ -47,12 +47,10 @@ require_once 'models/usersModel.php';
     </div>
     <!------------------------------------------------------- controle slide du carousel ---------------------------------------------------------------------->
     <button class="carousel-control-prev pe-auto d-md-block d-none" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+        <i class="fas fa-angle-double-left carouselArrow me-5"></i>
     </button>
-    <button class="carousel-control-next pe-auto" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+    <button class="carousel-control-next pe-auto d-md-block d-none" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+        <i class="fas fa-angle-double-right carouselArrow ms-5"></i>
     </button>
 </div>
 
@@ -64,8 +62,8 @@ require_once 'models/usersModel.php';
         <div class="col text-end"> <a class="text-white seeAllLink" href="Boutique">Voir Tout</a></div>
     </div>
     <!------------------------------------------------------------------ Produit ------------------------------------------------------------------------------------>
-    <div class="row justify-content-lg-between justify-content-center px-lg-4 mx-lg-5 mx-0 mb-5 ">
-        <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1  text-decoration-none mb-sm-0 mb-3" href="" data-aos="zoom-out-up" data-aos-duration="850">
+    <div class="row justify-content-lg-between justify-content-center px-lg-4 mx-lg-5 mx-0 mb-5 gap-3">
+        <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1  text-decoration-none " href="" data-aos="zoom-out-up" data-aos-duration="850">
             <img src="assets/img/simpsonItchy.png" class="w-100 h-75 inner-Border-Article my-2" alt="Itchy" />
             <div class="d-flex justify-content-between text-center ">
                 <div class="inner-Border-Name col-7 col-sm-8 col-md-7 align-items-center justify-content-center p-xl-2 p-md-1">
@@ -87,10 +85,10 @@ require_once 'models/usersModel.php';
                 </div>
             </div>
         </a>
-        <a class="outer-Border-Article col-lg-3 d-lg-inline d-none pb-1 text-decoration-none" href="" data-aos="zoom-out-up" data-aos-duration="850">
+        <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1 ms-sm-3 ms-lg-0  text-decoration-none" href="" data-aos="zoom-out-up" data-aos-duration="850">
             <img src="assets/img/disneyRapunzel-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Rapunzel" />
             <div class="d-flex justify-content-between text-center">
-                <div class="inner-Border-Name col-7  align-items-center justify-content-center p-xl-2 p-1">
+                <div class="inner-Border-Name col-7 col-sm-8 col-md-7  align-items-center justify-content-center p-xl-2 p-1">
                     <p>Rapunzel</p>
                 </div>
                 <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
@@ -111,10 +109,10 @@ require_once 'models/usersModel.php';
     </div>
     <!------------------------------------------------------------------ Produit ------------------------------------------------------------------------------------>
 
-    <div class="row justify-content-lg-between justify-content-center px-lg-4 mx-lg-5  mb-5">
-        <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1  text-decoration-none mb-sm-0 mb-3" href="" data-aos="zoom-in-up" data-aos-duration="850">
+    <div class="row justify-content-lg-between justify-content-center px-lg-4 mx-lg-5 mx-0 mb-5 gap-3">
+        <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1  text-decoration-none " href="" data-aos="zoom-out-up" data-aos-duration="850">
             <img src="assets/img/simpsonItchy.png" class="w-100 h-75 inner-Border-Article my-2" alt="Itchy" />
-            <div class="d-flex justify-content-between text-center">
+            <div class="d-flex justify-content-between text-center ">
                 <div class="inner-Border-Name col-7 col-sm-8 col-md-7 align-items-center justify-content-center p-xl-2 p-md-1">
                     <p>Itchy</p>
                 </div>
@@ -123,9 +121,9 @@ require_once 'models/usersModel.php';
                 </div>
             </div>
         </a>
-        <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1 ms-sm-3 ms-lg-0  text-decoration-none" href="" data-aos="zoom-in-up" data-aos-duration="850">
+        <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1 ms-sm-3 ms-lg-0  text-decoration-none" href="" data-aos="zoom-out-up" data-aos-duration="850">
             <img src="assets/img/gokuUltraInstint-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Goku ultra instinct" />
-            <div class="d-flex justify-content-between text-center">
+            <div class="d-flex justify-content-between text-center text-white">
                 <div class="inner-Border-Name col-7 col-sm-8 col-md-7  align-items-center justify-content-center p-xl-2 p-1">
                     <p>Goku Ultra Instinct</p>
                 </div>
@@ -134,10 +132,10 @@ require_once 'models/usersModel.php';
                 </div>
             </div>
         </a>
-        <a class="outer-Border-Article col-lg-3 d-lg-inline d-none pb-1 text-decoration-none" href="" data-aos="zoom-in-up" data-aos-duration="850">
+        <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1 ms-sm-3 ms-lg-0  text-decoration-none" href="" data-aos="zoom-out-up" data-aos-duration="850">
             <img src="assets/img/disneyRapunzel-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Rapunzel" />
             <div class="d-flex justify-content-between text-center">
-                <div class="inner-Border-Name col-7  align-items-center justify-content-center p-xl-2 p-1">
+                <div class="inner-Border-Name col-7 col-sm-8 col-md-7  align-items-center justify-content-center p-xl-2 p-1">
                     <p>Rapunzel</p>
                 </div>
                 <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">

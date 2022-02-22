@@ -12,10 +12,10 @@ class images extends database
     }
     public function addImage()
     {
-        $query = 'INSERT INTO `s4u3u_opinions`(`image`,`id_offers`) VALUES (:image,:id_offers)';
+        $query = 'INSERT INTO `s4u3u_images`(`image`,`id_offers`) VALUES (:image,:id_offers)';
         $queryPrepare = $this->db->prepare($query);
-        $queryPrepare->bindValue(':image', $this->content, PDO::PARAM_STR);
-        $queryPrepare->bindValue(':id_offers', $this->id_pops, PDO::PARAM_INT);
+        $queryPrepare->bindValue(':image', $this->image, PDO::PARAM_STR);
+        $queryPrepare->bindValue(':id_offers', $this->id_offers, PDO::PARAM_INT);
         return $queryPrepare->execute();
     }
     

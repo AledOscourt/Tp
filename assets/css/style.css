@@ -24,8 +24,12 @@ body .imgNavbarLogIn {
   border-radius: 50%;
 }
 
+body .warningDelete {
+  font-size: 100px;
+}
+
 .pagesTitles {
-  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba;
+  text-shadow: 0.5px 0.5px 0px #e840ba, 1px 1px 0px #6e41be, 1.5px 1.5px 0px #e840ba, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
   margin: 0 !important;
 }
 
@@ -37,12 +41,12 @@ header {
 }
 
 header .businessName {
-  text-shadow: 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0;
+  text-shadow: 1px 1px 0px #58A4B0, 2px 2px 0px #6e41be, 2.5px 2.5px 0px #58A4B0, 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
   color: #FFFAFA;
 }
 
 header .businessName:hover {
-  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+  text-shadow: 1px 1px 0px #58A4B0, 1.5px 1.5px 0px #e840ba, 2px 2px 0px #6e41be, 2.5px 2.5px 1px #e840ba, 3px 3px 1px #6e41be, 3.5px 3.5px 1px #e840ba, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
 }
 
 header .user {
@@ -50,11 +54,12 @@ header .user {
 }
 
 header .user #navbarDropdownMenuLink {
+  text-shadow: 1px 1px 0px #58A4B0, 2px 2px 0px #6e41be, 2.5px 2.5px 0px #58A4B0;
   color: #FFFAFA;
 }
 
 header .user #navbarDropdownMenuLink:hover {
-  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+  text-shadow: 0.5px 0.5px 0px #e840ba, 1px 1px 0px #6e41be, 1.5px 1.5px 0px #e840ba, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
 }
 
 header .user .userDropdownMenu {
@@ -92,11 +97,12 @@ header .user .userDropdownMenu a:focus {
 }
 
 header .star {
+  text-shadow: 1px 1px 0px #58A4B0, 2px 2px 0px #6e41be, 2.5px 2.5px 0px #58A4B0;
   color: #FFFAFA;
 }
 
 header .star:hover {
-  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+  text-shadow: 0.5px 0.5px 0px #e840ba, 1px 1px 0px #6e41be, 1.5px 1.5px 0px #e840ba, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
 }
 
 header .navbarSection {
@@ -135,7 +141,7 @@ header .navbarSection .navbar .nav-link {
 }
 
 header .navbarSection .navbar .nav-link:hover {
-  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+  text-shadow: 0.5px 0.5px 0px #e840ba, 1px 1px 0px #6e41be, 1.5px 1.5px 0px #e840ba, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
   color: #FFFAFA;
 }
 
@@ -148,11 +154,20 @@ header .navbarSection .navbar .user #navbarDropdownMenuLink {
 }
 
 header .navbarSection .navbar .user #navbarDropdownMenuLink:hover {
-  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+  text-shadow: 0.5px 0.5px 0px #e840ba, 1px 1px 0px #6e41be, 1.5px 1.5px 0px #e840ba, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
 }
 
 header .navbarSection .navbar .user .userDropdownMenu {
-  margin-left: -7.1rem !important;
+  margin-left: -6.1rem !important;
+}
+
+header .navbarSection .navbar .star {
+  text-shadow: 1px 1px 0px #58A4B0, 2px 2px 0px #6e41be, 2.5px 2.5px 0px #58A4B0;
+  color: #FFFAFA;
+}
+
+header .navbarSection .navbar .star:hover {
+  text-shadow: 0.5px 0.5px 0px #e840ba, 1px 1px 0px #6e41be, 1.5px 1.5px 0px #e840ba, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
 }
 
 header .navbarSection #secondNavbar #secondNavList .nav-link {
@@ -161,7 +176,7 @@ header .navbarSection #secondNavbar #secondNavList .nav-link {
 }
 
 header .navbarSection #secondNavbar #secondNavList .nav-link:hover {
-  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
+  text-shadow: 0.5px 0.5px 0px #e840ba, 1px 1px 0px #6e41be, 1.5px 1.5px 0px #e840ba, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
 }
 
 /*-------------------------------------------------------------------------Carousel----------------------------------------------------------------------------------*/
@@ -172,14 +187,14 @@ header .navbarSection #secondNavbar #secondNavList .nav-link:hover {
 .carousel h2 {
   font-size: 4rem;
   font-style: italic;
-  text-shadow: 0px 0px 5px #e840ba, 0px 0px 12.5px #58A4B0, 0px 0px 17.5px #020402, 0px 0px 20px #FFFAFA;
+  text-shadow: 1px 1px 0px #020402, 2px 2px 5px #FFFAFA, 3px 3px 0px #020402;
 }
 
 .carousel h3 {
   font-size: 2.5rem;
   font-weight: 600;
   font-style: italic;
-  text-shadow: 0px 0px 5px #e840ba, 0px 0px 12.5px #58A4B0, 0px 0px 17.5px #020402, 0px 0px 20px #FFFAFA;
+  text-shadow: 1px 1px 0px #020402, 2px 2px 5px #FFFAFA, 3px 3px 0px #020402;
 }
 
 .carousel .firstComingSoon {
@@ -197,12 +212,39 @@ header .navbarSection #secondNavbar #secondNavList .nav-link:hover {
 .carousel .carousel-control-prev,
 .carousel .carousel-control-next {
   opacity: 0.2;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+.carousel .carousel-control-prev .carouselArrow,
+.carousel .carousel-control-next .carouselArrow {
+  font-size: 50px;
+}
+
+.carousel .carousel-control-prev {
+  -webkit-transform: translateX(-40px);
+          transform: translateX(-40px);
+}
+
+.carousel .carousel-control-next {
+  -webkit-transform: translateX(40px);
+          transform: translateX(40px);
 }
 
 .carousel .carousel-control-prev:hover,
 .carousel .carousel-control-next:hover {
   opacity: 1;
   color: #FFFAFA;
+  -webkit-transform: scale(1.35);
+          transform: scale(1.35);
+}
+
+.carousel .carousel-control-prev:hover {
+  text-shadow: 0px 0px 5px #6e41be, 0px 0px 10px #e840ba, -5px 3px 10px black, -5px -3px 10px black;
+}
+
+.carousel .carousel-control-next:hover {
+  text-shadow: 0px 0px 5px #6e41be, 0px 0px 10px #e840ba, 5px 3px 10px black, 5px -3px 10px black;
 }
 
 /*-------------------------------------------------------------------------Product----------------------------------------------------------------------------------*/
@@ -301,12 +343,13 @@ footer .socialDivider {
 }
 
 footer .footerLinks a:hover {
-  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be, 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0;
+  text-shadow: 0.5px 0.5px 0px #e840ba, 1px 1px 0px #6e41be, 1.5px 1.5px 0px #e840ba, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
 }
 
 /*------------------------------------------------------------------------- Connexion ----------------------------------------------------------------------------------*/
 .logIn a:hover {
-  text-shadow: 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be, 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px #58A4B0, 2px 2px 0px #6e41be, 2.5px 2.5px 0px #58A4B0, 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
 }
 
 /*------------------------------------------------------------------------- Photo de Profil ----------------------------------------------------------------------------------*/
@@ -316,7 +359,7 @@ footer .footerLinks a:hover {
 }
 
 .logoImageProfil {
-  font-size: 13rem;
+  font-size: 15rem;
 }
 
 .updateProfileImg {
@@ -328,6 +371,23 @@ footer .footerLinks a:hover {
   transition: 0.75s ease;
 }
 
+.inputfile {
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: 3;
+  aspect-ratio: 1;
+  width: 30vh;
+}
+
+.updateProfileImgContainer {
+  position: absolute;
+  z-index: 3;
+  aspect-ratio: 1;
+  width: 30vh;
+  top: 0;
+}
+
 .profileImageContainer {
   position: relative;
 }
@@ -336,8 +396,8 @@ footer .footerLinks a:hover {
   aspect-ratio: 1;
   width: 30vh;
   background-color: #020402;
-  z-index: 3;
-  opacity: 0.5;
+  z-index: 2;
+  opacity: 0.85;
   -webkit-box-shadow: inset 0px 0px 5px #e840ba, inset 0px 0px 10px #020402, inset 0px 0px 15px #e840ba, inset 0px 0px 5px #58A4B0, inset 0px 0px 10px #020402, inset 0px 0px 15px #58A4B0, inset 0px 0px 5px #6e41be, inset 0px 0px 10px #020402, inset 0px 0px 15px #6e41be, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
           box-shadow: inset 0px 0px 5px #e840ba, inset 0px 0px 10px #020402, inset 0px 0px 15px #e840ba, inset 0px 0px 5px #58A4B0, inset 0px 0px 10px #020402, inset 0px 0px 15px #58A4B0, inset 0px 0px 5px #6e41be, inset 0px 0px 10px #020402, inset 0px 0px 15px #6e41be, 0px 0px 5px #e840ba, 0px 0px 10px #020402, 0px 0px 15px #e840ba, 0px 0px 5px #58A4B0, 0px 0px 10px #020402, 0px 0px 15px #58A4B0, 0px 0px 5px #6e41be, 0px 0px 10px #020402, 0px 0px 15px #6e41be;
 }
@@ -386,6 +446,7 @@ footer .footerLinks a:hover {
 
 .adminSidebar li:hover {
   background-color: #1b0943;
+  border-radius: 2%;
 }
 
 .adminSidebar li:hover a {
@@ -396,6 +457,7 @@ footer .footerLinks a:hover {
 }
 
 .adminSidebar li:active {
+  border-radius: 2%;
   background-color: #1b0943;
 }
 
@@ -407,6 +469,7 @@ footer .footerLinks a:hover {
 }
 
 .adminSidebar .gestionBtnActive {
+  border-radius: 2%;
   background-color: #1b0943;
 }
 

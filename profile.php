@@ -1,6 +1,7 @@
 <?php
 session_start();
 $pagesTitle = 'Profil';
+require_once 'config.php';
 require_once 'models/database.php';
 require_once 'models/usersModel.php';
 require_once 'controllers/profileController.php';
@@ -10,38 +11,43 @@ require_once 'include/header.php';
      ********************************************************************** Profil *********************************************************************** 
      ********************************************************************************************************************************************* -->
 <div class="container mb-5">
-    <div class="row d-md-none">
-        <div class="col d-flex justify-content-end">
-            <a class="btn btn-outline-primary mt-4" href="Modification_profil">
-                <!-- data-bs-toggle="modal" data-bs-target="#myAccountPseudoAndImageModal"-->
-                <i class="far fa-edit"></i>
-            </a>
-        </div>
-    </div>
     <!-------------------------------------------------------------------- My Account Profil -------------------------------------------->
     <div class="row">
-        <div class="col-md-4 col d-flex justify-content-center align-items-center text-center mt-4 my-md-4 profileImageContainer">
-            <?php if (!is_null($user->profilePicture)) { ?>
-                 <img src="<?= $user->profilePicture; ?>" class="rounded-circle myAccountProfilPhoto img-fluid" id="myAccountImageProfil" alt="profilPhoto">
-                 <a href="Modification_image-de-profil" class="rounded-circle d-flex updateProfileImg align-items-center justify-content-center"><i class="far fa-edit text-secondary"></i></a>
+        <div class="col-md-4 col d-flex justify-content-center align-items-center text-center mt-4 my-md-4 profileImageContainer mx-md-auto">
+            <?php if (!is_null($_SESSION['user']->profilePicture)) { ?>
+                <img src="<?= $_SESSION['user']->profilePicture; ?>" class="rounded-circle myAccountProfilPhoto img-fluid shadow" id="myAccountImageProfil" alt="profilPhoto" />
+                <form method="post" class="rounded d-flex updateProfileImgContainer align-items-center justify-content-center" enctype="multipart/form-data">
+                    <input class="inputfile rounded-circle" type="file" name="myAccountProfilImage" id="myAccountProfilImage" onChange="this.form.submit();" />
+                    <label for="myAccountProfilImage " class="rounded-circle d-flex updateProfileImg align-items-center justify-content-center ">
+                        <i class="fas fa-folder-plus text-white"></i>
+                    </label>
+                </form>
             <?php } else { ?>
-                <i class="fas fa-user text-white logoImageProfil"></i>
-                <a href="Modification_image-de-profil" class="rounded d-flex updateProfileImg align-items-center justify-content-center"><i class="far fa-edit text-secondary"></i></a>
+                <i class="fas fa-user text-white logoImageProfil shadow"></i>
+                <form method="post" enctype="multipart/form-data" class="rounded d-flex updateProfileImgContainer align-items-center justify-content-center">
+                    <input class="inputfile rounded-circle" type="file" name="myAccountProfilImage" id="myAccountProfilImage" onChange="this.form.submit();" />
+                    <label for="myAccountProfilImage " class="rounded d-flex updateProfileImg align-items-center justify-content-center">
+                        <i class="fas fa-folder-plus text-light"></i>
+                    </label>
+                </form>
             <?php } ?>
         </div>
-        <div class="col-md-6 col-12 d-grid my-auto">
-            <h3 class="text-center mt-5 text-white" id="myAccountPseudo"><?= $user->userName; ?></h3>
-        </div>
-        <div class="col-md-2 d-md-flex d-none justify-content-end">
-            <a class="btn btn-outline-primary position-absolute mt-3" href="Modification_profil">
-                <!-- data-bs-toggle="modal" data-bs-target="#myAccountPseudoAndImageModal"-->
-                <i class="far fa-edit ms-1"></i>
-            </a>
+        <div class="col-md-6 col-12  d-flex my-md-auto my-4 align-items-center">
+            <h3 class="text-center col-10 text-white" id="myAccountPseudo"><?= $_SESSION['user']->userName; ?></h3>
+            <button class="btn btn-outline-info col-auto" id="myAccountUserNameModif"><i class="far fa-edit"></i></button>
+            <form method="post" class="d-none border border-bottom border-light form-floating text-center col" id="userNameForm">
+                <input class="form-control text-center <?= isset($formErrors['Username']) ? 'is-invalid' : '' ?>" value="<?= $_SESSION['user']->userName ?>" type="text" name="Username" id="Username" autocomplete="off" placeholder="#">
+                <label class="col-12 mx-md-5 mx-4" for="Username">Nouveau Pseudo</label>
+                <?php if (isset($formErrors['Username'])) { ?>
+                    <p class="invalid-feedback text-center"> <?= $formErrors['Username'] ?> </p>
+                <?php } ?>
+
+            </form>
         </div>
     </div>
     <!-------------------------------------------------------------------- My Account Nav -------------------------------------------->
     <div class="row">
-        <div class="container-fluid p-3 border border-1 border-primary">
+        <div class="container-fluid border border-1 border-primary">
             <div class="row py-3 mx-md-5 justify-content-between border-bottom border-1 border-light gap-3">
                 <button class="btn btn-outline-secondary col-md-3 active" id="myAccountCoordinateBtn"> Coordonnée </button>
                 <button class="btn btn-outline-secondary col-md-3" id="myAccountSellOrdersBtn"> Ordres de vente </button>
@@ -49,23 +55,32 @@ require_once 'include/header.php';
             </div>
             <!-------------------------------------------------------------------- My Account Contact  -------------------------------------------->
             <div class="row my-5 justify-content-between" id="myAccountConctact">
-                <div class="container d-grid gap-4">
-                    <div class="row">
+                <div class="container d-grid gap-3">
+                    <div class="row d-grid gap-2">
                         <h3 class="col-md-11 col-10 text-center text-white pagesTitles">Contact</h3>
-
                         <div class="container mx-md-5 gap-3">
-                            <div class="row mt-2 mx-md-5">
-                                <div class="col-md-3">
+                            <div class="row mt-2 mx-md-5 d-flex">
+                                <div class="col-md-auto" id="myAccountEmail">
                                     <h4 class="text-info">Adresse de messagerie : </h4>
                                 </div>
-                                <div class="col-md-4 ">
-                                    <p class="fs-5 text-white" id="myAccountEmail"><?= $user->email; ?></p>
+                                <div class="col-md-4 d-sm-flex d-grid" id="myAccountEmailOutput">
+                                    <p class="fs-5 text-white col-md-auto"><?= $_SESSION['user']->email; ?></p>
+                                    <button class="btn btn-outline-info mb-2 ms-2 col" id="myAccountEmailModif"><i class="far fa-edit"></i></button>
                                 </div>
+                                <form method="post" class="col-md d-none border border-bottom border-light form-floating text-center" id="emailForm">
+                                    <input class="form-control text-center <?= isset($formErrors['email']) ? 'is-invalid' : '' ?>" value="<?= $_SESSION['user']->email; ?>" type="email" name="email" id="email" autocomplete="on" placeholder=" " />
+                                    <label class="text-white col-12 mx-md-5 mx-4" for="email"><i class="far fa-envelope"></i><span class="ms-1">Adresse Email</span></label>
+                                    <?php if (isset($formErrors['email'])) { ?>
+                                        <p class="invalid-feedback text-center"> <?= $formErrors['email'] ?> </p>
+                                    <?php } ?>
+                                </form>
                             </div>
-
                         </div>
                     </div>
-
+                    <div class="row mx-md-5 mx-auto gap-2">
+                        <a class="btn btn-outline-secondary ms-md-auto col-auto shadow" href="signOut.php">Déconnexion</a>
+                        <button type="button" class="btn btn-outline-danger col-auto" name="deleteUserBtn" data-bs-whatever="<?= $_SESSION['user']->id; ?>" data-bs-toggle="modal" data-bs-target="#deleteAccount">Supprimer</button>
+                    </div>
                 </div>
             </div>
             <!-------------------------------------------------------------------- My Account Orders  -------------------------------------------->
@@ -190,58 +205,30 @@ require_once 'include/header.php';
         </div>
     </div>
 </div>
-<!-- ********************************************************************************************************************************************
-     *************************************************************************************************************************************************
-     ********************************************************************************************************************************************* -->
-
-<!-- ********************************************************************************************************************************************* 
-     ********************************************************************** Modal *********************************************************************** 
-     ********************************************************************************************************************************************* -->
-<!-------------------------------------------------------------------- Modal email + photo -------------------------------------------->
-
-<div class="modal fade" id="myAccountPseudoAndImageModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myAccountContactModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <form class="modal-content bg-dark" method="post" action="Profil">
-            <div class="container">
+<form method="post" action="Profil">
+    <div class="modal fade" id="deleteAccount" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myAccountContactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark">
+                <div class="container mt-3">
                 <div class="row">
-                    <h3 class="mt-2 text-center" id="staticBackdropLabel">Modification</h3>
-                </div>
-            </div>
-            <div class="modal-body container">
-                <div class="row">
-                    <div class="container d-grid gap-4">
-                        <fieldset class="row">
-                            <div class=" border border-bottom border-light mx-auto">
-                            </div>
-                            <div class="col-md-9 col-11 border  mx-auto form-floating">
-                                <input class="form-control" type="file" name="myAccountProfilImage" id="myAccountProfilImage" accept="image/*" />
-                                <label for="myAccountProfilImage" class="form-label ms-1 text-white pt-1 mt-1">Image de profil</label>
-                            </div>
-                        </fieldset>
-                        <fieldset class="row">
-                            <div class="col-md-9 col-11 border border-bottom border-light mx-auto form-floating">
-                                <input class="form-control" type="text" name="myAccountUsernameInput" id="myAccountUsernameInput" autocomplete="off" placeholder="#">
-                                <label class="ms-3" for="myAccountUsernameInput">Nouveau Pseudo</label>
-                            </div>
-                        </fieldset>
-                        <fieldset class="row">
-                            <div class="col-md-9 col-11 border border-bottom border-light mx-auto form-floating">
-                                <input class="form-control" type="email" name="myAccountEmailInput" id="myAccountEmailInput" autocomplete="off" placeholder="#">
-                                <label class="ms-3" for="myAccountEmailInput">Adresse de messagerie</label>
-                            </div>
-                        </fieldset>
+                        <i class="fas fa-exclamation-circle text-warning text-center warningDelete"></i>
                     </div>
                 </div>
+                <div class="modal-body container">
+                <div class="row">
+                        <h3 class="mt-2 text-center" id="staticBackdropLabel">Suppression</h3>
+                    </div>
+                    <div class="row">
+                        <p class="text-center text-white">Voulez-vous supprimer votre compte ?</p>
+                        <input type="hidden" value="" name="deleteUser" id="deleteUser">
+                    </div>
+                </div>
+                <div class="modal-footer ">
+                    <button type="button" class="btn btn-outline-secondary ms-md-5 ms-2 me-auto" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-outline-primary me-md-5 me-2">Confirmer</button>
+                </div>
             </div>
-            <div class="modal-footer ">
-                <button type="button" class="btn btn-outline-secondary ms-md-5 ms-2 me-auto" data-bs-dismiss="modal">Annuler</button>
-                <button type="submit" class="btn btn-outline-primary me-md-5 me-2" id="myAccountModalProfil">Confirmer</button>
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<!-- ********************************************************************************************************************************************
-     *************************************************************************************************************************************************
-     ********************************************************************************************************************************************* -->
+</form>
 <?php require_once 'include/footer.php'; ?>

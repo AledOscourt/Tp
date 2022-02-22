@@ -50,28 +50,36 @@ if (isset($_POST['addUsers'])) {
         } else {
             $formErrors['password'] = PASSWORD_ERROR_EMPTY;
         }
-        
-        if ($users->addUser()) {
-            $success = 'Votre inscription a bien été prise en compte';
-    
-            //Seul endroit où l'on peut mettre du HTML dans du PHP et mise en page en tableau autorisée ;)
-            $message = '
-            <p>Bonjour ' . $_POST['userName'] . '</p>
-            <p>Votre inscription est validé</p>
-            ';
-    
-            $headers = array(
-                'From'=>'no-reply@maximilien.fr',
-                'MIME-Version'=>'1.0',
-                'Content-type'=>'text/html; charset=UTF8'
-            );
-    
-            //Personne à qui on envoie le mail, l'objet du mail, le contenu du mail, les en-têtes du mail 
-            mail($_POST['email'], 'Bienvenue parmi nous', $message, $headers);
-        }
         if (count($formErrors) == 0) {
-            header('Location: Connexion');
-            exit;
+
+            if ($users->addUser()) {
+                echo  "<script type='text/javascript'>
+                Swal.fire(
+                    'Bravo,',
+                    'Vous êtes inscrit!',
+                    'success'
+                  )
+                    window.setTimeout(function() {
+                     window.location = 'connexion';
+                    }, 5000);
+                </script>";
+                $success = 'Votre inscription a bien été prise en compte';
+
+                //Seul endroit où l'on peut mettre du HTML dans du PHP et mise en page en tableau autorisée ;)
+                $message = '
+                <p>Bonjour ' . $_POST['userName'] . '</p>
+                <p>Votre inscription est validé</p>
+                ';
+
+                $headers = array(
+                    'From' => 'no-reply@maximilien.fr',
+                    'MIME-Version' => '1.0',
+                    'Content-type' => 'text/html; charset=UTF8'
+                );
+
+                //Personne à qui on envoie le mail, l'objet du mail, le contenu du mail, les en-têtes du mail 
+                mail($_POST['email'], 'Bienvenue parmi nous', $message, $headers);
+            }
         }
     }
 }

@@ -76,14 +76,14 @@
                 </form>
                 <?php if (!$_SESSION) { ?>
                     <div class="d-lg-none col-auto align-items-center fs-6 d-flex">
-                        <a class="navbar-brand text-decoration-none col-2 me-3" href="Connexion"><i class="fas fa-star"></i></a>
+                        <a class="navbar-brand text-decoration-none col-2 me-3 star" href="Connexion"><i class="fas fa-star"></i></a>
                         <div class="user ms-4">
                             <a class="text-decoration-none navbar-brand" href="Connexion" id="navbarDropdownMenuLink" aria-expanded="true"><i class="fas fa-user"></i></a>
                         </div>
                     </div>
                 <?php } else { ?>
                     <div class="d-lg-none col-sm-3 col-4 align-items-center justify-content-around fs-6 d-flex">
-                        <a class="navbar-brand text-decoration-none col-2" href="Liste_d-envie"><i class="fas fa-star"></i></a>
+                        <a class="navbar-brand text-decoration-none col-2 star" href="Liste_d-envie"><i class="fas fa-star"></i></a>
                         <div class="user col-sm-4 col-5">
                             <a class="navbar-brand text-decoration-none user text-center m-0" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true"><?php if (!is_null($_SESSION['user']->profilePicture)) { ?> <img src="<?= $_SESSION['user']->profilePicture; ?>" class="imgNavbarLogIn" alt="profilPhoto">
                                 <?php } else { ?>

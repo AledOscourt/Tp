@@ -6,6 +6,8 @@ require_once 'models/database.php';
 require_once 'models/popsModel.php';
 require_once 'models/imagesModel.php';
 require_once 'models/offersModel.php';
+require_once 'models/statusModel.php';
+require_once 'models/transaction.php';
 require_once 'controllers/offerController.php';
 require_once 'include/header.php'; ?>
 
@@ -23,15 +25,15 @@ require_once 'include/header.php'; ?>
         <div class="container d-grid gap-4">
             
             <fieldset class="row d-flex gap-lg-0 gap-3">
-            <div class="col-md-5 border  mx-auto form-floating">
-                    <input class="form-control <?= isset($formErrors['popName']) ? 'is-invalid' : '' ?>" value="<?= !isset($formErrors['popName']) && !empty($_POST['popName']) ? $tags : '' ?>" type="text" name="popName" id="popName" placeholder=" ">
+            <div class="col-md-5 border mx-auto form-floating">
+                    <input class="form-control <?= isset($formErrors['popName']) ? 'is-invalid' : '' ?>" value="<?= !isset($formErrors['popName']) && !empty($_POST['popName']) ? $_POST['popName'] : '' ?>" type="text" name="popName" id="popName" placeholder=" ">
                     <label class="ms-3 text-white" for="popName">Nom de la Pop</label>
                     <?php if (isset($formErrors['popName'])) { ?>
                         <p class="invalid-feedback text-center"> <?= $formErrors['popName'] ?> </p>
                     <?php } ?>
                 </div>
                 <div class="col-md-5 border  mx-auto form-floating">
-                    <input class="form-control <?= isset($formErrors['tags']) ? 'is-invalid' : '' ?>" value="<?= !isset($formErrors['tags']) && !empty($_POST['tags']) ? $tags : '' ?>" type="text" name="tags" maxlength="4" id="tags" placeholder=" ">
+                    <input class="form-control <?= isset($formErrors['tags']) ? 'is-invalid' : '' ?>" value="<?= !isset($formErrors['tags']) && !empty($_POST['tags']) ? $_POST['tags'] : '' ?>" type="text" name="tags" maxlength="4" id="tags" placeholder=" ">
                     <label class="ms-3 text-white" for="tags">Numéro de la Pop</label>
                     <?php if (isset($formErrors['tags'])) { ?>
                         <p class="invalid-feedback text-center"> <?= $formErrors['tags'] ?> </p>
@@ -43,14 +45,14 @@ require_once 'include/header.php'; ?>
             <fieldset class="row d-flex gap-lg-0 gap-3">
 
                 <div class="col-md-5 border  mx-auto form-floating">
-                    <input class="form-control <?= isset($formErrors['price']) ? 'is-invalid' : '' ?>" type="text" name="price" id="price" placeholder=" ">
+                    <input class="form-control <?= isset($formErrors['price']) ? 'is-invalid' : '' ?>" value="<?= !isset($formErrors['price']) && !empty($_POST['price']) ? $_POST['price'] : '' ?>" type="text" name="price" id="price" placeholder=" ">
                     <label class="ms-3 text-white" for="price">Prix</label>
                     <?php if (isset($formErrors['price'])) { ?>
                         <p class="invalid-feedback text-center"> <?= $formErrors['price'] ?> </p>
                     <?php } ?>
                 </div>
                 <div class="col-md-5 border  mx-auto form-floating">
-                    <input class="form-control <?= isset($formErrors['statusTitle']) ? 'is-invalid' : '' ?>" type="text" name="statusTitle" id="statusTitle" placeholder=" ">
+                    <input class="form-control <?= isset($formErrors['statusTitle']) ? 'is-invalid' : '' ?>" value="<?= !isset($formErrors['statusTitle']) && !empty($_POST['statusTitle']) ? $_POST['statusTitle'] : '' ?>" type="text" name="statusTitle" id="statusTitle" placeholder=" ">
                     <label class="ms-3 text-white" for="statusTitle">Titre&nbsp;de&nbsp;la&nbsp;description</label>
                     <?php if (isset($formErrors['statusTitle'])) { ?>
                         <p class="invalid-feedback text-center"> <?= $formErrors['statusTitle'] ?> </p>
@@ -60,7 +62,7 @@ require_once 'include/header.php'; ?>
             </fieldset>
             <fieldset class="row d-flex gap-lg-0 gap-3">
                 <div class="col-md-11 border  mx-auto form-floating">
-                    <textarea class="form-control <?= isset($formErrors['statusDescription']) ? 'is-invalid' : '' ?>" name="statusDescription" id="statusDescription" maxlength="370" placeholder=" "></textarea>
+                    <textarea class="form-control <?= isset($formErrors['statusDescription']) ? 'is-invalid' : '' ?>" value="<?= !isset($formErrors['statusDescription']) && !empty($_POST['statusTitle']) ? $_POST['statusDescription'] : '' ?>" name="statusDescription" id="statusDescription" maxlength="370" placeholder=" "></textarea>
                     <label class="ms-3 text-white floatingTextarea" for="statusDescription">Description d'état</label>
                     <?php if (isset($formErrors['statusDescription'])) { ?>
                         <p class="invalid-feedback text-center"> <?= $formErrors['statusDescription'] ?> </p>

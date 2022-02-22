@@ -211,3 +211,68 @@ myAccountOpinionsBtn.onclick = () => {
 /**-------------------------------------------------------------------------------------------------------------------
 *--------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+*-------------------------------------------- Email Modif ------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------*/
+email.onChange = () => {
+    this.form.submit();
+    if (!email.classList.contain('is-invalid')) {
+        emailForm.classList.add('d-none');
+        myAccountEmailOutput.classList.remove('d-none');
+        myAccountEmail.classList.remove('mt-md-3');
+    }
+}
+email.onblur = () => {
+    email.form.submit();
+    if (!email.classList.contain('is-invalid')) {
+        emailForm.classList.add('d-none');
+        myAccountEmailOutput.classList.remove('d-none');
+        myAccountEmail.classList.remove('mt-md-3');
+    }
+}
+myAccountEmailModif.onclick = () => {
+    emailForm.classList.remove('d-none');
+    myAccountEmailOutput.classList.add('d-none');
+    myAccountEmail.classList.add('mt-md-3');
+}
+
+/**-------------------------------------------------------------------------------------------------------------------
+*--------------------------------------------------- Username Modif --------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------*/
+
+Username.onChange = () => {
+    this.form.submit();
+    if (!Username.classList.contain('is-invalid')) {
+        userNameForm.classList.add('d-none');
+        myAccountPseudo.classList.remove('d-none');
+        myAccountUserNameModif.classList.add('d-none');
+    }
+}
+Username.onblur = () => {
+    Username.form.submit();
+    if (!Username.classList.contain('is-invalid')) {
+        userNameForm.classList.add('d-none');
+        myAccountPseudo.classList.remove('d-none');
+        myAccountUserNameModif.classList.add('d-none');
+    }
+}
+myAccountUserNameModif.onclick = () => {
+    userNameForm.classList.remove('d-none');
+    myAccountPseudo.classList.add('d-none');
+    myAccountUserNameModif.classList.add('d-none');
+}
+
+
+
+deleteAccount.addEventListener('show.bs.modal', function(event) {
+    // Button that triggered the modal
+    var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+    var recipient = button.getAttribute('data-bs-whatever')
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+    deleteUser.value = recipient;
+})

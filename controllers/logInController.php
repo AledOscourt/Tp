@@ -21,6 +21,7 @@ if (count($_POST) > 0) {
         if (isset($hash)) {
             if (password_verify($_POST['password'], $hash->password)) {
                 $_SESSION['user'] = $user->getUserbyMail();
+                $_SESSION['user']->email=$_POST['email'];
                 header('Location: Accueil');
                 exit;
             } else {

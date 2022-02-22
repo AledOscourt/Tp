@@ -100,4 +100,16 @@ class pops extends database
         $queryPrepare->bindValue(':id_brands', $this->id_brands, PDO::PARAM_INT);
         return $queryPrepare->execute();
     }
+    
+    public function getPopByNameORTags()
+    {
+        $query = 'SELECT id
+        FROM `s4u3u_pops`
+        where name=:name or tags=:tags ;';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':name', $this->name, PDO::PARAM_STR);
+        $queryPrepare->bindValue(':tags', $this->tags, PDO::PARAM_INT);
+        $queryPrepare->execute();
+        return $queryPrepare->fetch(PDO::FETCH_OBJ);
+    }
 }

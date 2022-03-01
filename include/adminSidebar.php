@@ -6,7 +6,7 @@
         <button type="button" class="btn-close text-reset bg-secondary" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <ul class="adminSidebar container-fluid d-grid gap-1 my-5">
+        <ul class="adminSidebar container-fluid d-grid gap-2 my-5">
             <li class="row align-items-center <?= $_SERVER['PHP_SELF'] == '/TP/admin/admin.php' ? 'gestionBtnActive' : '' ?>">
                 <a class="text-decoration-none text-white" href="/TP/Dashboard">DashBoard</a>
             </li>

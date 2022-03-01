@@ -1,584 +1,480 @@
-/*-------------------------------------------------------------------------Variable----------------------------------------------------------------------------------*/
-
-$dropdown-min-width: 0px;
-$font-size-carouse-h2-lg: 4rem;
-$font-size-carousel-h3-lg: 2.5rem;
-$font-size-carousel-h2-md: 1.75rem;
-$font-size-carousel-h3-md: 1.25rem;
-$font-size-carousel-h2-sm: 1rem;
-$font-size-carousel-h3-sm: 0.75rem;
-$font-size-carousel-p-lg: 2rem;
-$font-size-carousel-p-md: 1.15rem;
-$font-size-carousel-p-sm: 0.70rem;
-$font-weight-carousel: 600;
-$font-weight-nav: 500;
-$bg-color: #1a0933;
-$bg-second-color:#1b0943;
-$color-blue:#58A4B0;
-$color-black:#020402;
-$color-white:#FFFAFA;
-$color-pink:#e840ba;
-$color-purple:#6e41be;
-$text-shadow-pink: 0px 0px 5px $color-pink,
-0px 0px 10px$color-black,
-0px 0px 15px $color-pink;
-$text-shadow-purple: 0px 0px 5px $color-purple,
-0px 0px 10px$color-black,
-0px 0px 15px $color-purple;
-$text-shadow-blue: 0px 0px 5px $color-blue,
-0px 0px 10px$color-black,
-0px 0px 15px $color-blue;
-$inset-text-shadow-pink: inset 0px 0px 5px $color-pink,
-inset 0px 0px 10px$color-black,
-inset 0px 0px 15px $color-pink;
-$inset-text-shadow-purple: inset 0px 0px 5px $color-purple,
-inset 0px 0px 10px$color-black,
-inset 0px 0px 15px $color-purple;
-$inset-text-shadow-blue: inset 0px 0px 5px $color-blue,
-inset 0px 0px 10px$color-black,
-inset 0px 0px 15px $color-blue;
-
-/*-------------------------------------------------------------------------Général----------------------------------------------------------------------------------*/
-
-body {
-    overflow-x: hidden;
-    &::-webkit-scrollbar {
-        width: 2px
-    }
-    &::-webkit-scrollbar-track {
-        background-color: transparent;
-    }
-    &::-webkit-scrollbar-thumb {
-        border-radius: 20px;
-        background-color: $color-white;
-    }
-    .imgNavbarLogIn {
-        height: 3rem;
-        aspect-ratio: 1;
-        border-radius: 50%;
-    }
-    .warningDelete {
-        font-size: 100px;
-    }
-}
-
-.pagesTitles {
-    text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
-    margin: 0 !important;
-}
-
-
-/*-------------------------------------------------------------------------Header----------------------------------------------------------------------------------*/
-
-header {
-    z-index: 199;
-    position: relative;
-    .businessName {
-        text-shadow: 1px 1px 0px $color-blue, 2px 2px 0px $color-purple, 2.5px 2.5px 0px $color-blue, $text-shadow-blue, $text-shadow-purple;
-        color: $color-white;
-        &:hover {
-            text-shadow: 1px 1px 0px $color-blue, 1.5px 1.5px 0px $color-pink, 2px 2px 0px $color-purple, 2.5px 2.5px 1px $color-pink, 3px 3px 1px $color-purple, 3.5px 3.5px 1px $color-pink, $text-shadow-pink, $text-shadow-purple, $text-shadow-pink, $text-shadow-purple;
+    /*-------------------------------------------------------------------------Variable----------------------------------------------------------------------------------*/
+    
+    $dropdown-min-width: 0px;
+    $font-size-carouse-h2-lg: 4rem;
+    $font-size-carousel-h3-lg: 2.5rem;
+    $font-size-carousel-h2-md: 1.75rem;
+    $font-size-carousel-h3-md: 1.25rem;
+    $font-size-carousel-h2-sm: 1rem;
+    $font-size-carousel-h3-sm: 0.75rem;
+    $font-size-carousel-p-lg: 2rem;
+    $font-size-carousel-p-md: 1.15rem;
+    $font-size-carousel-p-sm: 0.70rem;
+    $font-weight-carousel: 600;
+    $font-weight-nav: 500;
+    $bg-color: #1a0933;
+    $bg-second-color:#1b0943;
+    $color-blue:#58A4B0;
+    $color-black:#020402;
+    $color-white:#FFFAFA;
+    $color-pink:#e840ba;
+    $color-purple:#6e41be;
+    $text-shadow-pink: 0px 0px 5px $color-pink,
+    0px 0px 10px$color-black,
+    0px 0px 15px $color-pink;
+    $text-shadow-purple: 0px 0px 5px $color-purple,
+    0px 0px 10px$color-black,
+    0px 0px 15px $color-purple;
+    $text-shadow-blue: 0px 0px 5px $color-blue,
+    0px 0px 10px$color-black,
+    0px 0px 15px $color-blue;
+    $inset-text-shadow-pink: inset 0px 0px 5px $color-pink,
+    inset 0px 0px 10px$color-black,
+    inset 0px 0px 15px $color-pink;
+    $inset-text-shadow-purple: inset 0px 0px 5px $color-purple,
+    inset 0px 0px 10px$color-black,
+    inset 0px 0px 15px $color-purple;
+    $inset-text-shadow-blue: inset 0px 0px 5px $color-blue,
+    inset 0px 0px 10px$color-black,
+    inset 0px 0px 15px $color-blue;
+    /*-------------------------------------------------------------------------Général----------------------------------------------------------------------------------*/
+    
+    body {
+        overflow-x: hidden;
+        &::-webkit-scrollbar {
+            width: 2px
         }
-    }
-    .user {
-        position: relative;
-        #navbarDropdownMenuLink {
-            text-shadow: 1px 1px 0px $color-blue, 2px 2px 0px $color-purple, 2.5px 2.5px 0px $color-blue;
-            color: $color-white;
-            &:hover {
-                text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
-            }
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
         }
-        .userDropdownMenu {
-            inset: auto !important;
-            transform: none !important;
-            margin-left: calc(50% - 5rem) !important;
+        &::-webkit-scrollbar-thumb {
+            border-radius: 20px;
+            background-color: $color-white;
+        }
+        .imgNavbarLogIn {
+            height: 3rem;
+            aspect-ratio: 1;
+            border-radius: 50%;
+        }
+        .warningDelete {
+            font-size: 100px;
+        }
+        .swal2-title {
             text-shadow: none;
-            background-color: $bg-second-color !important;
-            border-radius: 5px;
-            a {
-                color: $color-white;
-            }
-            a:hover {
-                transform: scale(1.05);
-                background-color: $bg-color;
-                border-radius: 5px;
-            }
-            a:active {
-                color: $color-white;
-                background-color: $bg-color;
-                transform: scale(1.05);
-            }
-            a:focus {
-                transform: scale(1.05);
-                background-color: $bg-color;
-            }
         }
-    }
-    .star {
-        text-shadow: 1px 1px 0px $color-blue, 2px 2px 0px $color-purple, 2.5px 2.5px 0px $color-blue;
-        color: $color-white;
-        &:hover {
+        .swal2-success-ring {
+            box-shadow: 0px 0px 2px 2px white, 0px 0px 5px 2px lime, 0px 0px 12px 5px limegreen, 0px 0px 20px 10px gray;
+        }
+        .priceOfferLabel {
+            text-shadow: 1px 1px 0px $color-blue, 2px 2px 0px $color-purple, 2.5px 2.5px 0px $color-blue, $text-shadow-blue, $text-shadow-purple;
+        }
+        .priceOffer {
             text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
         }
+        .priceOfferContainer {
+            box-shadow: inset 0.5px 0.5px 0px $color-pink, inset 1px 1px 0px $color-purple, inset 1.5px 1.5px 0px $color-pink, $inset-text-shadow-pink, $inset-text-shadow-purple, 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
+        }
     }
-    /*-------------------------------------------------------------------------Navbar----------------------------------------------------------------------------------*/
-    .navbarSection {
-        border: 1px solid $color-black;
-        .navbar {
-            .imgLanguage {
-                width: 7vh;
+    
+    .articleBtn {
+        cursor: pointer;
+    }
+    
+    .pagesTitles {
+        text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
+        margin: 0 !important;
+    }
+    /*-------------------------------------------------------------------------Header----------------------------------------------------------------------------------*/
+    
+    header {
+        z-index: 199;
+        position: relative;
+        .businessName {
+            text-shadow: 1px 1px 0px $color-blue, 2px 2px 0px $color-purple, 2.5px 2.5px 0px $color-blue, $text-shadow-blue, $text-shadow-purple;
+            color: $color-white;
+            &:hover {
+                text-shadow: 1px 1px 0px $color-blue, 1.5px 1.5px 0px $color-pink, 2px 2px 0px $color-purple, 2.5px 2.5px 1px $color-pink, 3px 3px 1px $color-purple, 3.5px 3.5px 1px $color-pink, $text-shadow-pink, $text-shadow-purple, $text-shadow-pink, $text-shadow-purple;
             }
-            .navbar-toggler {
-                font-weight: $font-weight-nav;
-                color: $color-white;
-                &:hover {
-                    box-shadow: $text-shadow-pink, $text-shadow-purple;
-                    color: $color-white;
-                }
-            }
-            .navbar-toggler-icon {
-                height: 1.5rem;
-            }
-            .navbar-brand {
-                font-weight: $font-weight-nav;
-                color: $color-white;
-            }
-            .nav-link {
-                font-weight: $font-weight-nav;
-                font-style: oblique;
-                color: $color-white;
-                &:hover {
-                    text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
-                    color: $color-white;
-                }
-            }
-            .user {
-                position: relative;
-                #navbarDropdownMenuLink {
-                    color: $color-white;
-                    &:hover {
-                        text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
-                    }
-                }
-                .userDropdownMenu {
-                    margin-left: -6.1rem !important;
-                }
-            }
-            .star {
+        }
+        .user {
+            position: relative;
+            #navbarDropdownMenuLink {
                 text-shadow: 1px 1px 0px $color-blue, 2px 2px 0px $color-purple, 2.5px 2.5px 0px $color-blue;
                 color: $color-white;
                 &:hover {
                     text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
                 }
             }
+            .userDropdownMenu {
+                inset: auto !important;
+                transform: none !important;
+                margin-left: calc(50% - 5rem) !important;
+                text-shadow: none;
+                background-color: $bg-second-color !important;
+                border-radius: 5px;
+                a {
+                    color: $color-white;
+                }
+                a:hover {
+                    transform: scale(1.05);
+                    background-color: $bg-color;
+                    border-radius: 5px;
+                }
+                a:active {
+                    color: $color-white;
+                    background-color: $bg-color;
+                    transform: scale(1.05);
+                }
+                a:focus {
+                    transform: scale(1.05);
+                    background-color: $bg-color;
+                }
+            }
         }
-        /*-------------------------------------------------------------------------second navbar----------------------------------------------------------------------------------*/
-        #secondNavbar {
-            #secondNavList {
+        .star {
+            text-shadow: 1px 1px 0px $color-blue, 2px 2px 0px $color-purple, 2.5px 2.5px 0px $color-blue;
+            color: $color-white;
+            &:hover {
+                text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
+            }
+        }
+        /*-------------------------------------------------------------------------Navbar----------------------------------------------------------------------------------*/
+        .navbarSection {
+            border: 1px solid $color-black;
+            .navbar {
+                .imgLanguage {
+                    width: 7vh;
+                }
+                .navbar-toggler {
+                    font-weight: $font-weight-nav;
+                    color: $color-white;
+                    &:hover {
+                        box-shadow: $text-shadow-pink, $text-shadow-purple;
+                        color: $color-white;
+                    }
+                }
+                .navbar-toggler-icon {
+                    height: 1.5rem;
+                }
+                .navbar-brand {
+                    font-weight: $font-weight-nav;
+                    color: $color-white;
+                }
                 .nav-link {
                     font-weight: $font-weight-nav;
+                    font-style: oblique;
+                    color: $color-white;
+                    &:hover {
+                        text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
+                        color: $color-white;
+                    }
+                }
+                .user {
+                    position: relative;
+                    #navbarDropdownMenuLink {
+                        color: $color-white;
+                        &:hover {
+                            text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
+                        }
+                    }
+                    .userDropdownMenu {
+                        margin-left: -6.1rem !important;
+                    }
+                }
+                .star {
+                    text-shadow: 1px 1px 0px $color-blue, 2px 2px 0px $color-purple, 2.5px 2.5px 0px $color-blue;
                     color: $color-white;
                     &:hover {
                         text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
                     }
                 }
             }
-        }
-    }
-}
-
-
-/*-------------------------------------------------------------------------Carousel----------------------------------------------------------------------------------*/
-
-.carousel {
-    height: 68vh;
-    h2 {
-        font-size: $font-size-carouse-h2-lg;
-        font-style: italic;
-        text-shadow: 1px 1px 0px $color-black, 2px 2px 5px $color-white, 3px 3px 0px $color-black;
-    }
-    h3 {
-        font-size: $font-size-carousel-h3-lg;
-        font-weight: $font-weight-carousel;
-        font-style: italic;
-        text-shadow: 1px 1px 0px $color-black, 2px 2px 5px $color-white, 3px 3px 0px $color-black;
-    }
-    .firstComingSoon {
-        background-image: radial-gradient(circle at center center, rgb(71, 71, 71), rgb(8, 8, 8));
-    }
-    .secondComingSoon {
-        background-image: radial-gradient(circle at center center, rgb(15, 78, 199), rgb(21, 67, 172), rgb(27, 56, 145), rgb(33, 44, 118), rgb(39, 33, 91));
-    }
-    .thirdComingSoon {
-        background-image: radial-gradient(circle at center center, rgb(234, 238, 79), rgb(250, 124, 72));
-    }
-    .carousel-control-prev,
-    .carousel-control-next {
-        opacity: 0.2;
-        transition: 1s ease;
-        .carouselArrow {
-            font-size: 50px;
-        }
-    }
-    .carousel-control-prev {
-        transform: translateX(-40px);
-    }
-    .carousel-control-next {
-        transform: translateX(40px);
-    }
-    .carousel-control-prev:hover,
-    .carousel-control-next:hover {
-        opacity: 1;
-        color: $color-white;
-        transform: scale(1.35);
-    }
-    .carousel-control-prev:hover {
-        text-shadow: 0px 0px 5px $color-purple, 0px 0px 10px $color-pink, -5px 3px 10px black, -5px -3px 10px black;
-    }
-    .carousel-control-next:hover {
-        text-shadow: 0px 0px 5px $color-purple, 0px 0px 10px $color-pink, 5px 3px 10px black, 5px -3px 10px black;
-    }
-}
-
-
-/*-------------------------------------------------------------------------Product----------------------------------------------------------------------------------*/
-
-.product {
-    .seeAllLink {
-        &:hover {
-            text-shadow: $text-shadow-pink, $text-shadow-purple, $text-shadow-blue;
-        }
-    }
-    .homeProductTitle {
-        text-shadow: $text-shadow-pink, $text-shadow-purple, $text-shadow-blue;
-    }
-    .outer-Border-Article {
-        border: 1px solid $color-black;
-        border-radius: 5px;
-        color: $color-white;
-        .inner-Border-Article {
-            border-radius: 5px;
-        }
-        .inner-Border-Name {
-            p {
-                margin: 0px;
-            }
-            border-radius: 5px;
-        }
-        .inner-Border-Price {
-            p {
-                margin: 0px;
-            }
-            border-radius: 5px;
-        }
-        &:hover {
-            box-shadow: 0px 0px 5px 1px $color-black, 0px 0px 10px 2px $color-black, 0px 0px 20px 5px $color-black;
-            transform: scale(1.05);
-        }
-    }
-}
-
-
-/*-------------------------------------------------------------------------Selector----------------------------------------------------------------------------------*/
-
-.selector {
-    box-shadow: 0px 0px 20px 2px $color-black;
-    .selector-left-banner {
-        background-image: radial-gradient(circle at center center, rgb(15, 78, 199), rgb(21, 67, 172), rgb(27, 56, 145), rgb(33, 44, 118), rgb(39, 33, 91));
-        height: 30vh;
-        &:hover {
-            z-index: 99;
-            box-shadow: 0px 0px 20px 2px $color-blue, inset 0px 0px 20px 2px $color-blue;
-            border: 3px solid $color-blue;
-            transform: scale(1.1);
-        }
-    }
-    .selector-right-banner {
-        background-image: radial-gradient(circle at center center, rgb(234, 238, 79), rgb(250, 124, 72));
-        height: 30vh;
-        &:hover {
-            z-index: 99;
-            box-shadow: 0px 0px 20px 2px $color-blue, inset 0px 0px 20px 2px $color-blue;
-            border: 3px solid $color-blue;
-            transform: scale(1.1);
-        }
-    }
-}
-
-
-/*------------------------------------------------------------------------- Footer ----------------------------------------------------------------------------------*/
-
-footer {
-    .row {
-        img {
-            width: 7vh;
-            animation: move 3s ease-out 4s infinite;
-            &:hover {
-                transform: scale(1.2);
+            /*-------------------------------------------------------------------------second navbar----------------------------------------------------------------------------------*/
+            #secondNavbar {
+                #secondNavList {
+                    .nav-link {
+                        font-weight: $font-weight-nav;
+                        color: $color-white;
+                        &:hover {
+                            text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
+                        }
+                    }
+                }
             }
         }
     }
-    .socialDivider {
-        box-shadow: $text-shadow-pink, $text-shadow-purple, $inset-text-shadow-pink, $inset-text-shadow-purple;
-        height: 2px;
-        background-color: transparent;
+    /*-------------------------------------------------------------------------Carousel----------------------------------------------------------------------------------*/
+    
+    .carouselIndex {
+        height: 68vh;
+        h2 {
+            font-size: $font-size-carouse-h2-lg;
+            font-style: italic;
+            text-shadow: 1px 1px 0px $color-black, 2px 2px 5px $color-white, 3px 3px 0px $color-black;
+        }
+        h3 {
+            font-size: $font-size-carousel-h3-lg;
+            font-weight: $font-weight-carousel;
+            font-style: italic;
+            text-shadow: 1px 1px 0px $color-black, 2px 2px 5px $color-white, 3px 3px 0px $color-black;
+        }
+        .firstComingSoon {
+            background-image: radial-gradient(circle at center center, rgb(71, 71, 71), rgb(8, 8, 8));
+        }
+        .secondComingSoon {
+            background-image: radial-gradient(circle at center center, rgb(15, 78, 199), rgb(21, 67, 172), rgb(27, 56, 145), rgb(33, 44, 118), rgb(39, 33, 91));
+        }
+        .thirdComingSoon {
+            background-image: radial-gradient(circle at center center, rgb(234, 238, 79), rgb(250, 124, 72));
+        }
+        .carousel-control-prev,
+        .carousel-control-next {
+            opacity: 0.2;
+            transition: 1s ease;
+            .carouselArrow {
+                font-size: 50px;
+            }
+        }
+        .carousel-control-prev {
+            transform: translateX(-40px);
+        }
+        .carousel-control-next {
+            transform: translateX(40px);
+        }
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            opacity: 1;
+            color: $color-white;
+            transform: scale(1.35);
+        }
+        .carousel-control-prev:hover {
+            text-shadow: 0px 0px 5px $color-purple, 0px 0px 10px $color-pink, -5px 3px 10px black, -5px -3px 10px black;
+        }
+        .carousel-control-next:hover {
+            text-shadow: 0px 0px 5px $color-purple, 0px 0px 10px $color-pink, 5px 3px 10px black, 5px -3px 10px black;
+        }
     }
-    .footerLinks {
-        a {
+    /*-------------------------------------------------------------------------Product----------------------------------------------------------------------------------*/
+    
+    .product {
+        .seeAllLink {
             &:hover {
                 text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
             }
         }
-    }
-}
-
-
-/*------------------------------------------------------------------------- Connexion ----------------------------------------------------------------------------------*/
-
-.logIn {
-    a {
-        &:hover {
-            text-decoration: none;
-            text-shadow: 1px 1px 0px $color-blue, 2px 2px 0px $color-purple, 2.5px 2.5px 0px $color-blue, $text-shadow-blue, $text-shadow-purple;
+        .homeProductTitle {
+            text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
         }
-    }
-}
-
-
-/*------------------------------------------------------------------------- Photo de Profil ----------------------------------------------------------------------------------*/
-
-.myAccountProfilPhoto {
-    aspect-ratio: 1;
-    width: 30vh;
-}
-
-.logoImageProfil {
-    font-size: 15rem;
-}
-
-.updateProfileImg {
-    aspect-ratio: 1;
-    width: 0vh;
-    position: absolute;
-    opacity: 0;
-    transition: 0.75s ease;
-}
-
-.inputfile {
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: 3;
-    aspect-ratio: 1;
-    width: 30vh;
-}
-
-.updateProfileImgContainer {
-    position: absolute;
-    z-index: 3;
-    aspect-ratio: 1;
-    width: 30vh;
-    top: 0;
-}
-
-.profileImageContainer {
-    position: relative;
-    &:hover {
-        .updateProfileImg {
-            aspect-ratio: 1;
-            width: 30vh;
-            background-color: #020402;
-            z-index: 2;
-            opacity: 0.85;
-            box-shadow: $inset-text-shadow-pink, $inset-text-shadow-blue, $inset-text-shadow-purple, $text-shadow-pink, $text-shadow-blue, $text-shadow-purple;
-        }
-    }
-}
-
-
-/*------------------------------------------------------------------------- Offres Profil ----------------------------------------------------------------------------------*/
-
-.myAccountOffers {
-    box-shadow: 0px 0px 10px 0px $color-pink, 0px 0px 10px 2px #6e41c0, inset 0px 0px 10px 0px #e840ba, inset 0px 0px 10px 2px #6e41c0;
-}
-
-
-/*-------------------------------------------------------------------------Liste d'envie----------------------------------------------------------------------------------*/
-
-.productEnvyList {
-    box-shadow: 0px 0px 5px 0px $color-pink, 0px 0px 10px 2px $color-pink, 0px 0px 10px 3px #6e41c0, inset 0px 0px 5px 0px #e840ba, inset 0px 0px 10px 2px #e840ba, inset 0px 0px 10px 3px #6e41c0;
-}
-
-
-/*-------------------------------------------------------------------------Description d'état----------------------------------------------------------------------------------*/
-
-#statusDescription {
-    height: 13vh;
-    resize: none;
-    &::-webkit-scrollbar {
-        width: 3px;
-    }
-    &::-webkit-scrollbar-track {
-        background-color: inherit;
-    }
-    &::-webkit-scrollbar-thumb {
-        border-radius: 20px;
-        background-color: $color-white;
-    }
-}
-
-
-/*-------------------------------------------------------------------------Admin sidebar----------------------------------------------------------------------------------*/
-
-.adminSidebar {
-    list-style: none;
-    height: 60vh;
-    font-size: 1.2rem;
-    li {
-        cursor: pointer;
-        &:hover {
-            background-color: $bg-second-color;
-            border-radius: 2%;
-            a {
-                text-shadow: $text-shadow-pink, $text-shadow-purple;
-                transform: scale(1.2);
-                margin-left: 30px;
+        .outer-Border-Article {
+            border: 1px solid $color-black;
+            border-radius: 5px;
+            color: $color-white;
+            .inner-Border-Article {
+                border-radius: 5px;
             }
-        }
-        &:active {
-            border-radius: 2%;
-            background-color: $bg-second-color;
-            a {
-                text-shadow: $text-shadow-pink, $text-shadow-purple;
-                transform: scale(1.2);
-                margin-left: 30px;
+            .inner-Border-Name {
+                p {
+                    margin: 0px;
+                }
+                border-radius: 5px;
             }
-        }
-    }
-    .gestionBtnActive {
-        border-radius: 2%;
-        background-color: $bg-second-color;
-        a {
-            text-shadow: $text-shadow-pink, $text-shadow-purple;
-            transform: scale(1.3);
-            margin-left: 45px;
-        }
-    }
-    .adminSubSidebar {
-        list-style: none;
-        background-color: #17052b;
-        li {
-            cursor: pointer;
+            .inner-Border-Price {
+                p {
+                    margin: 0px;
+                }
+                border-radius: 5px;
+            }
             &:hover {
-                background-color: $bg-color;
-                a {
-                    text-shadow: $text-shadow-pink, $text-shadow-purple;
+                box-shadow: 0px 0px 5px 1px $color-black, 0px 0px 10px 2px $color-black, 0px 0px 20px 5px $color-black;
+                transform: scale(1.05);
+            }
+        }
+    }
+    /*-------------------------------------------------------------------------Selector----------------------------------------------------------------------------------*/
+    
+    .selector {
+        box-shadow: 0px 0px 20px 2px $color-black;
+        .selector-left-banner {
+            background-image: radial-gradient(circle at center center, rgb(15, 78, 199), rgb(21, 67, 172), rgb(27, 56, 145), rgb(33, 44, 118), rgb(39, 33, 91));
+            height: 30vh;
+            &:hover {
+                z-index: 99;
+                box-shadow: 0px 0px 20px 2px $color-blue, inset 0px 0px 20px 2px $color-blue;
+                border: 3px solid $color-blue;
+                transform: scale(1.1);
+            }
+        }
+        .selector-right-banner {
+            background-image: radial-gradient(circle at center center, rgb(234, 238, 79), rgb(250, 124, 72));
+            height: 30vh;
+            &:hover {
+                z-index: 99;
+                box-shadow: 0px 0px 20px 2px $color-blue, inset 0px 0px 20px 2px $color-blue;
+                border: 3px solid $color-blue;
+                transform: scale(1.1);
+            }
+        }
+        h2 {
+            text-shadow: 1px 1px 0px $color-black, 2px 2px 5px $color-white, 3px 3px 0px $color-black;
+        }
+    }
+    /*------------------------------------------------------------------------- Footer ----------------------------------------------------------------------------------*/
+    
+    footer {
+        .row {
+            img {
+                width: 7vh;
+                animation: move 3s ease-out 4s infinite;
+                &:hover {
                     transform: scale(1.2);
-                    margin-left: 20px;
                 }
             }
         }
-        .gestionBtnActive {
-            a {
-                margin-left: 25px;
+        .socialDivider {
+            box-shadow: $text-shadow-pink, $text-shadow-purple, $inset-text-shadow-pink, $inset-text-shadow-purple;
+            height: 2px;
+            background-color: transparent;
+        }
+        .footerLinks {
+            a:hover {
+                text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
+            }
+            .footerLinksDashboard:hover {
+                text-shadow: 0.5px 0.5px 0px black, 0.75px 0.75px 0px gray, 1px 1px 0px black, 1px 1px 5px $color-black, 1px 1px 10px $color-white, 1px 1px 15px $color-black;
+            }
+            .footerLinksSignOut:hover {
+                text-shadow: 0.5px 0.5px 0px black, 0.75px 0.75px 0px gray, 1px 1px 0px black, 1px 1px 5px $color-black, 1px 1px 10px $color-white, 1px 1px 15px $color-black;
             }
         }
     }
-}
-
-
-/*-------------------------------------------------------------------------tableaux admin----------------------------------------------------------------------------------*/
-
-.tableAdmin {
-    tbody {
-        tr {
-            border-top: 1px solid $color-black;
+    
+    .shopRow {
+        min-height: 170vh;
+    }
+    
+    .page-link:hover {
+        text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
+        box-shadow: $inset-text-shadow-pink, $inset-text-shadow-blue, $inset-text-shadow-purple, $text-shadow-pink, $text-shadow-blue, $text-shadow-purple;
+    }
+    /*------------------------------------------------------------------------- Connexion ----------------------------------------------------------------------------------*/
+    
+    .logIn {
+        a {
+            &:hover {
+                text-decoration: none;
+                text-shadow: 1px 1px 0px $color-blue, 2px 2px 0px $color-purple, 2.5px 2.5px 0px $color-blue, $text-shadow-blue, $text-shadow-purple;
+            }
         }
     }
-}
-
-.tableDashboard {
-    height: 18vh;
-}
-
-.tableSeeAll {
-    height: 40vh;
-    overflow-y: scroll;
-    position: relative;
-    &::-webkit-scrollbar {
-        width: 1px;
-        height: 1px;
+    /*------------------------------------------------------------------------- Photo de Profil ----------------------------------------------------------------------------------*/
+    
+    .myAccountProfilPhoto {
+        aspect-ratio: 1;
+        width: 30vh;
     }
-    &::-webkit-scrollbar-track {
-        background-color: transparent;
+    
+    .logoImageProfil {
+        font-size: 12rem;
     }
-    &::-webkit-scrollbar-thumb {
-        border-radius: 20px;
-        background-color: $color-white;
+    
+    .updateProfileImg {
+        aspect-ratio: 1;
+        width: 0vh;
+        position: absolute;
+        opacity: 0;
+        transition: 0.75s ease;
     }
-    thead {
-        position: sticky;
+    
+    .inputfile {
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: 3;
+        aspect-ratio: 1;
+        width: 30vh;
+    }
+    
+    .updateProfileImgContainer {
+        position: absolute;
+        z-index: 3;
+        aspect-ratio: 1;
+        width: 30vh;
         top: 0;
-        background-color: $bg-color;
     }
-}
-
-
-/*-------------------------------------------------------------------------Selecteur d'image ----------------------------------------------------------------------------------*/
-
-.articleImageSelector {
-    img {
-        cursor: pointer;
-    }
-}
-
-.carouselArticle {
-    height: 55vh;
-}
-
-
-/*-------------------------------------------------------------------------Media----------------------------------------------------------------------------------*/
-
-@media screen AND (max-width: 1100px) {
-    .carousel {
-        height: 30vh;
-    }
-    .selector {
-        .selector-left-banner {
-            height: 20vh;
-        }
-        .selector-right-banner {
-            height: 20vh;
+    
+    .profileImageContainer {
+        position: relative;
+        &:hover {
+            .updateProfileImg {
+                aspect-ratio: 1;
+                width: 30vh;
+                background-color: #020402;
+                z-index: 2;
+                opacity: 0.85;
+                box-shadow: $inset-text-shadow-pink, $inset-text-shadow-blue, $inset-text-shadow-purple, $text-shadow-pink, $text-shadow-blue, $text-shadow-purple;
+            }
         }
     }
+    /*------------------------------------------------------------------------- Offres Profil ----------------------------------------------------------------------------------*/
+    
+    .myAccountOffers {
+        box-shadow: 0px 0px 10px 0px $color-pink, 0px 0px 10px 2px #6e41c0, inset 0px 0px 10px 0px #e840ba, inset 0px 0px 10px 2px #6e41c0;
+    }
+    /*-------------------------------------------------------------------------Liste d'envie----------------------------------------------------------------------------------*/
+    
+    .productEnvyList {
+        box-shadow: 0px 0px 5px 0px $color-pink, 0px 0px 10px 2px $color-pink, 0px 0px 10px 3px #6e41c0, inset 0px 0px 5px 0px #e840ba, inset 0px 0px 10px 2px #e840ba, inset 0px 0px 10px 3px #6e41c0;
+    }
+    /*-------------------------------------------------------------------------Description d'état----------------------------------------------------------------------------------*/
+    
+    #statusDescription {
+        height: 13vh;
+        resize: none;
+        &::-webkit-scrollbar {
+            width: 3px;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: inherit;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 20px;
+            background-color: $color-white;
+        }
+    }
+    /*-------------------------------------------------------------------------Admin sidebar----------------------------------------------------------------------------------*/
+    
     .adminSidebar {
-        height: 70vh;
-        font-size: 1.1rem;
+        list-style: none;
+        height: 60vh;
+        font-size: 1.2rem;
         li {
             cursor: pointer;
             &:hover {
                 background-color: $bg-second-color;
+                border-radius: 2%;
                 a {
-                    transform: scale(1.1);
-                    margin-left: 10px;
+                    text-shadow: 1px 1px 0px $color-blue, 1.5px 1.5px 0px $color-pink, 2px 2px 0px $color-purple, 2.5px 2.5px 1px $color-pink, 3px 3px 1px $color-purple, 3.5px 3.5px 1px $color-pink, $text-shadow-pink, $text-shadow-purple, $text-shadow-pink, $text-shadow-purple;
+                    transform: scale(1.2);
+                    margin-left: 30px;
                 }
             }
             &:active {
+                border-radius: 2%;
                 background-color: $bg-second-color;
                 a {
-                    text-shadow: $text-shadow-pink, $text-shadow-purple;
-                    transform: scale(1.1);
-                    margin-left: 10px;
+                    text-shadow: 1px 1px 0px $color-blue, 1.5px 1.5px 0px $color-pink, 2px 2px 0px $color-purple, 2.5px 2.5px 1px $color-pink, 3px 3px 1px $color-purple, 3.5px 3.5px 1px $color-pink, $text-shadow-pink, $text-shadow-purple, $text-shadow-pink, $text-shadow-purple;
+                    transform: scale(1.2);
+                    margin-left: 30px;
                 }
             }
         }
         .gestionBtnActive {
+            border-radius: 2%;
             background-color: $bg-second-color;
             a {
-                text-shadow: $text-shadow-pink, $text-shadow-purple;
-                transform: scale(1.2);
-                margin-left: 25px;
+                text-shadow: 1px 1px 0px $color-blue, 2px 2px 0px $color-purple, 2.5px 2.5px 0px $color-blue, $text-shadow-blue, $text-shadow-purple;
+                transform: scale(1.3);
+                margin-left: 45px;
             }
         }
         .adminSubSidebar {
@@ -589,109 +485,223 @@ footer {
                 &:hover {
                     background-color: $bg-color;
                     a {
-                        text-shadow: $text-shadow-pink, $text-shadow-purple;
+                        text-shadow: 1px 1px 0px $color-blue, 1.5px 1.5px 0px $color-pink, 2px 2px 0px $color-purple, 2.5px 2.5px 1px $color-pink, 3px 3px 1px $color-purple, 3.5px 3.5px 1px $color-pink, $text-shadow-pink, $text-shadow-purple, $text-shadow-pink, $text-shadow-purple;
+                        transform: scale(1.2);
+                        margin-left: 20px;
+                    }
+                }
+            }
+            .gestionBtnActive {
+                a {
+                    margin-left: 25px;
+                }
+            }
+        }
+    }
+    /*-------------------------------------------------------------------------tableaux admin----------------------------------------------------------------------------------*/
+    
+    .tableAdmin {
+        tbody {
+            tr {
+                border-top: 1px solid $color-black;
+            }
+        }
+    }
+    
+    .tableDashboard {
+        height: 18vh;
+    }
+    
+    .tableSeeAll {
+        height: 40vh;
+        overflow-y: scroll;
+        position: relative;
+        &::-webkit-scrollbar {
+            width: 1px;
+            height: 1px;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 20px;
+            background-color: $color-white;
+        }
+        thead {
+            position: sticky;
+            top: 0;
+            background-color: $bg-color;
+        }
+    }
+    /*-------------------------------------------------------------------------Selecteur d'image ----------------------------------------------------------------------------------*/
+    
+    .articleImageSelector {
+        img {
+            cursor: pointer;
+        }
+    }
+    
+    .carouselArticle {
+        height: 55vh;
+    }
+    
+    .opinionGrade:hover {
+        text-shadow: 1px 1px 0px $color-blue, 2px 2px 0px $color-purple, 2.5px 2.5px 0px $color-blue, $text-shadow-blue, $text-shadow-purple;
+    }
+    /*-------------------------------------------------------------------------Media----------------------------------------------------------------------------------*/
+    
+    @media screen AND (max-width: 1100px) {
+        .carousel {
+            height: 30vh;
+        }
+        .selector {
+            .selector-left-banner {
+                height: 20vh;
+            }
+            .selector-right-banner {
+                height: 20vh;
+            }
+        }
+        .adminSidebar {
+            height: 70vh;
+            font-size: 1.1rem;
+            li {
+                cursor: pointer;
+                &:hover {
+                    background-color: $bg-second-color;
+                    a {
+                        transform: scale(1.1);
+                        margin-left: 10px;
+                    }
+                }
+                &:active {
+                    background-color: $bg-second-color;
+                    a {
+                        text-shadow: 1px 1px 0px $color-blue, 1.5px 1.5px 0px $color-pink, 2px 2px 0px $color-purple, 2.5px 2.5px 1px $color-pink, 3px 3px 1px $color-purple, 3.5px 3.5px 1px $color-pink, $text-shadow-pink, $text-shadow-purple, $text-shadow-pink, $text-shadow-purple;
                         transform: scale(1.1);
                         margin-left: 10px;
                     }
                 }
             }
             .gestionBtnActive {
+                background-color: $bg-second-color;
                 a {
-                    margin-left: 10px;
+                    text-shadow: 1px 1px 0px $color-blue, 2px 2px 0px $color-purple, 2.5px 2.5px 0px $color-blue, $text-shadow-blue, $text-shadow-purple;
+                    transform: scale(1.2);
+                    margin-left: 25px;
+                }
+            }
+            .adminSubSidebar {
+                list-style: none;
+                background-color: #17052b;
+                li {
+                    cursor: pointer;
+                    &:hover {
+                        background-color: $bg-color;
+                        a {
+                            text-shadow: 1px 1px 0px $color-blue, 1.5px 1.5px 0px $color-pink, 2px 2px 0px $color-purple, 2.5px 2.5px 1px $color-pink, 3px 3px 1px $color-purple, 3.5px 3.5px 1px $color-pink, $text-shadow-pink, $text-shadow-purple, $text-shadow-pink, $text-shadow-purple;
+                            transform: scale(1.1);
+                            margin-left: 10px;
+                        }
+                    }
+                }
+                .gestionBtnActive {
+                    a {
+                        margin-left: 10px;
+                    }
                 }
             }
         }
-    }
-    .imgNavbarLogIn {
-        height: 2rem;
-    }
-}
-
-//media pour 700 pixel
-@media screen AND (max-width: 700px) {
-    .carousel {
-        height: 15vh;
-        h2 {
-            font-size: $font-size-carousel-h2-md;
-        }
-        h3 {
-            font-size: $font-size-carousel-h3-md;
+        .imgNavbarLogIn {
+            height: 2rem;
         }
     }
-    .navbar {
-        .businessName {
-            font-size: $font-size-carousel-h2-md;
+    
+    //media pour 700 pixel
+    @media screen AND (max-width: 700px) {
+        .carouselIndex {
+            height: 15vh;
+            h2 {
+                font-size: $font-size-carousel-h2-md;
+            }
+            h3 {
+                font-size: $font-size-carousel-h3-md;
+            }
         }
-        &.secondNavbar {
-            display: none;
-        }
-        #firstNavbar {
-            .nav-link {
-                font-size: $font-size-carousel-p-lg;
-                font-style: oblique;
-                color: $color-white;
-                &:hover {
+        .navbar {
+            .businessName {
+                font-size: $font-size-carousel-h2-md;
+            }
+            &.secondNavbar {
+                display: none;
+            }
+            #firstNavbar {
+                .nav-link {
+                    font-size: $font-size-carousel-p-lg;
+                    font-style: oblique;
                     color: $color-white;
+                    &:hover {
+                        color: $color-white;
+                    }
                 }
             }
+            #subNavbar {
+                padding: auto;
+                width: 100%;
+                height: 100vh;
+                z-index: 1500;
+            }
         }
-        #subNavbar {
-            padding: auto;
-            width: 100%;
-            height: 100vh;
-            z-index: 1500;
+        #statusDescription {
+            height: 25vh;
         }
-    }
-    #statusDescription {
-        height: 25vh;
-    }
-    /*-------------------------------------------------------------------------Selector----------------------------------------------------------------------------------*/
-    .selector {
-        .selector-left-banner {
-            height: 15vh;
+        /*-------------------------------------------------------------------------Selector----------------------------------------------------------------------------------*/
+        .selector {
+            .selector-left-banner {
+                height: 15vh;
+            }
+            .selector-right-banner {
+                height: 15vh;
+            }
         }
-        .selector-right-banner {
-            height: 15vh;
-        }
-    }
-    .carouselArticle {
-        height: 38vh;
-    }
-}
-
-//media pour 400 pixel
-@media screen AND (max-width: 400px) {
-    .imgLanguage {
-        width: 4vh;
-    }
-    .navbar {
-        .businessName {
-            font-size: $font-size-carousel-h3-md;
+        .carouselArticle {
+            height: 33vh;
         }
     }
-    .carousel {
-        h2 {
-            font-size: $font-size-carousel-h2-sm;
+    
+    //media pour 400 pixel
+    @media screen AND (max-width: 400px) {
+        .imgLanguage {
+            width: 4vh;
         }
-        h3 {
-            font-size: $font-size-carousel-h3-sm;
+        .navbar {
+            .businessName {
+                font-size: $font-size-carousel-h3-md;
+            }
+        }
+        .carouselIndex {
+            h2 {
+                font-size: $font-size-carousel-h2-sm;
+            }
+            h3 {
+                font-size: $font-size-carousel-h3-sm;
+            }
+        }
+        .product {
+            h3 {
+                font-size: $font-size-carousel-h3-sm;
+            }
+            p {
+                font-size: $font-size-carousel-p-sm;
+            }
+            a {
+                font-size: $font-size-carousel-p-sm;
+            }
+        }
+        #statusDescription {
+            height: 36vh;
+        }
+        .imgNavbarLogIn {
+            height: 1rem;
         }
     }
-    .product {
-        h3 {
-            font-size: $font-size-carousel-h3-sm;
-        }
-        p {
-            font-size: $font-size-carousel-p-sm;
-        }
-        a {
-            font-size: $font-size-carousel-p-sm;
-        }
-    }
-    #statusDescription {
-        height: 36vh;
-    }
-    .imgNavbarLogIn {
-        height: 1rem;
-    }
-}

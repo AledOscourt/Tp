@@ -33,7 +33,7 @@ class database
                  * Je crée un objet PDO avec ma phrase de connexion qui contient le nom de ma base de données, le nom de mon serveur,
                  * mon nom d'utilisateur et mon mot de passe
                  */
-                self::$db = new PDO('mysql:host=localhost; dbname=collectingpop', 'root', 'Aled2525');
+                self::$db = new PDO('mysql:host=localhost; dbname=collectingpop;charset=UTF8', 'root', 'Aled2525');
                 /**
                  * Petite nouveauté : on donne à l'attribut db (qui est un objet PDO) le mode d'erreur exception
                  * ça veut dire que chaque erreur deviendra une exception

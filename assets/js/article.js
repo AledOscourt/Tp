@@ -128,7 +128,85 @@ window.onmouseover = () => {
     }
 }
 
-deletePops.addEventListener('show.bs.modal', function(event) {
+descriptionBtn.onclick = () => {
+    description.classList.remove('d-none');
+    opinion.classList.add('d-none');
+    if (opinionBtn.classList.contains('active')) {
+        opinionBtn.classList.remove('active');
+        descriptionBtn.classList.add('active');
+    }
+
+}
+opinionBtn.onclick = () => {
+    description.classList.add('d-none');
+    opinion.classList.remove('d-none');
+    if (descriptionBtn.classList.contains('active')) {
+        descriptionBtn.classList.remove('active');
+        opinionBtn.classList.add('active');
+    }
+}
+
+starContainer1.onclick = () => {
+    star1.classList.add('fas');
+    star1.classList.remove('far');
+    star2.classList.add('far');
+    star2.classList.remove('fas');
+    star3.classList.add('far');
+    star3.classList.remove('fas');
+    star4.classList.add('far');
+    star4.classList.remove('fas');
+    star5.classList.add('far');
+    star5.classList.remove('fas');
+}
+starContainer2.onclick = () => {
+    star2.classList.add('fas');
+    star2.classList.remove('far');
+    star1.classList.add('fas');
+    star1.classList.remove('far');
+    star3.classList.add('far');
+    star3.classList.remove('fas');
+    star4.classList.add('far');
+    star4.classList.remove('fas');
+    star5.classList.add('far');
+    star5.classList.remove('fas');
+}
+starContainer3.onclick = () => {
+    star3.classList.add('fas');
+    star3.classList.remove('far');
+    star2.classList.add('fas');
+    star2.classList.remove('far');
+    star1.classList.add('fas');
+    star1.classList.remove('far');
+    star4.classList.add('far');
+    star4.classList.remove('fas');
+    star5.classList.add('far');
+    star5.classList.remove('fas');
+}
+starContainer4.onclick = () => {
+    star4.classList.add('fas');
+    star4.classList.remove('far');
+    star3.classList.add('fas');
+    star3.classList.remove('far');
+    star2.classList.add('fas');
+    star2.classList.remove('far');
+    star1.classList.add('fas');
+    star1.classList.remove('far');
+    star5.classList.add('far');
+    star5.classList.remove('fas');
+}
+starContainer5.onclick = () => {
+    star4.classList.add('fas');
+    star4.classList.remove('far');
+    star5.classList.add('fas');
+    star5.classList.remove('far');
+    star3.classList.add('fas');
+    star3.classList.remove('far');
+    star2.classList.add('fas');
+    star2.classList.remove('far');
+    star1.classList.add('fas');
+    star1.classList.remove('far');
+}
+deleteOpinions.addEventListener('show.bs.modal', function(event) {
     // Button that triggered the modal
     var button = event.relatedTarget
         // Extract info from data-bs-* attributes
@@ -137,5 +215,5 @@ deletePops.addEventListener('show.bs.modal', function(event) {
         // and then do the updating in a callback.
         //
         // Update the modal's content.
-    deletePop.value = recipient;
+    deleteOpinion.value = recipient;
 })

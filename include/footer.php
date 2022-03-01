@@ -39,7 +39,7 @@
                 <a class="text-decoration-none text-white" href="#">Anime</a>
                 <a class="text-decoration-none text-white" href="#">Gaming</a>
                 <a class="text-decoration-none text-white" href="#">Dessin anime</a>
-                <a class="text-decoration-none text-white" href="Boutique">See All</a>
+                <a class="text-decoration-none text-white" href="Boutique-1">See All</a>
             </div>
         </div>
         <div class="d-grid col-md text-center mb-md mb-2">
@@ -48,7 +48,7 @@
                 <a class="text-decoration-none text-white" href="#">One Piece</a>
                 <a class="text-decoration-none text-white" href="#">SNK</a>
                 <a class="text-decoration-none text-white" href="#">Simpsons</a>
-                <a class="text-decoration-none text-white" href="Boutique">See All</a>
+                <a class="text-decoration-none text-white" href="Boutique-1">See All</a>
             </div>
         </div>
         <?php if ($_SESSION) { ?>
@@ -58,9 +58,9 @@
                     <a class="text-decoration-none text-white" href="Profil">Profil</a>
                     <a class="text-decoration-none text-white" href="Liste_d-envie">Liste d'envie</a>
                     <?php if ($_SESSION['user']->id_roles == 1) { ?>
-                        <a class="text-decoration-none text-secondary" href="Dashboard">Dashboard</a>
+                        <a class="text-decoration-none footerLinksDashboard text-secondary" href="Dashboard">Dashboard</a>
                     <?php } ?>
-                    <a class="text-decoration-none text-danger" href="signOut.php">Deconnexion</a>
+                    <a class="text-decoration-none text-danger footerLinksSignOut" href="signOut.php">Deconnexion</a>
                 </div>
             </div>
         <?php } ?>
@@ -77,6 +77,7 @@
 <!--**********************************************************************Script*********************************************************************** -->
 <script src="https://kit.fontawesome.com/17e4bc2abc.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -96,6 +97,8 @@
     <script src="assets/js/popsGestion.js"></script>
 <?php } else if ($_SERVER['PHP_SELF'] == '/TP/admin/usersGestion.php') { ?>
     <script src="assets/js/userGestion.js"></script>
+    <?php } else if ($_SERVER['PHP_SELF'] == '/TP/article.php') { ?>
+    <script src="assets/js/article.js"></script>
 <?php } else { ?>
     <script src="assets/js/script.js"></script>
 <?php } ?>

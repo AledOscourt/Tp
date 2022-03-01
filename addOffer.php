@@ -8,12 +8,12 @@ require_once 'models/imagesModel.php';
 require_once 'models/offersModel.php';
 require_once 'models/statusModel.php';
 require_once 'models/transaction.php';
-require_once 'controllers/offerController.php';
+require_once 'controllers/addOfferController.php';
 require_once 'include/header.php'; ?>
 
-<form action="Ajout_d-offre" method="POST" class="container my-5 d-grid gap-2 logIn" enctype="multipart/form-data">
+<form action="Ajout-d-offre" method="POST" class="container my-5 d-grid gap-2 logIn" enctype="multipart/form-data">
     <div class="row">
-        <h3 class="text-center fs-1 text-white mb-3">Ordre de vente</h3>
+        <h3 class="text-center fs-1 text-white mb-3 pagesTitles">Ordre de vente</h3>
     </div>
     <div class="row d-flex justify-content-end mb-4">
         <button type="button" class="btn btn-outline-secondary col-auto" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover" data-bs-html="true" data-bs-content="Il faut saisir au moins le nom <br /> de la pop ou son numéro">
@@ -120,7 +120,7 @@ require_once 'include/header.php'; ?>
         </div>
     </div>
     <div class="row mx-lg-5 mx-2 justify-content-around mt-5">
-        <a type="button" class="btn btn-outline-secondary col-lg-3 col-5" href="Profil">Annuler</a>
+        <a type="button" class="btn btn-outline-secondary col-lg-3 col-5" href="Profil-1">Annuler</a>
         <button type="submit" class="btn btn-outline-primary col-lg-3 col-5">Confirmer</button>
     </div>
 

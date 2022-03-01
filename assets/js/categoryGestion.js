@@ -17,7 +17,7 @@ function categoryNavbar() {
             secondNavLink.classList.add('nav-link')
             secondNavLink.innerText = categoryLink[i];
         }
-        secondNavList.lastChild.firstChild.setAttribute('href', 'Boutique');
+        secondNavList.lastChild.firstChild.setAttribute('href', 'Boutique-1');
     } else {
         for (let i = 0; i < categoryLink.length; i++) {
             let subNavLi = document.createElement('li');
@@ -28,36 +28,11 @@ function categoryNavbar() {
             subNavLink.classList.add('nav-link')
             subNavLink.innerText = categoryLink[i];
         }
-        subSubNavbar.lastElementChild.setAttribute('href', 'Boutique');
+        subSubNavbar.lastElementChild.setAttribute('href', 'Boutique-1');
     }
 }
 //Créer les élement de la seconde navbar avec leurs attributs pour franchise
-function brandNavbar() {
-    if (window.innerWidth > 756) {
-        secondNavbar.classList.remove('d-none');
-        for (let i = 0; i < brandLink.length; i++) {
-            let secondNavLi = document.createElement('li');
-            secondNavList.appendChild(secondNavLi);
-            secondNavLi.classList.add('nav-item', 'col')
-            let secondNavLink = document.createElement('a');
-            secondNavLi.appendChild(secondNavLink);
-            secondNavLink.classList.add('nav-link')
-            secondNavLink.innerText = brandLink[i];
-        }
-        secondNavList.lastChild.firstChild.setAttribute('href', 'Boutique');
-    } else {
-        for (let i = 0; i < brandLink.length; i++) {
-            let subNavLi = document.createElement('li');
-            subSubNavbar.appendChild(subNavLi);
-            subNavLi.classList.add('nav-item', 'col')
-            let subNavLink = document.createElement('a');
-            subSubNavbar.appendChild(subNavLink);
-            subNavLink.classList.add('nav-link')
-            subNavLink.innerText = brandLink[i];
-        }
-        subSubNavbar.lastElementChild.setAttribute('href', 'Boutique');
-    }
-}
+
 //Créer les élement de la seconde navbar avec leurs attributs pour exclusivité
 function exclusivityNavbar() {
     if (window.innerWidth > 756) {
@@ -94,7 +69,6 @@ function exclusivityNavbar() {
 
 //tableaux des links
 let categoryLink = ['Anime', 'Comics', 'Dessin Animé', 'Gaming', 'Music', 'Movie', 'Serie', 'See All'];
-let brandLink = ['One Piece', 'Simpsons', 'Game Of Thrones', 'Rick & Morty', 'Borderlands', 'Star War', 'Attack on Titans', 'See All'];
 let exclusivityLink = ['Rare', 'Mini', 'Géant', 'Perfect'];
 
 
@@ -113,29 +87,22 @@ window.onmouseover = () => {
         subNavbar.classList.add('d-none');
 
         category.onmouseover = () => {
-                secondNavList.innerHTML = ' ';
-                categoryNavbar()
-            }
-            //
-        brand.onmouseover = () => {
-                secondNavList.innerHTML = ' ';
-                brandNavbar()
-
-            }
-            //
+            secondNavList.innerHTML = ' ';
+            categoryNavbar()
+        }
         exclusivity.onmouseover = () => {
-                secondNavList.innerHTML = ' ';
-                exclusivityNavbar();
-            }
-            //
+            secondNavList.innerHTML = ' ';
+            exclusivityNavbar();
+        }
         comingSoon.onmouseover = () => {
             secondNavbar.classList.add('d-none');
-        };
-        //
+        }
+        shop.onmouseover = () => {
+            secondNavbar.classList.add('d-none');
+        }
         secondNavList.onmouseleave = () => {
             secondNavbar.classList.add('d-none');
-        };
-        //
+        }
         header.onmouseover = () => {
             secondNavbar.classList.add('d-none');
         }
@@ -151,28 +118,16 @@ window.onmouseover = () => {
             subNavbar.classList.add('d-none');
             firstNavbar.classList.remove('d-none')
         }
-        brand.onclick = () => {
-            subNavbar.classList.remove('d-none');
-            firstNavbar.classList.add('d-none');
-            subSubNavbar.innerHTML = ' ';
-            brandNavbar()
-        }
-        navBackButton.onclick = () => {
-            subNavbar.classList.add('d-none');
-            firstNavbar.classList.remove('d-none')
-        }
         exclusivity.onclick = () => {
             subNavbar.classList.remove('d-none');
             firstNavbar.classList.add('d-none');
             subSubNavbar.innerHTML = ' ';
             exclusivityNavbar()
         }
-        navBackButton.onclick = () => {
-            subNavbar.classList.add('d-none');
-            firstNavbar.classList.remove('d-none')
-        }
+
     }
 }
+
 deleteCategories.addEventListener('show.bs.modal', function(event) {
     // Button that triggered the modal
     var button = event.relatedTarget

@@ -1,15 +1,16 @@
-<?php 
+<?php
 session_start();
 $pagesTitle = 'Accueil';
-require_once 'include/header.php';
 require_once 'models/database.php';
-require_once 'models/usersModel.php'; 
+require_once 'models/offersModel.php';
+require_once 'controllers/indexController.php';
+require_once 'include/header.php';
 ?>
 
 
 
 <!--**********************************************************************Carousel*********************************************************************** -->
-<div id="carouselControls" class="carousel slide carousel-fade mb-3 " data-bs-touch="true" data-bs-ride="carousel">
+<div id="carouselControls" class="carousel slide carousel-fade mb-3 carouselIndex" data-bs-touch="true" data-bs-ride="carousel">
     <div class="carousel-inner h-100">
         <!------------------------------------------------------- Premiere slide du carousel ---------------------------------------------------------------------->
         <div class="carousel-item active text-center firstComingSoon h-100" data-bs-interval="3500">
@@ -59,43 +60,23 @@ require_once 'models/usersModel.php';
 <div class="container-fluid product ">
     <div class="row mb-2 mx-3 text-white align-items-center">
         <h3 class="col homeProductTitle">New</h3>
-        <div class="col text-end"> <a class="text-white seeAllLink" href="Boutique">Voir Tout</a></div>
+        <div class="col text-end"> <a class="text-white seeAllLink" href="Boutique-1">Voir Tout</a></div>
     </div>
     <!------------------------------------------------------------------ Produit ------------------------------------------------------------------------------------>
-    <div class="row justify-content-lg-between justify-content-center px-lg-4 mx-lg-5 mx-0 mb-5 gap-3">
-        <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1  text-decoration-none " href="" data-aos="zoom-out-up" data-aos-duration="850">
-            <img src="assets/img/simpsonItchy.png" class="w-100 h-75 inner-Border-Article my-2" alt="Itchy" />
-            <div class="d-flex justify-content-between text-center ">
-                <div class="inner-Border-Name col-7 col-sm-8 col-md-7 align-items-center justify-content-center p-xl-2 p-md-1">
-                    <p>Itchy</p>
+    <div class="row justify-content-lg-between justify-content-center px-lg-4 mx-lg-5 mx-0 mb-5 gap-3 row-cols-3">
+        <?php foreach ($offerNewList as $o) { ?>
+            <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1  text-decoration-none " href="Article-<?= $o->id; ?>" data-aos="zoom-out-up" data-aos-duration="850">
+                <img src="uploads/<?= $o->officialPopImageInTheBox; ?>" class="w-100 h-75 inner-Border-Article my-2" alt="Itchy" />
+                <div class="d-flex justify-content-between text-center ">
+                    <div class="inner-Border-Name col-7 col-sm-8 col-md-7 align-items-center justify-content-center p-xl-2 p-md-1">
+                        <p><?= $o->name; ?></p>
+                    </div>
+                    <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
+                        <p><?= $o->price; ?>&nbsp;€</p>
+                    </div>
                 </div>
-                <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                    <p>14.99€</p>
-                </div>
-            </div>
-        </a>
-        <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1 ms-sm-3 ms-lg-0  text-decoration-none" href="" data-aos="zoom-out-up" data-aos-duration="850">
-            <img src="assets/img/gokuUltraInstint-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Goku ultra instinct" />
-            <div class="d-flex justify-content-between text-center text-white">
-                <div class="inner-Border-Name col-7 col-sm-8 col-md-7  align-items-center justify-content-center p-xl-2 p-1">
-                    <p>Goku Ultra Instinct</p>
-                </div>
-                <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                    <p>14.99€</p>
-                </div>
-            </div>
-        </a>
-        <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1 ms-sm-3 ms-lg-0  text-decoration-none" href="" data-aos="zoom-out-up" data-aos-duration="850">
-            <img src="assets/img/disneyRapunzel-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Rapunzel" />
-            <div class="d-flex justify-content-between text-center">
-                <div class="inner-Border-Name col-7 col-sm-8 col-md-7  align-items-center justify-content-center p-xl-2 p-1">
-                    <p>Rapunzel</p>
-                </div>
-                <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                    <p>14.99€</p>
-                </div>
-            </div>
-        </a>
+            </a>
+        <?php } ?>
     </div>
 </div>
 
@@ -105,44 +86,24 @@ require_once 'models/usersModel.php';
 <div class="container-fluid product">
     <div class="row mb-2 mx-3 text-white align-items-center">
         <h3 class="col homeProductTitle">Populaire</h3>
-        <div class="col text-end"> <a class="text-white seeAllLink" href="Boutique">Voir Tout</a></div>
+        <div class="col text-end"> <a class="text-white seeAllLink" href="Boutique-1">Voir Tout</a></div>
     </div>
     <!------------------------------------------------------------------ Produit ------------------------------------------------------------------------------------>
 
     <div class="row justify-content-lg-between justify-content-center px-lg-4 mx-lg-5 mx-0 mb-5 gap-3">
-        <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1  text-decoration-none " href="" data-aos="zoom-out-up" data-aos-duration="850">
-            <img src="assets/img/simpsonItchy.png" class="w-100 h-75 inner-Border-Article my-2" alt="Itchy" />
-            <div class="d-flex justify-content-between text-center ">
-                <div class="inner-Border-Name col-7 col-sm-8 col-md-7 align-items-center justify-content-center p-xl-2 p-md-1">
-                    <p>Itchy</p>
+        <?php foreach ($offerPopularList as $o) { ?>
+            <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1  text-decoration-none " href="Article-<?= $o->id; ?>" data-aos="zoom-out-up" data-aos-duration="850">
+                <img src="uploads/<?= $o->officialPopImageInTheBox; ?>" class="w-100 h-75 inner-Border-Article my-2" alt="Itchy" />
+                <div class="d-flex justify-content-between text-center ">
+                    <div class="inner-Border-Name col-7 col-sm-8 col-md-7 align-items-center justify-content-center p-xl-2 p-md-1">
+                        <p><?= $o->name; ?></p>
+                    </div>
+                    <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
+                        <p><?= $o->price; ?>&nbsp;€</p>
+                    </div>
                 </div>
-                <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                    <p>14.99€</p>
-                </div>
-            </div>
-        </a>
-        <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1 ms-sm-3 ms-lg-0  text-decoration-none" href="" data-aos="zoom-out-up" data-aos-duration="850">
-            <img src="assets/img/gokuUltraInstint-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Goku ultra instinct" />
-            <div class="d-flex justify-content-between text-center text-white">
-                <div class="inner-Border-Name col-7 col-sm-8 col-md-7  align-items-center justify-content-center p-xl-2 p-1">
-                    <p>Goku Ultra Instinct</p>
-                </div>
-                <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                    <p>14.99€</p>
-                </div>
-            </div>
-        </a>
-        <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-1 ms-sm-3 ms-lg-0  text-decoration-none" href="" data-aos="zoom-out-up" data-aos-duration="850">
-            <img src="assets/img/disneyRapunzel-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Rapunzel" />
-            <div class="d-flex justify-content-between text-center">
-                <div class="inner-Border-Name col-7 col-sm-8 col-md-7  align-items-center justify-content-center p-xl-2 p-1">
-                    <p>Rapunzel</p>
-                </div>
-                <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                    <p>14.99€</p>
-                </div>
-            </div>
-        </a>
+            </a>
+        <?php } ?>
     </div>
 </div>
 
@@ -155,14 +116,14 @@ require_once 'models/usersModel.php';
     <div class="row" data-aos="fade-up" data-aos-duration="500">
         <a class="d-flex col-md align-items-center text-center selector-left-banner text-decoration-none" href="Nouveauté">
             <img src="assets/img/disneyRapunzel-removebg-preview.png " class="col-7 ms-lg-5 py-2 w-50 img-fluid" alt="Disney Rapunzel ">
-            <div class="col-4 ms-lg-5 ms-3" data-aos="zoom-in" data-aos-duration="2500">
+            <div class="col-4 ms-lg-5 ms-3 text-white" data-aos="zoom-in" data-aos-duration="2500">
                 <h2> Coming</h2>
                 <h2>Soon</h2>
             </div>
         </a>
         <a class="d-flex col-md align-items-center text-center selector-right-banner text-decoration-none" href="Boutique">
             <img src="assets/img/disneyRapunzel-removebg-preview.png " class="col-7 ms-lg-5 py-2 w-50 img-fluid" alt="Disney Rapunzel ">
-            <div class="col-4 ms-lg-5 ms-3" data-aos="zoom-in" data-aos-duration="2500">
+            <div class="col-4 ms-lg-5 ms-3 text-white" data-aos="zoom-in" data-aos-duration="2500">
                 <h2>Boutique</h2>
             </div>
         </a>

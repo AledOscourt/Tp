@@ -16,14 +16,14 @@ RewriteRule ^admin_modification_pops_([0-9]+)$   admin/updatePop.php?id=$1
 RewriteRule ^admin_profil_pop_([0-9]+)$   admin/popProfile.php?id=$1
 
 
-RewriteRule ^Article$   articleTest.php
+RewriteRule ^Article-([0-9]+)$   article.php?id=$1
 RewriteRule ^Nouveauté$   comingSoon.php
-RewriteRule ^Liste_d-envie$   envyList.php
+RewriteRule ^Liste-d-envie$   envyList.php
 RewriteRule ^Accueil$   index.php
-RewriteRule ^Modification_profil$   modifUsers.php
-RewriteRule ^Modification_image-de-profil$   updateProfileImage.php
-RewriteRule ^Ajout_d-offre$   offer.php
-RewriteRule ^Profil$   profile.php
-RewriteRule ^Boutique$   shop.php
+RewriteRule ^Ajout-d-offre$   addOffer.php
+RewriteRule ^Profil-([0-9]+)$   profile.php?page=$1
+RewriteRule ^Boutique-([0-9]+)$   shop.php?page=$1
 RewriteRule ^Inscription$   register.php
 RewriteRule ^Connexion$   logIn.php
+RewriteRule ^Modification-offres_([0-9]+)$   updateOffer.php?id=$1
+RewriteRule ^Voir-l-offre_([0-9]+)$   offerView.php?id=$1

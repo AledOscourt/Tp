@@ -18,5 +18,14 @@ class images extends database
         $queryPrepare->bindValue(':id_offers', $this->id_offers, PDO::PARAM_INT);
         return $queryPrepare->execute();
     }
-    
+    public function getImagesByOffer()
+    {
+        $query = 'SELECT `image`
+        FROM s4u3u_images 
+        WHERE id_offers=:id_offers';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':id_offers', $this->id_offers, PDO::PARAM_INT);
+        $queryPrepare->execute();
+        return $queryPrepare->fetchALL(PDO::FETCH_OBJ);
+    }
 }

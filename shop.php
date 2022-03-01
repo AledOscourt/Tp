@@ -1,8 +1,11 @@
 <?php
 session_start();
 $pagesTitle = 'Boutique';
- require_once 'include/header.php';
- ?>
+require_once 'models/database.php';
+require_once 'models/offersModel.php';
+require_once 'controllers/shopController.php';
+require_once 'include/header.php';
+?>
 <!--**********************************************************************Shop*********************************************************************** -->
 <!------------------------------------------------------- title ---------------------------------------------------------------------->
 <div class="container-fluid my-md-5 my-3">
@@ -25,13 +28,13 @@ $pagesTitle = 'Boutique';
             </select>
         </div>
     </div>
-    <div class="row">
+    <div class="row my-3">
         <div class="col-md-3 ms-md-5 bg-dark my-md-0 mb-4">
             <div class="col-12 d-md-none d-flex align-items-center bg-dark py-2">
-            <button class="navbar-toggler btn" type="button" id="sortSelectorCollapse">
-                <span class="align-self-center text-white"><i class="fas fa-bars"></i></span>
-            </button>
-            <h3 class="col text-center text-white">Selecteur de trie</h3>
+                <button class="navbar-toggler btn" type="button" id="sortSelectorCollapse">
+                    <span class="align-self-center text-white"><i class="fas fa-bars"></i></span>
+                </button>
+                <h3 class="col text-center text-white">Selecteur de trie</h3>
             </div>
             <!------------------------------------------------------- formulaire des choix ---------------------------------------------------------------------->
             <div class=" d-md-grid d-none" id="sortSelector">
@@ -96,250 +99,62 @@ $pagesTitle = 'Boutique';
                         </li>
                     </ul>
                 </fieldset>
-                <input type="submit" value="Rechercher" class="col-md-6 mx-auto btn btn-outline-primary mt-4">
+                <input type="submit" value="Rechercher" class="col-md-6 mx-auto btn btn-outline-primary my-4">
             </div>
         </div>
-        <div class="d-grid col">
+        <div class="col container-fluid">
             <!------------------------------------------------------- pagination top ---------------------------------------------------------------------->
-            <div class="row me-md-2 mt-2">
-                <nav aria-label="Page navigation">
+            <div class="row mt-2">
+                <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-end">
-                        <li class="page-item disabled">
-                            <button class="page-link btn btn-light" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </button>
-                        </li>
-                        <li class="page-item active"><button class="page-link btn btn-light" href="#">1</button></li>
-                        <li class="page-item"><button class="page-link btn btn-light" href="#">2</button></li>
-                        <li class="page-item"><button class="page-link btn btn-light" href="#">3</button></li>
-                        <li class="page-item">
-                            <button class="page-link btn btn-light" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </button>
-                        </li>
+                        <li class="page-item  <?php if ($_GET['page'] == 1) {echo 'd-none';} ?>"><a class="page-link text-white" href="Boutique-1"><span aria-hidden="true">&laquo;</span></a></li>
+                        <li class="page-item  <?php if ($_GET['page'] == 1) {echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] - 1); ?>">Previous</a></li>
+                        <li class="page-item <?php if ($_GET['page'] - 1 == 0) {echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] - 1); ?>"><?= $_GET['page'] - 1 ?></a></li>
+                        <li class="page-item active"><a class="page-link text-white" href="#"><?= $_GET['page'] ?></a></li>
+                        <li class="page-item <?php if ($_GET['page'] + 1 == $pageNumber + 1) {echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] + 1); ?>"><?= $_GET['page'] + 1 ?></a></li>
+                        <li class="page-item <?php if ($_GET['page'] == $pageNumber) { echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] + 1); ?>">Next</a></li>
+                        <li class="page-item <?php if ($_GET['page'] == $pageNumber) { echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . $pageNumber; ?>"><span aria-hidden="true">&raquo;</span></a></li>
                     </ul>
                 </nav>
             </div>
             <!------------------------------------------------------- articles ---------------------------------------------------------------------->
-            <div class="col-md animate__animated animate__fadeIn animate__slower container-fluid product d-grid gap-3 position-relative">
+            <div class="col animate__animated animate__fadeIn animate__slower container-fluid product position-relative">
                 <!------------------------------------------------------- premiere Ligne ---------------------------------------------------------------------->
-                <div class="row justify-content-lg-between justify-content-center px-lg-4 ">
-                    <!------------------------------------------------------- premiere article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-2 text-decoration-none mb-sm-0 mb-3" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/simpsonItchy.png" class="w-100 h-75 inner-Border-Article my-2" alt="Itchy" />
-                        <div class="d-flex justify-content-between text-center">
-                            <div class="inner-Border-Name col-7 col-sm-8 col-md-7 align-items-center justify-content-center p-xl-2 p-md-1">
-                                <p>Itchy</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                                <p>14.99€</p>
-                            </div>
+                <div class="row mt-3">
+                    <div class="container-fluid shopRow">
+                        <div class="row justify-content-lg-evenly justify-content-center row-cols-md-3 row-cols-1 gap-3 ">
+                            <?php foreach ($offerList as $o) { ?>
+                                <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-2 text-decoration-none" href="Article-<?= $o->id; ?>" data-aos="zoom-out-up">
+                                    <img src="uploads/<?= $o->officialPopImageInTheBox; ?>" class="img-fluid inner-Border-Article my-2" alt="Itchy" />
+                                    <div class="d-flex justify-content-between text-center">
+                                        <div class="inner-Border-Name col-7 col-sm-8 col-md-7 align-items-center justify-content-center p-xl-2 p-md-1">
+                                            <p><?= $o->name; ?></p>
+                                        </div>
+                                        <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
+                                            <p><?= $o->price; ?>&nbsp;€</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php } ?>
+
                         </div>
-                    </a>
-                    <!------------------------------------------------------- deuxieme article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-2 ms-sm-3 ms-lg-0  text-decoration-none" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/gokuUltraInstint-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Goku ultra instinct" />
-                        <div class="d-flex justify-content-between text-center align-items-center">
-                            <div class="inner-Border-Name col-9 align-items-center justify-content-center p-xl-2 p-1">
-                                <p>Goku Ultra Instinct</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-1">
-                                <p>14.99€</p>
-                            </div>
-                        </div>
-                    </a>
-                    <!------------------------------------------------------- troisième article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-lg-3 d-lg-inline d-none pb-2 text-decoration-none" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/disneyRapunzel-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Rapunzel" />
-                        <div class="d-flex justify-content-between text-center">
-                            <div class="inner-Border-Name col-7  align-items-center justify-content-center p-xl-2 p-1">
-                                <p>Rapunzel</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                                <p>14.99€</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!------------------------------------------------------- deuxieme Ligne ---------------------------------------------------------------------->
-                <div class="row justify-content-lg-between justify-content-center px-lg-4">
-                    <!------------------------------------------------------- premiere article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-2  text-decoration-none mb-sm-0 mb-3" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/simpsonItchy.png" class="w-100 h-75 inner-Border-Article my-2" alt="Itchy" />
-                        <div class="d-flex justify-content-between text-center">
-                            <div class="inner-Border-Name col-7 col-sm-8 col-md-7 align-items-center justify-content-center p-xl-2 p-md-1">
-                                <p>Itchy</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                                <p>14.99€</p>
-                            </div>
-                        </div>
-                    </a>
-                    <!------------------------------------------------------- deuxieme article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-2 ms-sm-3 ms-lg-0  text-decoration-none" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/gokuUltraInstint-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Goku ultra instinct" />
-                        <div class="d-flex justify-content-between text-center align-items-center">
-                            <div class="inner-Border-Name col-9  align-items-center justify-content-center p-xl-2 p-1">
-                                <p>Goku Ultra Instinct</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-1">
-                                <p>14.99€</p>
-                            </div>
-                        </div>
-                    </a>
-                    <!------------------------------------------------------- troisième article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-lg-3 d-lg-inline d-none pb-2 text-decoration-none" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/disneyRapunzel-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Rapunzel" />
-                        <div class="d-flex justify-content-between text-center">
-                            <div class="inner-Border-Name col-7  align-items-center justify-content-center p-xl-2 p-1">
-                                <p>Rapunzel</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                                <p>14.99€</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!------------------------------------------------------- troisième Ligne ---------------------------------------------------------------------->
-                <div class="row justify-content-lg-between justify-content-center px-lg-4">
-                    <!------------------------------------------------------- première article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-2  text-decoration-none mb-sm-0 mb-3" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/simpsonItchy.png" class="w-100 h-75 inner-Border-Article my-2" alt="Itchy" />
-                        <div class="d-flex justify-content-between text-center">
-                            <div class="inner-Border-Name col-7 col-sm-8 col-md-7 align-items-center justify-content-center p-xl-2 p-md-1">
-                                <p>Itchy</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                                <p>14.99€</p>
-                            </div>
-                        </div>
-                    </a>
-                    <!------------------------------------------------------- deuxieme article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-2 ms-sm-3 ms-lg-0  text-decoration-none" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/gokuUltraInstint-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Goku ultra instinct" />
-                        <div class="d-flex justify-content-between text-center align-items-center">
-                            <div class="inner-Border-Name col-9  align-items-center justify-content-center p-xl-2 p-1">
-                                <p>Goku Ultra Instinct</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-1">
-                                <p>14.99€</p>
-                            </div>
-                        </div>
-                    </a>
-                    <!------------------------------------------------------- troisième article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-lg-3 d-lg-inline d-none pb-2 text-decoration-none" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/disneyRapunzel-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Rapunzel" />
-                        <div class="d-flex justify-content-between text-center">
-                            <div class="inner-Border-Name col-7  align-items-center justify-content-center p-xl-2 p-1">
-                                <p>Rapunzel</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                                <p>14.99€</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!------------------------------------------------------- quatrieme Ligne ---------------------------------------------------------------------->
-                <div class="row justify-content-lg-between justify-content-center px-lg-4">
-                    <!------------------------------------------------------- premiere article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-2 text-decoration-none mb-sm-0 mb-3" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/simpsonItchy.png" class="w-100 h-75 inner-Border-Article my-2" alt="Itchy" />
-                        <div class="d-flex justify-content-between text-center">
-                            <div class="inner-Border-Name col-7 col-sm-8 col-md-7 align-items-center justify-content-center p-xl-2 p-md-1">
-                                <p>Itchy</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                                <p>14.99€</p>
-                            </div>
-                        </div>
-                    </a>
-                    <!------------------------------------------------------- deuxieme article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-2 ms-sm-3 ms-lg-0  text-decoration-none" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/gokuUltraInstint-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Goku ultra instinct" />
-                        <div class="d-flex justify-content-between text-center align-items-center">
-                            <div class="inner-Border-Name col-9 align-items-center justify-content-center p-xl-2 p-1">
-                                <p>Goku Ultra Instinct</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-1">
-                                <p>14.99€</p>
-                            </div>
-                        </div>
-                    </a>
-                    <!------------------------------------------------------- troisième article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-lg-3 d-lg-inline d-none pb-2 text-decoration-none" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/disneyRapunzel-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Rapunzel" />
-                        <div class="d-flex justify-content-between text-center">
-                            <div class="inner-Border-Name col-7  align-items-center justify-content-center p-xl-2 p-1">
-                                <p>Rapunzel</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                                <p>14.99€</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!------------------------------------------------------- cinquieme Ligne ---------------------------------------------------------------------->
-                <div class="row justify-content-lg-between justify-content-center px-lg-4">
-                    <!------------------------------------------------------- premiere article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-2 text-decoration-none mb-sm-0 mb-3" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/simpsonItchy.png" class="w-100 h-75 inner-Border-Article my-2" alt="Itchy" />
-                        <div class="d-flex justify-content-between text-center">
-                            <div class="inner-Border-Name col-7 col-sm-8 col-md-7 align-items-center justify-content-center p-xl-2 p-md-1">
-                                <p>Itchy</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                                <p>14.99€</p>
-                            </div>
-                        </div>
-                    </a>
-                    <!------------------------------------------------------- deuxieme article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-2 ms-sm-3 ms-lg-0  text-decoration-none" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/gokuUltraInstint-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Goku ultra instinct" />
-                        <div class="d-flex justify-content-between text-center align-items-center">
-                            <div class="inner-Border-Name col-9 align-items-center justify-content-center p-xl-2 p-1">
-                                <p>Goku Ultra Instinct</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-1">
-                                <p>14.99€</p>
-                            </div>
-                        </div>
-                    </a>
-                    <!------------------------------------------------------- troisième article ---------------------------------------------------------------------->
-                    <a class="outer-Border-Article col-lg-3 d-lg-inline d-none pb-2 text-decoration-none" href="" data-aos="zoom-out-up">
-                        <img src="assets/img/disneyRapunzel-removebg-preview.png" class="w-100 h-75 inner-Border-Article my-2" alt="Rapunzel" />
-                        <div class="d-flex justify-content-between text-center">
-                            <div class="inner-Border-Name col-7  align-items-center justify-content-center p-xl-2 p-1">
-                                <p>Rapunzel</p>
-                            </div>
-                            <div class="inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1">
-                                <p>14.99€</p>
-                            </div>
-                        </div>
-                    </a>
+                    </div>
                 </div>
             </div>
-            <!------------------------------------------------------- pagination bottom ---------------------------------------------------------------------->
-            <div class="row me-md-2 mt-3">
-                <nav aria-label="Page navigation">
+            <div class="row mt-2">
+                <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-end">
-                        <li class="page-item disabled">
-                            <button class="page-link btn btn-light" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </button>
-                        </li>
-                        <li class="page-item active"><button class="page-link btn btn-light" href="#">1</button></li>
-                        <li class="page-item"><button class="page-link btn btn-light" href="#">2</button></li>
-                        <li class="page-item"><button class="page-link btn btn-light" href="#">3</button></li>
-                        <li class="page-item">
-                            <button class="page-link btn btn-light" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </button>
-                        </li>
+                        <li class="page-item  <?php if ($_GET['page'] == 1) {echo 'd-none';} ?>"><a class="page-link text-white" href="Boutique-1"><span aria-hidden="true">&laquo;</span></a></li>
+                        <li class="page-item  <?php if ($_GET['page'] == 1) {echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] - 1); ?>">Previous</a></li>
+                        <li class="page-item <?php if ($_GET['page'] - 1 == 0) {echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] - 1); ?>"><?= $_GET['page'] - 1 ?></a></li>
+                        <li class="page-item active"><a class="page-link text-white" href="#"><?= $_GET['page'] ?></a></li>
+                        <li class="page-item <?php if ($_GET['page'] + 1 == $pageNumber + 1) {echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] + 1); ?>"><?= $_GET['page'] + 1 ?></a></li>
+                        <li class="page-item <?php if ($_GET['page'] == $pageNumber) { echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] + 1); ?>">Next</a></li>
+                        <li class="page-item <?php if ($_GET['page'] == $pageNumber) { echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . $pageNumber; ?>"><span aria-hidden="true">&raquo;</span></a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </div>
 </div>
-
-<?php require_once('include/footer.php');?>
+    <?php require_once('include/footer.php'); ?>

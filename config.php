@@ -8,7 +8,7 @@ $regex = [
     'popName' => '#^([A-Za-zÀ-ÖØ-öø-ÿ]+)$#',
     'phone' => '#^([0-9]+)$#',
     'contentTitle' => '#^([A-Za-zÀ-ÖØ-öø-ÿ ,.;]+)$#',
-    'content' => '#^([A-Za-zÀ-ÖØ-öø-ÿ ,;.0-9]+)$#',
+    'content' => '#^([A-Za-zÀ-ÖØ-öø-ÿ0-9à \',;.!-]+)$#',
 ];
 
 //Constants
@@ -21,6 +21,7 @@ define('MAIL_ERROR_INVALID', 'Veuillez entrer une adresse mail valide.');
 define('PASSWORD_ERROR_EMPTY', 'Veuillez entrer un mot de passe.');
 define('PASSWORD_ERROR_INVALID', 'Veuillez entrer un mot de passe contenant au moins 8 caractères, une majuscule, une minucule, un chiffre et un caractère spécial.');
 define('PASSWORD_ERROR_DIFFERENT', 'Les mots de passe ne correspondent pas.');
+define('PASSWORD_ERROR_EXIST', 'Ce mots de passe est invalide.');
 
 define('USERNAME_ERROR_EXIST', 'Cette pseudo existe déjà.');
 define('USERNAME_ERROR_EMPTY', 'Veuillez renseigner votre nom d\'utilisateur.');

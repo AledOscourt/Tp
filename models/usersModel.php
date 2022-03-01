@@ -66,7 +66,14 @@ class users extends database
         $queryPrepare->bindValue(':email', $this->email, PDO::PARAM_STR);
         return $queryPrepare->execute();
     }
-
+    public function updateUserPassword()
+    {
+        $query = 'UPDATE `s4u3u_users` SET `password` = :password  WHERE id=:id';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $queryPrepare->bindValue(':password', $this->password, PDO::PARAM_STR);
+        return $queryPrepare->execute();
+    }
     public function updateUserImg()
     {
         $query = 'UPDATE `s4u3u_users` SET `profilePicture` = :profilePicture  WHERE id=:id';
@@ -164,5 +171,15 @@ class users extends database
         $queryPrepare->execute();
         $queryresult = $queryPrepare->fetch(PDO::FETCH_OBJ);
         return $queryresult->profilePictureCount;
+    }
+    public function getPasswordById()
+    {
+        $query = 'SELECT   password
+        FROM    s4u3u_users
+        WHERE id = :id';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $queryPrepare->execute();
+        return $queryPrepare->fetch(PDO::FETCH_OBJ);
     }
 }

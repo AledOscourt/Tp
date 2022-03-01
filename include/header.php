@@ -32,18 +32,17 @@
 
                     <?php } else { ?>
                         <div class="col text-end">
-                            <a class="text-decoration-none star" href="Liste_d-envie"><i class="fas fa-star"></i></a>
+                            <a class="text-decoration-none star" href="Liste-d-envie"><i class="fas fa-star"></i></a>
                         </div>
                         <div class="col text-center user">
-                            <a class="text-decoration-none justify-content-center m-0 d-flex" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-                             aria-expanded="true"><?php if (!is_null($_SESSION['user']->profilePicture)) { ?> 
-                                <img src="<?= $_SESSION['user']->profilePicture; ?>" class="imgNavbarLogIn" alt="profilPhoto">
+                            <a class="text-decoration-none justify-content-center m-0 d-flex" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true"><?php if (!is_null($_SESSION['user']->profilePicture)) { ?>
+                                    <img src="<?= $_SESSION['user']->profilePicture; ?>" class="imgNavbarLogIn" alt="profilPhoto">
                                 <?php } else { ?>
                                     <i class="fas fa-user"></i>
                                 <?php } ?></a>
                             <ul class="dropdown-menu userDropdownMenu text-decoration-none text-center p-2" aria-labelledby="navbarDropdownMenuLink">
                                 <li>
-                                    <a class="dropdown-item " href="Profil">Profil</a>
+                                    <a class="dropdown-item " href="Profil-1">Profil</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="Liste_d-envie">Liste d'envie</a>
@@ -83,7 +82,7 @@
                     </div>
                 <?php } else { ?>
                     <div class="d-lg-none col-sm-3 col-4 align-items-center justify-content-around fs-6 d-flex">
-                        <a class="navbar-brand text-decoration-none col-2 star" href="Liste_d-envie"><i class="fas fa-star"></i></a>
+                        <a class="navbar-brand text-decoration-none col-2 star" href="Liste-d-envie"><i class="fas fa-star"></i></a>
                         <div class="user col-sm-4 col-5">
                             <a class="navbar-brand text-decoration-none user text-center m-0" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true"><?php if (!is_null($_SESSION['user']->profilePicture)) { ?> <img src="<?= $_SESSION['user']->profilePicture; ?>" class="imgNavbarLogIn" alt="profilPhoto">
                                 <?php } else { ?>
@@ -91,7 +90,7 @@
                                 <?php } ?></a>
                             <ul class="dropdown-menu userDropdownMenu text-center text-decoration-none p-2" aria-labelledby="navbarDropdownMenuLink">
                                 <li>
-                                    <a class="dropdown-item" href="Profil">Profil</a>
+                                    <a class="dropdown-item" href="Profil-1">Profil</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="Liste_d-envie">Liste d'envie</a>
@@ -111,13 +110,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="col-lg d-flex navbar-nav justify-content-between mx-5 h4 " id="firstNavbar">
                         <li class="nav-item d-flex align-items-center col text-center">
-                            <a class="nav-link col-lg col-11" href="#" id="category">Catégorie</a><i class="fas fa-caret-right text-white col-1 d-lg-none d-inline"></i>
+                            <a class="nav-link col-lg col-11" href="Boutique-1" id="shop">Boutique </a>
                         </li>
                         <li class="nav-item d-flex align-items-center col text-center">
-                            <a class="nav-link col-lg col-11" href="#" id="brand">Franchise </a><i class="fas fa-caret-right text-white col-1 d-lg-none d-inline"></i>
+                            <a class="nav-link col-lg col-11" href="" id="category">Catégorie</a><i class="fas fa-caret-right text-white col-1 d-lg-none d-inline"></i>
                         </li>
+
                         <li class="nav-item d-flex align-items-center col text-center">
-                            <a class="nav-link col-lg col-11" href="#" id="exclusivity">Exclusivité </a><i class="fas fa-caret-right text-white col-1 d-lg-none d-inline"></i>
+                            <a class="nav-link col-lg col-11" href="" id="exclusivity">Exclusivité </a><i class="fas fa-caret-right text-white col-1 d-lg-none d-inline"></i>
                         </li>
                         <li class="nav-item d-flex align-items-center col text-center">
                             <a class="nav-link col-lg col-11" href="Nouveauté" id="comingSoon">Coming soon</a>
@@ -133,6 +133,7 @@
                         <li class="nav-item h4 ms-3">
                             <ul class="col navbar-nav text-center align-items-center mt-5" id="subSubNavbar">
                             </ul>
+                            
                         </li>
                     </ul>
                 </div>
@@ -144,5 +145,6 @@
                     </ul>
                 </div>
             </div>
+            
         </section>
     </header>

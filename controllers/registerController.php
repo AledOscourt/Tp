@@ -53,16 +53,20 @@ if (isset($_POST['addUsers'])) {
         if (count($formErrors) == 0) {
 
             if ($users->addUser()) {
-                echo  "<script type='text/javascript'>
-                Swal.fire(
-                    'Bravo,',
-                    'Vous êtes inscrit!',
-                    'success'
-                  )
-                    window.setTimeout(function() {
-                     window.location = 'connexion';
-                    }, 5000);
-                </script>";
+                echo "<script type='text/javascript'>
+        window.setTimeout(function() {
+          Swal.fire({
+            icon: 'success',
+            title: 'Bonjour, Merci de votre inscription',
+            showConfirmButton: false,
+            timer: 1800
+          }) 
+        }, 200);
+        window.setTimeout(function() {
+          window.location = 'Connexion';
+        }, 2200);
+        </script>";
+
                 $success = 'Votre inscription a bien été prise en compte';
 
                 //Seul endroit où l'on peut mettre du HTML dans du PHP et mise en page en tableau autorisée ;)
@@ -80,6 +84,17 @@ if (isset($_POST['addUsers'])) {
                 //Personne à qui on envoie le mail, l'objet du mail, le contenu du mail, les en-têtes du mail 
                 mail($_POST['email'], 'Bienvenue parmi nous', $message, $headers);
             }
+        } else {
+            echo "<script type='text/javascript'>
+        window.setTimeout(function() {
+          Swal.fire({
+            icon: 'error',
+            title: 'Veuillez réessayé plus tard !',
+            showConfirmButton: false,
+            timer: 1800
+          }) 
+        }, 200);
+        </script>";
         }
     }
 }

@@ -97,8 +97,12 @@
     <script src="assets/js/popsGestion.js"></script>
 <?php } else if ($_SERVER['PHP_SELF'] == '/TP/admin/usersGestion.php') { ?>
     <script src="assets/js/userGestion.js"></script>
-    <?php } else if ($_SERVER['PHP_SELF'] == '/TP/article.php') { ?>
+<?php } else if ($_SERVER['PHP_SELF'] == '/TP/article.php') { ?>
     <script src="assets/js/article.js"></script>
+<?php } else if ($_SERVER['PHP_SELF'] == '/TP/admin/opinionList.php') { ?>
+    <script src="assets/js/opinionsGestion.js"></script>
+    <?php } else if ($_SERVER['PHP_SELF'] == '/TP/admin/offerList.php') { ?>
+    <script src="assets/js/offerGestion.js"></script>
 <?php } else { ?>
     <script src="assets/js/script.js"></script>
 <?php } ?>

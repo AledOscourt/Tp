@@ -96,7 +96,7 @@ require_once 'include/header.php';
                 </div>
                 <div class="d-flex fs-4 text-white mx-auto priceOfferContainer p-2">
                     <p class="col-auto my-0 priceOfferLabel">Prix :</p>
-                    <p class="col-sm ms-2 my-0 priceOffer"><?= $offers->price ?>&nbsp;$</p>
+                    <p class="col-sm ms-2 my-0 priceOffer"><?= $offers->price ?>&nbsp;€</p>
                 </div>
             </div>
         </div>
@@ -142,35 +142,11 @@ require_once 'include/header.php';
         <div class="fs-4 text-white p-md-4 shadow-lg d-grid" id="opinion">
             <?php if ($_SESSION) { ?>
                 <button class="btn btn-primary col-md-4 col-8 mx-auto mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    Ajouter un avis
+                    Ajouter un commentaire
                 </button>
                 <div class="collapse" id="collapseExample">
-                    <h2 class="text-center my-4"> Laisser votre avis</h2>
+                    <h2 class="text-center my-4"> Laisser votre commentaire</h2>
                     <form action="Article-<?= $_GET['id'] ?>" method="post" class="container-fluid d-grid gap-3">
-                        <fieldset class="row">
-                            <div class="col-md-6 d-flex mx-auto justify-content-center gap-2" id="starContainer">
-                                <div class="col h1 opinionGrade position-relative" id="starContainer1">
-                                    <i class="fas fa-star" id="star1"></i>
-                                    <input type="radio" class="w-100 position-absolute h-100 start-0 opacity-0" name="star" value="1" checked />
-                                </div>
-                                <div class="col h1 opinionGrade position-relative" id="starContainer2">
-                                    <i class="far fa-star" id="star2"></i>
-                                    <input type="radio" class="w-100 position-absolute h-100 start-0 opacity-0" name="star" value="2" />
-                                </div>
-                                <div class="col h1 opinionGrade position-relative" id="starContainer3">
-                                    <i class="far fa-star" id="star3"></i>
-                                    <input type="radio" class="w-100 position-absolute h-100 start-0 opacity-0" name="star" value="3" />
-                                </div>
-                                <div class="col h1 opinionGrade position-relative" id="starContainer4">
-                                    <i class="far fa-star" id="star4"></i>
-                                    <input type="radio" class="w-100 position-absolute h-100 start-0 opacity-0" name="star" value="4" />
-                                </div>
-                                <div class="col h1 opinionGrade position-relative" id="starContainer5">
-                                    <i class="far fa-star" id="star5"></i>
-                                    <input type="radio" class="w-100 position-absolute h-100 start-0 opacity-0" name="star" value="5" />
-                                </div>
-                            </div>
-                        </fieldset>
                         <fieldset class="row d-flex gap-lg-0 gap-3">
                             <div class="col-md-11 border mx-auto form-floating">
                                 <textarea class="form-control <?= isset($formErrors['content']) ? 'is-invalid' : '' ?>" name="content" id="content" maxlength="370" placeholder=" "></textarea>
@@ -190,35 +166,17 @@ require_once 'include/header.php';
                 <?php foreach ($opinions as $op) { ?>
                     <div class="col-md-8 rounded mx-md-auto border border-1 d-grid p-3">
                         <div class="col d-flex align-items-center">
-                            <div class="col d-grid">
+                            <div class="col d-flex">
                                 <h4 class="col text-info text-md-start text-center ms-md-5 align-bottom">
                                     <?= $op->userName ?>
                                 </h4>
-                                <small class="col text-md-start text-center ms-md-5 text-muted">
+                                <small class="col text-end ms-md-5 text-muted ">
                                     <?= $op->reviewDate ?>
                                 </small>
                             </div>
-
-                            <div class="col-md-auto text-warning d-md-flex d-none text-end me-md-2 fs-5 gap-1">
-                                <?php for ($i = 1; $i <= $op->reviewGrade; $i += 1) { ?>
-                                    <i class="fas fa-star"></i>
-                                <?php } ?>
-                                <?php for ($i = 5; $i > $op->reviewGrade; $i -= 1) { ?>
-                                    <i class="far fa-star"></i>
-                                <?php } ?>
-                            </div>
-
                         </div>
-                        <div class="col text-center d-md-none d-flex justify-content-center my-2 gap-1">
-                            <?php for ($i = 1; $i <= $op->reviewGrade; $i += 1) { ?>
-                                <i class="fas fa-star"></i>
-                            <?php } ?>
-                            <?php for ($i = 5; $i > $op->reviewGrade; $i -= 1) { ?>
-                                <i class="far fa-star"></i>
-                            <?php } ?>
-                        </div>
-                        <div class="col d-flex justify-content-center text-center my-1 text-white">
-                            <p class="col text-break">
+                        <div class="col d-flex justify-content-center text-center text-white">
+                            <p class="col text-break m-0">
                                 <?= $op->content ?>
                             </p>
                         </div>

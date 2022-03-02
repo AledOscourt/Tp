@@ -44,7 +44,6 @@ if (isset($_POST['opinionAddBtn'])) {
     } else {
         $formErrors['content'] = 'Veuillez saisir le nombre en haut à droite de la figurine pop.';
     }
-    $opinion->reviewGrade = $_POST['star'];
     $opinion->id_users = $_SESSION['user']->id;
     $opinion->id_offers = $_GET['id'];
     if (count($formErrors) == 0) {

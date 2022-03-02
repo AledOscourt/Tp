@@ -110,7 +110,7 @@ require_once 'include/header.php';
                         <li class="page-item  <?php if ($_GET['page'] == 1) {echo 'd-none';} ?>"><a class="page-link text-white" href="Boutique-1"><span aria-hidden="true">&laquo;</span></a></li>
                         <li class="page-item  <?php if ($_GET['page'] == 1) {echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] - 1); ?>">Previous</a></li>
                         <li class="page-item <?php if ($_GET['page'] - 1 == 0) {echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] - 1); ?>"><?= $_GET['page'] - 1 ?></a></li>
-                        <li class="page-item active"><a class="page-link text-white" href="#"><?= $_GET['page'] ?></a></li>
+                        <li class="page-item active"><a class="page-link text-white" disabled href=""><?= $_GET['page'] ?></a></li>
                         <li class="page-item <?php if ($_GET['page'] + 1 == $pageNumber + 1) {echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] + 1); ?>"><?= $_GET['page'] + 1 ?></a></li>
                         <li class="page-item <?php if ($_GET['page'] == $pageNumber) { echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] + 1); ?>">Next</a></li>
                         <li class="page-item <?php if ($_GET['page'] == $pageNumber) { echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . $pageNumber; ?>"><span aria-hidden="true">&raquo;</span></a></li>
@@ -147,7 +147,7 @@ require_once 'include/header.php';
                         <li class="page-item  <?php if ($_GET['page'] == 1) {echo 'd-none';} ?>"><a class="page-link text-white" href="Boutique-1"><span aria-hidden="true">&laquo;</span></a></li>
                         <li class="page-item  <?php if ($_GET['page'] == 1) {echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] - 1); ?>">Previous</a></li>
                         <li class="page-item <?php if ($_GET['page'] - 1 == 0) {echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] - 1); ?>"><?= $_GET['page'] - 1 ?></a></li>
-                        <li class="page-item active"><a class="page-link text-white" href="#"><?= $_GET['page'] ?></a></li>
+                        <li class="page-item active"><a class="page-link text-white" disabled href=""><?= $_GET['page'] ?></a></li>
                         <li class="page-item <?php if ($_GET['page'] + 1 == $pageNumber + 1) {echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] + 1); ?>"><?= $_GET['page'] + 1 ?></a></li>
                         <li class="page-item <?php if ($_GET['page'] == $pageNumber) { echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . ($_GET['page'] + 1); ?>">Next</a></li>
                         <li class="page-item <?php if ($_GET['page'] == $pageNumber) { echo 'd-none';} ?>"><a class="page-link text-white" href="<?= 'Boutique-' . $pageNumber; ?>"><span aria-hidden="true">&raquo;</span></a></li>

@@ -15,9 +15,8 @@ class opinions extends database
     }
     public function addOpinion()
     {
-        $query = 'INSERT INTO `s4u3u_opinions`(`reviewGrade`,`content`,`reviewDate`,`id_users`,id_offers) VALUES (:reviewGrade,:content,NOW(),:id_users,:id_offers)';
+        $query = 'INSERT INTO `s4u3u_opinions`(`content`,`reviewDate`,`id_users`,id_offers) VALUES (:content,NOW(),:id_users,:id_offers)';
         $queryPrepare = $this->db->prepare($query);
-        $queryPrepare->bindValue(':reviewGrade', $this->reviewGrade, PDO::PARAM_INT);
         $queryPrepare->bindValue(':content', $this->content, PDO::PARAM_STR);
         $queryPrepare->bindValue(':id_users', $this->id_users, PDO::PARAM_INT);
         $queryPrepare->bindValue(':id_offers', $this->id_offers, PDO::PARAM_INT);
@@ -25,7 +24,7 @@ class opinions extends database
     }
     public function getOpinionByOffer()
     {
-        $query = 'SELECT opinion.id,reviewGrade,content,DATE_FORMAT(reviewDate, "%d/%m/%Y %Hh%m") AS reviewDate,id_users,userName
+        $query = 'SELECT opinion.id,content,DATE_FORMAT(reviewDate, "%d/%m/%Y %Hh%m") AS reviewDate,id_users,userName
         FROM s4u3u_opinions AS opinion 
         INNER JOIN s4u3u_users ON opinion.id_users = s4u3u_users.id
         WHERE id_offers=:id_offers
@@ -44,7 +43,7 @@ class opinions extends database
     }
     public function getOpinionByUser()
     {
-        $query = 'SELECT opinion.id,reviewGrade,content,DATE_FORMAT(reviewDate, "%d/%m/%Y %Hh%m") AS reviewDate,opinion.id_users,userName,name,tags,offer.id
+        $query = 'SELECT opinion.id,content,DATE_FORMAT(reviewDate, "%d/%m/%Y %Hh%m") AS reviewDate,opinion.id_users,userName,name,tags,offer.id
         FROM s4u3u_opinions AS opinion 
         INNER JOIN s4u3u_users ON opinion.id_users = s4u3u_users.id
         INNER JOIN s4u3u_offers as offer ON opinion.id_offers = offer.id
@@ -54,6 +53,17 @@ class opinions extends database
         $queryPrepare = $this->db->prepare($query);
         $queryPrepare->bindValue(':id_users', $this->id_users, PDO::PARAM_INT);
         $queryPrepare->execute();
+        return $queryPrepare->fetchALL(PDO::FETCH_OBJ);
+    }
+    public function getOpinionForAdmin()
+    {
+        $query = 'SELECT opinion.id as id,content,DATE_FORMAT(reviewDate, "%d/%m/%Y %Hh%m") AS reviewDate,userName,name,tags,offer.id as offId
+        FROM s4u3u_opinions AS opinion 
+        INNER JOIN s4u3u_users ON opinion.id_users = s4u3u_users.id
+        INNER JOIN s4u3u_offers as offer ON opinion.id_offers = offer.id
+        INNER JOIN s4u3u_pops AS pop ON offer.id_pops = pop.id
+        ORDER BY opinion.id desc';
+        $queryPrepare = $this->db->query($query); 
         return $queryPrepare->fetchALL(PDO::FETCH_OBJ);
     }
 }

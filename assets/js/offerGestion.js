@@ -128,25 +128,7 @@ window.onmouseover = () => {
     }
 }
 
-descriptionBtn.onclick = () => {
-    description.classList.remove('d-none');
-    opinion.classList.add('d-none');
-    if (opinionBtn.classList.contains('active')) {
-        opinionBtn.classList.remove('active');
-        descriptionBtn.classList.add('active');
-    }
-
-}
-opinionBtn.onclick = () => {
-    description.classList.add('d-none');
-    opinion.classList.remove('d-none');
-    if (descriptionBtn.classList.contains('active')) {
-        descriptionBtn.classList.remove('active');
-        opinionBtn.classList.add('active');
-    }
-}
-
-deleteOpinions.addEventListener('show.bs.modal', function(event) {
+deleteOffers.addEventListener('show.bs.modal', function(event) {
     // Button that triggered the modal
     var button = event.relatedTarget
         // Extract info from data-bs-* attributes
@@ -155,5 +137,5 @@ deleteOpinions.addEventListener('show.bs.modal', function(event) {
         // and then do the updating in a callback.
         //
         // Update the modal's content.
-    deleteOpinion.value = recipient;
+    deleteOffer.value = recipient;
 })

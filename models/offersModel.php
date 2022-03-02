@@ -165,4 +165,20 @@ class offers extends database
         $queryPrepare->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $queryPrepare->execute();
     }
+    public function getOfferListAdmin()
+    {
+        $query = 'SELECT offer.id as id,pop.name as name,tags,reference,exclu.name as excluName,date,price,b.name AS bName,c.name AS cName,nbrClick,userName
+        FROM s4u3u_offers AS offer
+        INNER JOIN s4u3u_pops AS pop ON id_pops = pop.id
+        INNER JOIN s4u3u_users ON offer.id_users = s4u3u_users.id
+        INNER JOIN s4u3u_exclusivities AS exclu ON id_exclusivities = exclu.id
+        INNER JOIN `s4u3u_brands` AS b
+        ON pop.id_brands=b.id
+        INNER JOIN `s4u3u_categorybrandslink` AS cbl
+        ON cbl.id_brands=b.id
+        INNER JOIN `s4u3u_categories` AS c
+        ON cbl.id_categories=c.id;';
+        $queryPrepare = $this->db->query($query);
+        return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
+    }
 }

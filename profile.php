@@ -106,7 +106,7 @@ require_once 'include/header.php';
                                             <p class="invalid-feedback text-center"> <?= $formErrors['confirmPassword'] ?> </p>
                                         <?php } ?>
                                     </div>
-                                        <button class="btn btn-outline-light col-auto mx-auto" type="submit" name="passwordBtn">Confirmer</button>
+                                    <button class="btn btn-outline-light col-auto mx-auto" type="submit" name="passwordBtn">Confirmer</button>
                                 </form>
                             </div>
                             <div class="row mx-md-5 mx-auto gap-2">
@@ -143,7 +143,7 @@ require_once 'include/header.php';
                                 <li class="page-item <?php if ($_GET['page'] - 1 == 0) {
                                                             echo 'd-none';
                                                         } ?>"><a class="page-link text-white" href="<?= 'Profil-' . ($_GET['page'] - 1); ?>"><?= $_GET['page'] - 1 ?></a></li>
-                                <li class="page-item active"><a class="page-link text-white" href="#"><?= $_GET['page'] ?></a></li>
+                                <li class="page-item active"><a class="page-link text-white" disabled href=""><?= $_GET['page'] ?></a></li>
                                 <li class="page-item <?php if ($_GET['page'] + 1 == $pageNumber + 1) {
                                                             echo 'd-none';
                                                         } ?>"><a class="page-link text-white" href="<?= 'Profil-' . ($_GET['page'] + 1); ?>"><?= $_GET['page'] + 1 ?></a></li>
@@ -228,7 +228,7 @@ require_once 'include/header.php';
                                 <li class="page-item <?php if ($_GET['page'] - 1 == 0) {
                                                             echo 'd-none';
                                                         } ?>"><a class="page-link text-white" href="<?= 'Profil-' . ($_GET['page'] - 1); ?>"><?= $_GET['page'] - 1 ?></a></li>
-                                <li class="page-item active"><a class="page-link text-white" href="#"><?= $_GET['page'] ?></a></li>
+                                <li class="page-item active"><a class="page-link text-white" disabled href=""><?= $_GET['page'] ?></a></li>
                                 <li class="page-item <?php if ($_GET['page'] + 1 == $pageNumber + 1) {
                                                             echo 'd-none';
                                                         } ?>"><a class="page-link text-white" href="<?= 'Profil-' . ($_GET['page'] + 1); ?>"><?= $_GET['page'] + 1 ?></a></li>
@@ -268,28 +268,11 @@ require_once 'include/header.php';
                                                 <?= $op->reviewDate ?> - <a class="text-decoration-none" href="Article-<?= $op->id; ?>"><?= $op->name . ' - ' . $op->tags ?></a>
                                             </small>
                                         </div>
-
-                                        <div class="col-md-auto text-warning d-md-flex d-none text-end gap-1 me-md-2 fs-5">
-                                            <?php for ($i = 1; $i <= $op->reviewGrade; $i += 1) { ?>
-                                                <i class="fas fa-star"></i>
-                                            <?php } ?>
-                                            <?php for ($i = 5; $i > $op->reviewGrade; $i -= 1) { ?>
-                                                <i class="far fa-star"></i>
-                                            <?php } ?>
-                                        </div>
                                         <div class="col-md-auto d-md-flex d-none text-end">
                                             <a class="btn btn-outline-primary" href="Ajout_d-offre" id="ordersBtn">
                                                 <i class="far fa-edit ms-1"></i>
                                             </a>
                                         </div>
-                                    </div>
-                                    <div class="col text-warning text-center d-md-none d-flex justify-content-center p-0">
-                                        <?php for ($i = 1; $i <= $op->reviewGrade; $i += 1) { ?>
-                                            <i class="fas fa-star"></i>
-                                        <?php } ?>
-                                        <?php for ($i = 5; $i > $op->reviewGrade; $i -= 1) { ?>
-                                            <i class="far fa-star"></i>
-                                        <?php } ?>
                                     </div>
                                     <div class="col d-flex justify-content-center text-center my-1 text-white p-0">
                                         <div class="col-lg-9 col-md-8 col">

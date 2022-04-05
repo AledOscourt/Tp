@@ -55,7 +55,7 @@
             <div class="d-grid col-md text-center mb-md mb-2">
                 <h4 class="fs-5 text-white footerTitle">Mon compte</h4>
                 <div class="footerLinks d-grid">
-                    <a class="text-decoration-none text-white" href="Profil">Profil</a>
+                    <a class="text-decoration-none text-white" href="Profil-1">Profil</a>
                     <a class="text-decoration-none text-white" href="Liste_d-envie">Liste d'envie</a>
                     <?php if ($_SESSION['user']->id_roles == 1) { ?>
                         <a class="text-decoration-none footerLinksDashboard text-secondary" href="Dashboard">Dashboard</a>

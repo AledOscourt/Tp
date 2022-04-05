@@ -17,7 +17,7 @@ class offers extends database
     }
     public function addOffer()
     {
-        $query = 'INSERT INTO `s4u3u_offers`(`date`,`price`,`id_status`,id_exclusivities,`id_pops`,`id_users`,nbrClick) VALUES (NOW(),:price,:id_status,:id_exclusivities,:id_pops,:id_users,0)';
+        $query = 'INSERT INTO `s4u3u_offers`(`price`,`id_status`,id_exclusivities,`id_pops`,`id_users`,`nbrClick`,`date`) VALUES (:price,:id_status,:id_exclusivities,:id_pops,:id_users,0,NOW())';
         $queryPrepare = $this->db->prepare($query);
         $queryPrepare->bindValue(':price', $this->price, PDO::PARAM_INT);
         $queryPrepare->bindValue(':id_status', $this->id_status, PDO::PARAM_INT);
@@ -75,6 +75,16 @@ class offers extends database
         $queryPrepare->bindValue(':offset', $this->offset, PDO::PARAM_INT);
         $queryPrepare->bindValue(':limit', $this->limit, PDO::PARAM_INT);
         $queryPrepare->execute();
+        return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function getOfferListNew()
+    {
+        $query = 'SELECT offer.id as id,pop.name as name,price,officialPopImageInTheBox
+        FROM s4u3u_offers AS offer
+        INNER JOIN s4u3u_pops AS pop ON id_pops = pop.id
+        ORDER BY id desc
+        LIMIT 15';
+        $queryPrepare = $this->db->query($query);
         return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }
     public function countOffersPages()
@@ -178,6 +188,21 @@ class offers extends database
         ON cbl.id_brands=b.id
         INNER JOIN `s4u3u_categories` AS c
         ON cbl.id_categories=c.id;';
+        $queryPrepare = $this->db->query($query);
+        return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function getNewOfferListAdmin()
+    {
+        $query = 'SELECT offer.id as id,pop.name as name,tags,reference,exclu.name as excluName,date,price,b.name AS bName,c.name AS cName,nbrClick
+        FROM s4u3u_offers AS offer
+        INNER JOIN s4u3u_pops AS pop ON id_pops = pop.id
+        INNER JOIN s4u3u_users ON offer.id_users = s4u3u_users.id
+        INNER JOIN s4u3u_exclusivities AS exclu ON id_exclusivities = exclu.id
+        INNER JOIN `s4u3u_brands` AS b ON pop.id_brands=b.id
+        INNER JOIN `s4u3u_categorybrandslink` AS cbl ON cbl.id_brands=b.id
+        INNER JOIN `s4u3u_categories` AS c ON cbl.id_categories=c.id
+        ORDER BY offer.id desc
+        LIMIT 3;';
         $queryPrepare = $this->db->query($query);
         return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }

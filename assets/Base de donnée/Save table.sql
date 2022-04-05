@@ -14,12 +14,6 @@ CREATE TABLE `s4u3u_brands` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE `s4u3u_brands`;
-INSERT INTO `s4u3u_brands` (`id`, `name`) VALUES
-(1,	'Dragon Ball Z'),
-(2,	'Dragon Ball Super'),
-(4,	'Simpson'),
-(5,	'Disney');
 
 DROP TABLE IF EXISTS `s4u3u_categories`;
 CREATE TABLE `s4u3u_categories` (
@@ -28,15 +22,6 @@ CREATE TABLE `s4u3u_categories` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE `s4u3u_categories`;
-INSERT INTO `s4u3u_categories` (`id`, `name`) VALUES
-(1,	'ANIME'),
-(2,	'COMICS'),
-(3,	'DESSIN ANIMÉ'),
-(4,	'GAMING'),
-(5,	'MUSIC'),
-(6,	'MOVIE'),
-(7,	'SERIE');
 
 DROP TABLE IF EXISTS `s4u3u_categorybrandslink`;
 CREATE TABLE `s4u3u_categorybrandslink` (
@@ -48,12 +33,6 @@ CREATE TABLE `s4u3u_categorybrandslink` (
   CONSTRAINT `s4u3u_categorybrandslink_ibfk_3` FOREIGN KEY (`id_categories`) REFERENCES `s4u3u_categories` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE `s4u3u_categorybrandslink`;
-INSERT INTO `s4u3u_categorybrandslink` (`id_brands`, `id_categories`) VALUES
-(1,	1),
-(2,	1),
-(5,	3),
-(4,	7);
 
 DROP TABLE IF EXISTS `s4u3u_envylists`;
 CREATE TABLE `s4u3u_envylists` (
@@ -67,7 +46,6 @@ CREATE TABLE `s4u3u_envylists` (
   CONSTRAINT `s4u3u_envylists_ibfk_2` FOREIGN KEY (`id_users`) REFERENCES `s4u3u_users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE `s4u3u_envylists`;
 
 DROP TABLE IF EXISTS `s4u3u_exclusivities`;
 CREATE TABLE `s4u3u_exclusivities` (
@@ -76,13 +54,6 @@ CREATE TABLE `s4u3u_exclusivities` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE `s4u3u_exclusivities`;
-INSERT INTO `s4u3u_exclusivities` (`id`, `name`) VALUES
-(1,	'None'),
-(2,	'Rare'),
-(3,	'Mini'),
-(4,	'Géant'),
-(5,	'Parfait');
 
 DROP TABLE IF EXISTS `s4u3u_images`;
 CREATE TABLE `s4u3u_images` (
@@ -94,14 +65,6 @@ CREATE TABLE `s4u3u_images` (
   CONSTRAINT `s4u3u_images_ibfk_2` FOREIGN KEY (`id_offers`) REFERENCES `s4u3u_offers` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE `s4u3u_images`;
-INSERT INTO `s4u3u_images` (`id`, `image`, `id_offers`) VALUES
-(1,	'uploads/gokuUltraInstint-removebg-preview.png',	1),
-(2,	'uploads/simpsonItchy.png',	2),
-(3,	'uploads/simpsonItchy.png',	2),
-(4,	'uploads/disneyRapunzel-removebg-preview.png',	3),
-(5,	'uploads/disneyRapunzel-removebg-preview.png',	3),
-(6,	'uploads/disneyRapunzel-removebg-preview.png',	3);
 
 DROP TABLE IF EXISTS `s4u3u_offers`;
 CREATE TABLE `s4u3u_offers` (
@@ -124,11 +87,6 @@ CREATE TABLE `s4u3u_offers` (
   CONSTRAINT `s4u3u_offers_ibfk_5` FOREIGN KEY (`id_status`) REFERENCES `s4u3u_status` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE `s4u3u_offers`;
-INSERT INTO `s4u3u_offers` (`id`, `date`, `price`, `nbrClick`, `id_pops`, `id_exclusivities`, `id_status`, `id_users`) VALUES
-(1,	'2022-04-04 17:02:12',	10.00,	3,	1,	1,	1,	1),
-(2,	'2022-04-05 02:08:57',	15.00,	0,	3,	5,	2,	1),
-(3,	'2022-04-05 02:10:48',	103.00,	1,	2,	5,	3,	1);
 
 DROP TABLE IF EXISTS `s4u3u_opinions`;
 CREATE TABLE `s4u3u_opinions` (
@@ -144,7 +102,6 @@ CREATE TABLE `s4u3u_opinions` (
   CONSTRAINT `s4u3u_opinions_ibfk_3` FOREIGN KEY (`id_users`) REFERENCES `s4u3u_users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE `s4u3u_opinions`;
 
 DROP TABLE IF EXISTS `s4u3u_popfilters`;
 CREATE TABLE `s4u3u_popfilters` (
@@ -162,7 +119,6 @@ CREATE TABLE `s4u3u_popfilters` (
   CONSTRAINT `popfilters_exclusivities_FK` FOREIGN KEY (`id_exclusivities`) REFERENCES `s4u3u_exclusivities` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE `s4u3u_popfilters`;
 
 DROP TABLE IF EXISTS `s4u3u_pops`;
 CREATE TABLE `s4u3u_pops` (
@@ -178,11 +134,6 @@ CREATE TABLE `s4u3u_pops` (
   CONSTRAINT `s4u3u_pops_ibfk_1` FOREIGN KEY (`id_brands`) REFERENCES `s4u3u_brands` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE `s4u3u_pops`;
-INSERT INTO `s4u3u_pops` (`id`, `name`, `tags`, `reference`, `officialPopImageInTheBox`, `officialPopImageOutBox`, `id_brands`) VALUES
-(1,	'Son Goku ultra-instinct',	386,	31633,	'gokuUltraInstint-removebg-preview.png',	'[removal.ai]_tmp-624af79c38b3f.png',	2),
-(2,	'Raiponce',	223,	21320,	'disneyRapunzel-removebg-preview.png',	'disneyRapunzel-removebg-preview.png',	5),
-(3,	'Itchy',	903,	52958,	'simpsonItchy.png',	'simpsonItchy.png',	4);
 
 DROP TABLE IF EXISTS `s4u3u_reports`;
 CREATE TABLE `s4u3u_reports` (
@@ -197,7 +148,6 @@ CREATE TABLE `s4u3u_reports` (
   CONSTRAINT `reports_users_FK` FOREIGN KEY (`id_users`) REFERENCES `s4u3u_users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE `s4u3u_reports`;
 
 DROP TABLE IF EXISTS `s4u3u_roles`;
 CREATE TABLE `s4u3u_roles` (
@@ -206,10 +156,6 @@ CREATE TABLE `s4u3u_roles` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE `s4u3u_roles`;
-INSERT INTO `s4u3u_roles` (`id`, `name`) VALUES
-(1,	'Admin'),
-(2,	'Users');
 
 DROP TABLE IF EXISTS `s4u3u_status`;
 CREATE TABLE `s4u3u_status` (
@@ -219,11 +165,6 @@ CREATE TABLE `s4u3u_status` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE `s4u3u_status`;
-INSERT INTO `s4u3u_status` (`id`, `name`, `description`) VALUES
-(1,	'Pop sortie de boîte',	'Pop abimé!'),
-(2,	'Propre',	'Sous protection.'),
-(3,	'Sous protection',	'Dans un état parfait !');
 
 DROP TABLE IF EXISTS `s4u3u_users`;
 CREATE TABLE `s4u3u_users` (
@@ -239,8 +180,5 @@ CREATE TABLE `s4u3u_users` (
   CONSTRAINT `users_roles_FK` FOREIGN KEY (`id_roles`) REFERENCES `s4u3u_roles` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE `s4u3u_users`;
-INSERT INTO `s4u3u_users` (`id`, `profilePicture`, `userName`, `email`, `password`, `registerDate`, `id_roles`) VALUES
-(1,	NULL,	'AledOscourt',	'julien.fournier2508@gmail.com',	'$2y$10$c0sdHzk6yfLeutJZN78Ng.N7FMOqjxjb98/3IoSm4zkq/nGClvFbm',	'2022-04-04',	1);
 
--- 2022-04-05 00:11:24
+-- 2022-03-28 13:40:18

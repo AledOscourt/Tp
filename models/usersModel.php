@@ -14,6 +14,9 @@ class users extends database
     {
         $this->db = parent::__construct();
     }
+        //Ici les ":" indique que se sont des marqueurs nominatifs, ces valeurs sont vides, on prépare l'entrée de future données,
+        //On utilise prepare lorsque l'on a des marqueurs nominatifs, mais elle n'execute pas la requete directement contrairement à query
+        //Le bindValue va attribuer les données aux marqueurs nominatifs
 
     public function addUser()
     {
@@ -27,17 +30,19 @@ class users extends database
 
     public function getUsersList()
     {
-        $query = 'SELECT user.id,userName,email,roles.name,count(opi.id) AS nbrOpinions,COUNT(CASE WHEN rep.id_users = user.id THEN rep.id_users END) AS nbrReportsTaken,COUNT(CASE WHEN rep.id_users_write = user.id THEN rep.id_users_write END) AS nbrReportsGifted,count(offer.id) AS nbrOffer '
-            . 'FROM `s4u3u_users` AS user '
-            . 'INNER JOIN `s4u3u_roles` AS roles '
-            . 'ON user.id_roles = roles.id '
-            . 'LEFT JOIN `s4u3u_opinions` AS opi '
-            . 'ON user.id = opi.id_users '
-            . 'LEFT JOIN `s4u3u_offers` As offer '
-            . 'ON user.id = opi.id_users AND offer.id = opi.id_offers '
-            . 'LEFT JOIN `s4u3u_reports` AS rep '
-            . 'ON user.id IN (rep.id_users,rep.id_users_write) '
-            . 'GROUP BY user.id ';
+        $query = 'SELECT user.id,userName,email,roles.name,count(opi.id) AS nbrOpinions,
+        COUNT(CASE WHEN rep.id_users = user.id THEN rep.id_users END) AS nbrReportsTaken,
+        COUNT(CASE WHEN rep.id_users_write = user.id THEN rep.id_users_write END) AS nbrReportsGifted,count(offer.id) AS nbrOffer
+           FROM `s4u3u_users` AS user 
+            INNER JOIN `s4u3u_roles` AS roles 
+            ON user.id_roles = roles.id 
+            LEFT JOIN `s4u3u_opinions` AS opi 
+            ON user.id = opi.id_users 
+            LEFT JOIN `s4u3u_offers` As offer 
+            ON user.id = opi.id_users AND offer.id = opi.id_offers 
+            LEFT JOIN `s4u3u_reports` AS rep 
+            ON user.id IN (rep.id_users,rep.id_users_write) 
+            GROUP BY user.id ';
         $queryExecute = $this->db->query($query);
         return $queryExecute->fetchAll(PDO::FETCH_OBJ);
     }
@@ -107,17 +112,6 @@ class users extends database
         $queryExecute = $this->db->query($query);
         return $queryExecute->fetchAll(PDO::FETCH_OBJ);
     }
-    public function emailExist()
-    {
-        $query = 'SELECT   COUNT(email) AS emailCount
-        FROM    s4u3u_users
-        WHERE email = :email';
-        $queryPrepare = $this->db->prepare($query);
-        $queryPrepare->bindValue(':email', $this->email, PDO::PARAM_STR);
-        $queryPrepare->execute();
-        $queryresult = $queryPrepare->fetch(PDO::FETCH_OBJ);
-        return $queryresult->emailCount;
-    }
 
     public function userNameExist()
     {
@@ -130,6 +124,7 @@ class users extends database
         $queryresult = $queryPrepare->fetch(PDO::FETCH_OBJ);
         return $queryresult->userNameCount;
     }
+
     public function checkIfUserExist()
     {
         $query = 'SELECT   COUNT(*) AS exist
@@ -141,6 +136,7 @@ class users extends database
         $queryresult = $queryPrepare->fetch(PDO::FETCH_OBJ);
         return $queryresult->exist;
     }
+
     public function getPasswordByEmail()
     {
         $query = 'SELECT   password

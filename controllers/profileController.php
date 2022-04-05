@@ -42,7 +42,7 @@ if (isset($_POST['email'])) {
 
     if (!empty($_POST['email'])) {
         if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL, FILTER_NULL_ON_FAILURE)) {
-            if ($users->emailExist() > 0 && $_POST['email'] != $_SESSION['user']->email) {
+            if ($users->checkIfUserExist() > 0 && $_POST['email'] != $_SESSION['user']->email) {
                 $formErrors['email'] = MAIL_ERROR_EXIST;
             }else{
                 $users->email = $_POST['email'];
@@ -105,7 +105,7 @@ $pageNumber = ceil($count / $offer->limit);
 $offer->offset = ($page - 1) * $offer->limit;
 
 if( $_GET['page']>$pageNumber && $pageNumber>0){
-    header('Location: page404.php');
+    header('Location: Page404');
     exit;
 }
 $offerList = $offer->getUserOfferList();

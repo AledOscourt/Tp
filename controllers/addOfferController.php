@@ -10,31 +10,33 @@ $imagesArray = [];
  * la fonction count sert à compter le nombre d'élément dans un tableaux
  * ici elle à savoir si le formulaire à été envoyer
  */
-
+$popsDataList = $pops->getPopNameORTags();
 if (count($_POST) > 0) {
 
-    if (!empty($_POST['popName'])) {
-        if (preg_match($regex['popName'], $_POST['popName'])) {
-            $pops->name = strip_tags($_POST['popName']);
-            $pop = $pops->getPopByNameORTags();
-            $offer->id_pops = $pop->id;
-        } else {
-            $formErrors['popName'] = 'Veuillez vérifier le nom de la figurine pop. Votre nom de la figurine pop ne doit pas contenir de caractères spéciaux sauf accents.';
+    if (!empty($_POST['popName']) || !empty($_POST['tags'])) {
+        if (!empty($_POST['popName'])) {
+            if (preg_match($regex['popName'], $_POST['popName'])) {
+                $pops->name = strip_tags($_POST['popName']);
+                $pop = $pops->getPopByNameORTags();
+                $offer->id_pops = $pop->id;
+            } else {
+                $formErrors['popName'] = 'Veuillez vérifier le nom de la figurine pop. Votre nom de la figurine pop ne doit pas contenir de caractères spéciaux sauf accents.';
+            }
         }
-    }
 
-    if (!empty($_POST['tags'])) {
-        if (preg_match($regex['tags'], $_POST['tags'])) {
-            $pops->tags = strip_tags($_POST['tags']);
-            $pop = $pops->getPopByNameORTags();
-            $offer->id_pops = $pop->id;
-        } else {
-            $formErrors['tags'] = 'Veuillez vérifier le nombre en haut à droite de la figurine pop.';
+        if (!empty($_POST['tags'])) {
+            if (preg_match($regex['tags'], $_POST['tags'])) {
+                $pops->tags = strip_tags($_POST['tags']);
+                $pop = $pops->getPopByNameORTags();
+                $offer->id_pops = $pop->id;
+            } else {
+                $formErrors['tags'] = 'Veuillez vérifier le nombre en haut à droite de la figurine pop.';
+            }
         }
     } else {
+        $formErrors['popName'] = 'Veuillez saisir le nom de la figurine pop.';
         $formErrors['tags'] = 'Veuillez saisir le nombre en haut à droite de la figurine pop.';
     }
-
     if (!empty($_POST['price'])) {
         if (preg_match($regex['price'], $_POST['price'])) {
             $offer->price = strip_tags($_POST['price']);
@@ -130,6 +132,7 @@ if (count($_POST) > 0) {
     }
     $offer->id_exclusivities = $_POST['exclusivities'];
     $offer->id_users = $_SESSION['user']->id;
+    
     if (count($formErrors) == 0) {
         try {
             $transaction->beginTransaction();
@@ -137,6 +140,7 @@ if (count($_POST) > 0) {
             $offer->id_status = $transaction->lastInsertId();
             if ($offer->addOffer()) {
                 $images->id_offers = $transaction->lastInsertId();
+                var_dump($images->id_offers);
                 foreach ($imagesArray as $i) {
                     $images->image = $i;
                     $images->addImage();

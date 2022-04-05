@@ -17,7 +17,7 @@ function categoryNavbar() {
             secondNavLink.classList.add('nav-link')
             secondNavLink.innerText = categoryLink[i];
         }
-        secondNavList.lastChild.firstChild.setAttribute('href', 'Boutique-1');
+        secondNavList.lastChild.firstChild.setAttribute('href', 'Boutique');
     } else {
         for (let i = 0; i < categoryLink.length; i++) {
             let subNavLi = document.createElement('li');
@@ -28,7 +28,7 @@ function categoryNavbar() {
             subNavLink.classList.add('nav-link')
             subNavLink.innerText = categoryLink[i];
         }
-        subSubNavbar.lastElementChild.setAttribute('href', 'Boutique-1');
+        subSubNavbar.lastElementChild.setAttribute('href', 'Boutique');
     }
 }
 //Créer les élement de la seconde navbar avec leurs attributs pour franchise
@@ -132,141 +132,84 @@ window.onmouseover = () => {
  *--------------------------------------------------------------------------------------------------------------------
  -------------------------------------------------------------------------------------------------------------------*/
 
-/**-------------------------------------------------------------------------------------------------------------------
-*------------------------------------------------Function Shop-----------------------------------------------------  
--------------------------------------------------------------------------------------------------------------------*/
 
-window.onload = () => {
-    priceRangePrice.innerText = `${inputRangePrice.value} €`;
-    /**-------------------------------------------------------------------------------------------------------------------
-     *-----------------------création de l'intérieure du collapse de categorie------------------------------------*/
-    for (let i = 0; i < categoryLink.length; i++) {
-        let categoryShopLi = document.createElement('li');
-        collapseCategory.appendChild(categoryShopLi);
-        categoryShopLi.classList.add('d-flex', 'align-items-center')
-        let categoryShopInput = document.createElement('input');
-        categoryShopLi.appendChild(categoryShopInput);
-        categoryShopInput.setAttribute('type', 'radio');
-        categoryShopInput.setAttribute('name', 'category');
-        categoryShopInput.setAttribute('id', categoryLink[i]);
-        categoryShopInput.classList.add('form-check-input');
-        let categoryShopLabel = document.createElement('label');
-        categoryShopLi.appendChild(categoryShopLabel);
-        categoryShopLabel.setAttribute('for', categoryLink[i]);
-        categoryShopLabel.classList.add('form-check-label', 'ms-5', 'fs-5');
-        categoryShopLabel.innerText = categoryLink[i];
-    }
-    /**-------------------------------------------------------------------------------------------------------------------
-     *-----------------------création de l'intérieure du collapse de franchise-----------------------------------------*/
-    for (let i = 0; i < (brandLink.length); i++) {
-        let brandShopLi = document.createElement('li');
-        collapseBrand.appendChild(brandShopLi);
-        brandShopLi.classList.add('d-flex', 'align-items-center')
-        let brandShopInput = document.createElement('input');
-        brandShopLi.appendChild(brandShopInput);
-        brandShopInput.setAttribute('type', 'radio');
-        brandShopInput.setAttribute('name', 'brand');
-        brandShopInput.setAttribute('id', brandLink[i]);
-        brandShopInput.classList.add('form-check-input');
-        let brandShopLabel = document.createElement('label');
-        brandShopLi.appendChild(brandShopLabel);
-        brandShopLabel.setAttribute('for', brandLink[i]);
-        brandShopLabel.classList.add('form-check-label', 'ms-5', 'fs-5');
-        brandShopLabel.innerText = brandLink[i];
-    }
-    /**-------------------------------------------------------------------------------------------------------------------
-     *-----------------------création de l'intérieure du collapse de exclusivité-----------------------------------------*/
-    for (let i = 0; i < (exclusivityLink.length); i++) {
-        let exclusivityShopLi = document.createElement('li');
-        collapseExclusivity.appendChild(exclusivityShopLi);
-        exclusivityShopLi.classList.add('d-flex', 'align-items-center')
-        let exclusivityShopInput = document.createElement('input');
-        exclusivityShopLi.appendChild(exclusivityShopInput);
-        exclusivityShopInput.setAttribute('type', 'radio');
-        exclusivityShopInput.setAttribute('name', 'exclusivity');
-        exclusivityShopInput.setAttribute('id', exclusivityLink[i]);
-        exclusivityShopInput.classList.add('form-check-input');
-        let exclusivityShopLabel = document.createElement('label');
-        exclusivityShopLi.appendChild(exclusivityShopLabel);
-        exclusivityShopLabel.setAttribute('for', exclusivityLink[i]);
-        exclusivityShopLabel.classList.add('form-check-label', 'ms-5', 'fs-5');
-        exclusivityShopLabel.innerText = exclusivityLink[i];
-    }
-    /**-------------------------------------------------------------------------------------------------------------------
-     *-----------------------mettre les input radio des collapse categorie et franchise en checked-----------------------------------------*/
-    collapseCategory.lastChild.firstChild.setAttribute('checked', '');
-    collapseBrand.lastChild.firstChild.setAttribute('checked', '');
+let page = 1;
 
-    /**-------------------------------------------------------------------------------------------------------------------
-     *-----------------------mettre la valeur du range de prix à 0 au moment du collapse-----------------------------------------*/
-    priceShopButton.onclick = () => {
-            inputRangePrice.value = 0;
-            priceRangePrice.innerText = `${inputRangePrice.value} €`;
-        }
-        /**-------------------------------------------------------------------------------------------------------------------
-         *-----------------------afficher la valeur de l'input range dans le label-----------------------------------------*/
-    inputRangePrice.onchange = () => {
-            priceRangePrice.innerText = `${inputRangePrice.value} €`;
-        }
-        /**-------------------------------------------------------------------------------------------------------------------
-         *-----------------------mettre la valeur du range de prix à 20 au moment du click sur la radio 20-----------------------------------------*/
-    priceRangePrice.innerText = `${inputRangePrice.value} €`;
-    priceSelector20.onclick = () => {
-            inputRangePrice.value = 20;
-            priceRangePrice.innerText = `${inputRangePrice.value} €`;
-        }
-        /**-------------------------------------------------------------------------------------------------------------------
-         *-----------------------mettre la valeur du range de prix à 50 au moment du click sur la radio 50-----------------------------------------*/
-    priceSelector50.onclick = () => {
-            inputRangePrice.value = 50;
-            priceRangePrice.innerText = `${inputRangePrice.value} €`;
-        }
-        /**-------------------------------------------------------------------------------------------------------------------
-         *-----------------------mettre la valeur du range de prix à 100 au moment du click sur la radio 100-----------------------------------------*/
-    priceSelector100.onclick = () => {
-            inputRangePrice.value = 100;
-            priceRangePrice.innerText = `${inputRangePrice.value} €`;
-        }
-        /**-------------------------------------------------------------------------------------------------------------------
-         *-----------------------mettre la valeur du range de prix à 500 au moment du click sur la radio 500-----------------------------------------*/
-    priceSelector500.onclick = () => {
-            inputRangePrice.value = 500;
-            priceRangePrice.innerText = `${inputRangePrice.value} €`;
-        }
-        /**-------------------------------------------------------------------------------------------------------------------
-         *-----------------------mettre la valeur du range de prix à 1000 au moment du click sur la radio 1000-----------------------------------------*/
-    priceSelector1000.onclick = () => {
-        inputRangePrice.value = 1000;
-        priceRangePrice.innerText = `${inputRangePrice.value} €`;
-    }
+function paginationAjax(pageValue) {
+    var ajax = new XMLHttpRequest();
+    ajax.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            let offers = JSON.parse(this.responseText);
+            offersList.innerHTML = ' ';
+            for (offer of offers) {
+                offersList.innerHTML +=
+                    '<a class="outer-Border-Article col-9 col-sm-5 col-lg-3 pb-2 text-decoration-none" href="Article-' + offer.id + '"> <img src = "uploads/' + offer.officialPopImageInTheBox + '" class = "img-fluid inner-Border-Article my-2" alt = "' + offer.name + '" / >' + '<div class = "d-flex justify-content-between text-center" >' +
+                    '<div class = "inner-Border-Name col-7 col-sm-8 col-md-7 align-items-center justify-content-center p-xl-2 p-md-1"> <p> ' + offer.name + '</p> </div> <' +
+                    'div class = "inner-Border-Price  col-auto align-items-center justify-content-center p-xl-2 p-1" > <p > ' + offer.price + ' €</p></div></div></a>';
+            }
+            bottomPreviousPageBtn.innerText = pageValue - 1;
+            bottomNextPageBtn.innerText = pageValue + 1;
+            bottomPageBtn.innerText = pageValue;
+            topPreviousPageBtn.innerText = pageValue - 1;
+            topNextPageBtn.innerText = pageValue + 1;
+            topPageBtn.innerText = pageValue;
+            if (page == 1) {
+                bottomPreviousPageBtn.classList.add('d-none');
+                bottomPreviousBtn.classList.add('d-none');
+                topPreviousPageBtn.classList.add('d-none');
+                topPreviousBtn.classList.add('d-none');
+            } else {
+                bottomPreviousPageBtn.classList.remove('d-none');
+                bottomPreviousBtn.classList.remove('d-none');
+                topPreviousPageBtn.classList.remove('d-none');
+                topPreviousBtn.classList.remove('d-none');
+            }
+            if (page == pageNumber.value) {
+                bottomNextPageBtn.classList.add('d-none');
+                bottomNextBtn.classList.add('d-none');
+                topNextPageBtn.classList.add('d-none');
+                topNextBtn.classList.add('d-none');
+            } else {
+                bottomNextPageBtn.classList.remove('d-none');
+                bottomNextBtn.classList.remove('d-none');
+                topNextPageBtn.classList.remove('d-none');
+                topNextBtn.classList.remove('d-none');
+            }
 
-    /**-------------------------------------------------------------------------------------------------------------------
-     *-----------------------mettre la valeur du range de prix à 1000 au moment du click sur la radio 1000-----------------------------------------*/
-    priceSelector2500.onclick = () => {
-        inputRangePrice.value = 2500;
-        priceRangePrice.innerText = `${inputRangePrice.value} €`;
+        }
     }
+    ajax.open('GET', 'controllers/shopController.php?page=' + pageValue, true);
+    ajax.send();
 }
-
-/**-------------------------------------------------------------------------------------------------------------------
-*--------------------------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------------------------*/
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*------------------------------------------------Function collapse filtre-----------------------------------------------------  
--------------------------------------------------------------------------------------------------------------------*/
-
-sortSelectorCollapse.onclick = () => {
-    if (sortSelector.classList.contains('d-none')) {
-        sortSelector.classList.remove('d-none');
-        sortSelector.classList.add('d-grid');
-    } else {
-        sortSelector.classList.add('d-none');
-        sortSelector.classList.remove('d-grid');
-    }
+bottomNextBtn.onclick = () => {
+    page += 1;
+    paginationAjax(page);
 }
-
-/**-------------------------------------------------------------------------------------------------------------------
-*--------------------------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------------------------*/
+bottomPreviousBtn.onclick = () => {
+    page -= 1;
+    paginationAjax(page);
+}
+bottomPreviousPageBtn.onclick = () => {
+    page -= 1;
+    paginationAjax(page);
+}
+bottomNextPageBtn.onclick = () => {
+    page += 1;
+    paginationAjax(page);
+}
+topNextBtn.onclick = () => {
+    page += 1;
+    paginationAjax(page);
+}
+topPreviousBtn.onclick = () => {
+    page -= 1;
+    paginationAjax(page);
+}
+topPreviousPageBtn.onclick = () => {
+    page -= 1;
+    paginationAjax(page);
+}
+topNextPageBtn.onclick = () => {
+    page += 1;
+    paginationAjax(page);
+}

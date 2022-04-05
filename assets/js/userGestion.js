@@ -17,7 +17,7 @@ function categoryNavbar() {
             secondNavLink.classList.add('nav-link')
             secondNavLink.innerText = categoryLink[i];
         }
-        secondNavList.lastChild.firstChild.setAttribute('href', 'Boutique-1');
+        secondNavList.lastChild.firstChild.setAttribute('href', 'Boutique');
     } else {
         for (let i = 0; i < categoryLink.length; i++) {
             let subNavLi = document.createElement('li');
@@ -28,7 +28,7 @@ function categoryNavbar() {
             subNavLink.classList.add('nav-link')
             subNavLink.innerText = categoryLink[i];
         }
-        subSubNavbar.lastElementChild.setAttribute('href', 'Boutique-1');
+        subSubNavbar.lastElementChild.setAttribute('href', 'Boutique');
     }
 }
 //Créer les élement de la seconde navbar avec leurs attributs pour franchise

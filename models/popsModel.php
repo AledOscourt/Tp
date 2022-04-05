@@ -112,4 +112,11 @@ class pops extends database
         $queryPrepare->execute();
         return $queryPrepare->fetch(PDO::FETCH_OBJ);
     }
+    public function getPopNameORTags()
+    {
+        $query = 'SELECT name, tags
+        FROM `s4u3u_pops`';
+        $queryPrepare = $this->db->query($query);
+        return $queryPrepare->fetchALL(PDO::FETCH_OBJ);
+    }
 }

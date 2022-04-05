@@ -115,10 +115,9 @@ require_once 'include/header.php';
 
     <div class="row" data-aos="fade-up" data-aos-duration="500">
         <a class="d-flex col-md align-items-center text-center selector-left-banner text-decoration-none" href="Nouveauté">
-            <img src="assets/img/disneyRapunzel-removebg-preview.png " class="col-7 ms-lg-5 py-2 w-50 img-fluid" alt="Disney Rapunzel ">
+            <img src="assets/img/gokuUltraInstint-removebg-preview.png" class="col-7 ms-lg-5 py-2 w-50 img-fluid" alt="Disney Rapunzel ">
             <div class="col-4 ms-lg-5 ms-3 text-white" data-aos="zoom-in" data-aos-duration="2500">
-                <h2> Coming</h2>
-                <h2>Soon</h2>
+                <h2>Nouveauté</h2>
             </div>
         </a>
         <a class="d-flex col-md align-items-center text-center selector-right-banner text-decoration-none" href="Boutique">

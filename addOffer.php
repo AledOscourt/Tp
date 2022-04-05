@@ -19,27 +19,36 @@ require_once 'include/header.php'; ?>
         <button type="button" class="btn btn-outline-secondary col-auto" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover" data-bs-html="true" data-bs-content="Il faut saisir au moins le nom <br /> de la pop ou son numéro">
             <i class="fas fa-info-circle"></i>
         </button>
-        
+
     </div>
     <div class="row">
         <div class="container d-grid gap-4">
-            
+
             <fieldset class="row d-flex gap-lg-0 gap-3">
-            <div class="col-md-5 border mx-auto form-floating">
-                    <input class="form-control <?= isset($formErrors['popName']) ? 'is-invalid' : '' ?>" value="<?= !isset($formErrors['popName']) && !empty($_POST['popName']) ? $_POST['popName'] : '' ?>" type="text" name="popName" id="popName" placeholder=" ">
+                <div class="col-md-5 border mx-auto form-floating">
+                    <input class="form-control <?= isset($formErrors['popName']) ? 'is-invalid' : '' ?>" value="<?= !isset($formErrors['popName']) && !empty($_POST['popName']) ? $_POST['popName'] : '' ?>" type="text" list="namesList" name="popName" id="popName" placeholder=" ">
                     <label class="ms-3 text-white" for="popName">Nom de la Pop</label>
                     <?php if (isset($formErrors['popName'])) { ?>
                         <p class="invalid-feedback text-center"> <?= $formErrors['popName'] ?> </p>
                     <?php } ?>
                 </div>
+                <datalist id="namesList">
+                <?php foreach ($popsDataList as $p) { ?>
+                        <option value="<?= $p->name; ?>">
+                    <?php } ?>
+                </datalist>
                 <div class="col-md-5 border  mx-auto form-floating">
-                    <input class="form-control <?= isset($formErrors['tags']) ? 'is-invalid' : '' ?>" value="<?= !isset($formErrors['tags']) && !empty($_POST['tags']) ? $_POST['tags'] : '' ?>" type="text" name="tags" maxlength="4" id="tags" placeholder=" ">
+                    <input class="form-control <?= isset($formErrors['tags']) ? 'is-invalid' : '' ?>" value="<?= !isset($formErrors['tags']) && !empty($_POST['tags']) ? $_POST['tags'] : '' ?>" type="text" list="tagsList" name="tags" maxlength="4" id="tags" placeholder=" ">
                     <label class="ms-3 text-white" for="tags">Numéro de la Pop</label>
                     <?php if (isset($formErrors['tags'])) { ?>
                         <p class="invalid-feedback text-center"> <?= $formErrors['tags'] ?> </p>
                     <?php } ?>
                 </div>
-                
+                <datalist id="tagsList">
+                    <?php foreach ($popsDataList as $p) { ?>
+                        <option value="<?= $p->tags; ?>">
+                        <?php } ?>
+                </datalist>
             </fieldset>
 
             <fieldset class="row d-flex gap-lg-0 gap-3">
@@ -62,7 +71,7 @@ require_once 'include/header.php'; ?>
             </fieldset>
             <fieldset class="row d-flex gap-lg-0 gap-3">
                 <div class="col-md-11 border  mx-auto form-floating">
-                    <textarea class="form-control <?= isset($formErrors['statusDescription']) ? 'is-invalid' : '' ?>" value="<?= !isset($formErrors['statusDescription']) && !empty($_POST['statusTitle']) ? $_POST['statusDescription'] : '' ?>" name="statusDescription" id="statusDescription" maxlength="370" placeholder=" "></textarea>
+                    <textarea class="form-control <?= isset($formErrors['statusDescription']) ? 'is-invalid' : '' ?>"  name="statusDescription" id="statusDescription" maxlength="370" placeholder=" "><?php if (!isset($formErrors['statusDescription']) && !empty($_POST['statusDescription'])) { echo $_POST['statusDescription']; } ?></textarea>
                     <label class="ms-3 text-white floatingTextarea" for="statusDescription">Description d'état</label>
                     <?php if (isset($formErrors['statusDescription'])) { ?>
                         <p class="invalid-feedback text-center"> <?= $formErrors['statusDescription'] ?> </p>

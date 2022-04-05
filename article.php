@@ -54,15 +54,15 @@ require_once 'include/header.php';
         <div class="col d-lg-flex d-grid my-2">
             <div id="carouselExampleIndicators" class="carousel slide col my-2" data-bs-touch="true">
                 <div class="carousel-inner carouselArticle">
-                    <div class="carousel-item active">
-                        <img src="uploads/<?= $offers->officialPopImageInTheBox ?>" class="img-fluid" alt="">
+                    <div class="carousel-item active h-100">
+                        <img src="uploads/<?= $offers->officialPopImageInTheBox ?>" class="img-fluid h-100" alt="">
                     </div>
-                    <div class="carousel-item">
-                        <img src="uploads/<?= $offers->officialPopImageOutBox ?>" class="img-fluid" alt="">
+                    <div class="carousel-item h-100">
+                        <img src="uploads/<?= $offers->officialPopImageOutBox ?>" class="h-100" alt="">
                     </div>
                     <?php foreach ($imagesList as $img) { ?>
-                        <div class="carousel-item">
-                            <img src="<?= $img->image ?>" class="img-fluid" alt="">
+                        <div class="carousel-item h-100">
+                            <img src="<?= $img->image ?>" class="img-fluid h-100" alt="">
                         </div>
                     <?php } ?>
                     <div class="carousel-indicators opacity-50">
@@ -132,16 +132,16 @@ require_once 'include/header.php';
                 <a class="nav-link text-white articleBtn" aria-current="page" id="descriptionBtn">Description</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white articleBtn active" id="opinionBtn">Avis</a>
+                <a class="nav-link text-white articleBtn" id="opinionBtn">Avis</a>
             </li>
         </ul>
         <div class="fs-4 text-white px-md-5 d-none" id="description">
             <p class="col text-info text-center"><?= $offers->statName ?></p>
             <p class="col-md-9 mx-md-auto fs-5 text-center"><?= $offers->description ?></p>
         </div>
-        <div class="fs-4 text-white p-md-4 shadow-lg d-grid" id="opinion">
+        <div class="fs-4 text-white p-md-4 shadow-lg d-none" id="opinion">
             <?php if ($_SESSION) { ?>
-                <button class="btn btn-primary col-md-4 col-8 mx-auto mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <button class="btn btn-primary col-md-4 col-8 mt-3 mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                     Ajouter un commentaire
                 </button>
                 <div class="collapse" id="collapseExample">
@@ -167,7 +167,7 @@ require_once 'include/header.php';
                     <div class="col-md-8 rounded mx-md-auto border border-1 d-grid p-3">
                         <div class="col d-flex align-items-center">
                             <div class="col d-flex">
-                                <h4 class="col text-info text-md-start text-center ms-md-5 align-bottom">
+                                <h4 class="col text-info text-md-start text-center ms-md-5 align-bottom commentTitle">
                                     <?= $op->userName ?>
                                 </h4>
                                 <small class="col text-end ms-md-5 text-muted ">
@@ -180,7 +180,7 @@ require_once 'include/header.php';
                                 <?= $op->content ?>
                             </p>
                         </div>
-                        <?php if ($op->id_users == $_SESSION['user']->id) { ?>
+                        <?php if ($_SESSION && $op->id_users == $_SESSION['user']->id) { ?>
                             <div class="col text-end">
                                 <button type="button" class="btn btn-outline-danger col-auto" name="opinionDeleteBtn" data-bs-whatever="<?= $op->id ?>" data-bs-toggle="modal" data-bs-target="#deleteOpinions">Supprimer</button>
                             </div>

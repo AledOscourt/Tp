@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION['user']->id_roles != 1 & !$_SESSION){
+if(!$_SESSION && $_SESSION['user']->id_roles != 1){
     header('Location: Accueil');
 exit;
 }

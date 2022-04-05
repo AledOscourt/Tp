@@ -9,8 +9,15 @@ if (isset($_POST['addUsers'])) {
      * ici elle à savoir si le formulaire à été envoyer
      */
     if (count($_POST) > 0) {
-
+        /**
+         * la fonction empty sert vérifier s'il n'est pas vide
+         * ici elle sert à vérifier le post userName
+         */
         if (!empty($_POST['userName'])) {
+            /**
+             * la fonction empty sert vérifier s'il correspont à une regex
+             * ici elle sert à vérifier le post userName avec la regex userName
+             */
             if (preg_match($regex['userName'], $_POST['userName'])) {
                 $users->userName = strip_tags($_POST['userName']);
                 if ($users->userNameExist() > 0) {
@@ -26,7 +33,7 @@ if (isset($_POST['addUsers'])) {
         if (!empty($_POST['email'])) {
             if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL, FILTER_NULL_ON_FAILURE)) {
                 $users->email = $_POST['email'];
-                if ($users->emailExist() > 0) {
+                if ($users->checkIfUserExist() > 0) {
                     $formErrors['email'] = MAIL_ERROR_EXIST;
                 }
             } else {

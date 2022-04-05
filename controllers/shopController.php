@@ -1,19 +1,36 @@
 <?php
-$offer = new offers();
+
+if (!empty($_GET['page'])) {
+    require_once '../models/database.php';
+    require_once '../models/offersModel.php';
+    $offer = new offers();
+    
+    
+    $offer->limit = 12;
+
+
+    $offer->offset =  ($_GET['page'] - 1) * $offer->limit;
+    echo json_encode($offer->getOfferList());
+    
+}else{
+    $offer = new offers();
 // Récupérer le nombre d'enregistrements
 $count = $offer->countOffersPages();
 
 // Pagination
-$page = (!empty($_GET['page']) ? $_GET['page'] : 1);
+// récupére le nombre d'élément 
 
-$offer->limit = 15;
+$page = 1;
+
+$offer->limit = 12;
 
 $pageNumber = ceil($count / $offer->limit);
-$offer->offset = ($page - 1) * $offer->limit;
 
-if( $_GET['page']>$pageNumber){
-    header('Location: page404.php');
-    exit;
+
+$offer->offset = 0;
+$offerList = $offer->getOfferList();
+
 }
 
-$offerList = $offer->getOfferList();
+
+

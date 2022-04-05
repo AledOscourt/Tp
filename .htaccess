@@ -17,13 +17,14 @@ RewriteRule ^admin_profil_pop_([0-9]+)$   admin/popProfile.php?id=$1
 
 
 RewriteRule ^Article-([0-9]+)$   article.php?id=$1
-RewriteRule ^Nouveauté$   comingSoon.php
+RewriteRule ^Nouveauté$   new.php
 RewriteRule ^Liste-d-envie$   envyList.php
 RewriteRule ^Accueil$   index.php
 RewriteRule ^Ajout-d-offre$   addOffer.php
 RewriteRule ^Profil-([0-9]+)$   profile.php?page=$1
-RewriteRule ^Boutique-([0-9]+)$   shop.php?page=$1
+RewriteRule ^Boutique$   shop.php
 RewriteRule ^Inscription$   register.php
 RewriteRule ^Connexion$   logIn.php
 RewriteRule ^Modification-offres_([0-9]+)$   updateOffer.php?id=$1
 RewriteRule ^Voir-l-offre_([0-9]+)$   offerView.php?id=$1
+RewriteRule ^Page404$   page404.php

@@ -74,15 +74,16 @@
         .priceOfferContainer {
             box-shadow: inset 0.5px 0.5px 0px $color-pink, inset 1px 1px 0px $color-purple, inset 1.5px 1.5px 0px $color-pink, $inset-text-shadow-pink, $inset-text-shadow-purple, 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
         }
-    }
-    
-    .articleBtn {
-        cursor: pointer;
-    }
-    
-    .pagesTitles {
-        text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
-        margin: 0 !important;
+        .commentTitle {
+            text-shadow: none;
+        }
+        .articleBtn {
+            cursor: pointer;
+        }
+        .pagesTitles {
+            text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
+            margin: 0 !important;
+        }
     }
     /*-------------------------------------------------------------------------Header----------------------------------------------------------------------------------*/
     
@@ -92,6 +93,7 @@
         .businessName {
             text-shadow: 1px 1px 0px $color-blue, 2px 2px 0px $color-purple, 2.5px 2.5px 0px $color-blue, $text-shadow-blue, $text-shadow-purple;
             color: $color-white;
+            font-family: 'Ubuntu', sans-serif;
             &:hover {
                 text-shadow: 1px 1px 0px $color-blue, 1.5px 1.5px 0px $color-pink, 2px 2px 0px $color-purple, 2.5px 2.5px 1px $color-pink, 3px 3px 1px $color-purple, 3.5px 3.5px 1px $color-pink, $text-shadow-pink, $text-shadow-purple, $text-shadow-pink, $text-shadow-purple;
             }
@@ -114,6 +116,7 @@
                 border-radius: 5px;
                 a {
                     color: $color-white;
+                    font-family: 'Ubuntu', sans-serif;
                 }
                 a:hover {
                     transform: scale(1.05);
@@ -164,6 +167,7 @@
                     font-weight: $font-weight-nav;
                     font-style: oblique;
                     color: $color-white;
+                    font-family: 'Ubuntu', sans-serif;
                     &:hover {
                         text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
                         color: $color-white;
@@ -195,6 +199,7 @@
                     .nav-link {
                         font-weight: $font-weight-nav;
                         color: $color-white;
+                        font-family: 'Ubuntu', sans-serif;
                         &:hover {
                             text-shadow: 0.5px 0.5px 0px $color-pink, 1px 1px 0px $color-purple, 1.5px 1.5px 0px $color-pink, $text-shadow-pink, $text-shadow-purple;
                         }
@@ -211,12 +216,14 @@
             font-size: $font-size-carouse-h2-lg;
             font-style: italic;
             text-shadow: 1px 1px 0px $color-black, 2px 2px 5px $color-white, 3px 3px 0px $color-black;
+            font-family: 'Oswald', sans-serif;
         }
         h3 {
             font-size: $font-size-carousel-h3-lg;
             font-weight: $font-weight-carousel;
             font-style: italic;
             text-shadow: 1px 1px 0px $color-black, 2px 2px 5px $color-white, 3px 3px 0px $color-black;
+            font-family: 'Oswald', sans-serif;
         }
         .firstComingSoon {
             background-image: radial-gradient(circle at center center, rgb(71, 71, 71), rgb(8, 8, 8));
@@ -316,6 +323,7 @@
         }
         h2 {
             text-shadow: 1px 1px 0px $color-black, 2px 2px 5px $color-white, 3px 3px 0px $color-black;
+            font-family: 'Oswald', sans-serif;
         }
     }
     /*------------------------------------------------------------------------- Footer ----------------------------------------------------------------------------------*/
@@ -551,8 +559,8 @@
     /*-------------------------------------------------------------------------Media----------------------------------------------------------------------------------*/
     
     @media screen AND (max-width: 1100px) {
-        .carousel {
-            height: 30vh;
+        .carouselIndex {
+            height: 45vh;
         }
         .selector {
             .selector-left-banner {
@@ -617,10 +625,16 @@
         }
     }
     
+    @media screen AND (max-width: 900px) {
+        .carouselIndex {
+            height: 35vh;
+        }
+    }
+    
     //media pour 700 pixel
     @media screen AND (max-width: 700px) {
         .carouselIndex {
-            height: 15vh;
+            height: 25vh;
             h2 {
                 font-size: $font-size-carousel-h2-md;
             }
@@ -671,20 +685,21 @@
     
     //media pour 400 pixel
     @media screen AND (max-width: 400px) {
+        .carouselIndex {
+            height: 15vh;
+            h2 {
+                font-size: $font-size-carousel-h2-sm;
+            }
+            h3 {
+                font-size: $font-size-carousel-h3-sm;
+            }
+        }
         .imgLanguage {
             width: 4vh;
         }
         .navbar {
             .businessName {
                 font-size: $font-size-carousel-h3-md;
-            }
-        }
-        .carouselIndex {
-            h2 {
-                font-size: $font-size-carousel-h2-sm;
-            }
-            h3 {
-                font-size: $font-size-carousel-h3-sm;
             }
         }
         .product {

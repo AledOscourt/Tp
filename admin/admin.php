@@ -1,12 +1,13 @@
 <?php
 session_start();
-if($_SESSION['user']->id_roles != 1 & !$_SESSION){
+if(!$_SESSION && $_SESSION['user']->id_roles != 1){
     header('Location: Accueil');
 exit;
 }
 $pagesTitle = 'Dashboard';
 require_once '../models/database.php';
 require_once '../models/usersModel.php';
+require_once '../models/offersModel.php';
 require_once 'controllers/adminDashboardController.php';
 require_once '../include/header.php';
 
@@ -59,46 +60,31 @@ require_once '../include/header.php';
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Nom Pop</th>
+                            <th scope="col">Nom&nbsp;d'une&nbsp;Pop</th>
                             <th scope="col">Tags</th>
                             <th scope="col">Référence</th>
                             <th scope="col">Catégorie</th>
                             <th scope="col">Franchise</th>
                             <th scope="col">Exclusivité</th>
                             <th scope="col">Prix</th>
+                            <th scope="col">nbr&nbsp;de&nbsp;click</th>
                         </tr>
                     </thead>
                     <tbody>
+                    <?php foreach ($offersList as $offers) { ?>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
+                            <th scope="row" class="align-middle"><?= $offers->id; ?></th>
+                            <td class="align-middle"><?= $offers->name; ?></td>
+                            <td class="align-middle"><?= $offers->tags; ?></td>
+                            <td class="align-middle text-center"><?= $offers->reference; ?></td>
+                            <td class="align-middle"><?= $offers->cName; ?></td>
+                            <td class="align-middle"><?= $offers->bName; ?></td>
+                            <td class="align-middle"><?= $offers->excluName; ?></td>
+                            <td class="align-middle"><?= $offers->price; ?></td>
+                            <td class="text-center align-middle"><?= $offers->nbrClick; ?></td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                        </tr>
+                        <?php } ?>
+                        
                     </tbody>
                 </table>
             </div>

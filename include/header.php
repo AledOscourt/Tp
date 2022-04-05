@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/vapor/bootstrap.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald&family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
@@ -35,7 +38,7 @@
                             <a class="text-decoration-none star" href="Liste-d-envie"><i class="fas fa-star"></i></a>
                         </div>
                         <div class="col text-center user">
-                            <a class="text-decoration-none justify-content-center m-0 d-flex" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true"><?php if (!is_null($_SESSION['user']->profilePicture)) { ?>
+                            <a class="text-decoration-none justify-content-center m-0 d-flex" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true"><?php if (isset($_SESSION) && !is_null($_SESSION['user']->profilePicture)) { ?>
                                     <img src="<?= $_SESSION['user']->profilePicture; ?>" class="imgNavbarLogIn" alt="profilPhoto">
                                 <?php } else { ?>
                                     <i class="fas fa-user"></i>
@@ -45,7 +48,7 @@
                                     <a class="dropdown-item " href="Profil-1">Profil</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="Liste_d-envie">Liste d'envie</a>
+                                    <a class="dropdown-item" href="Liste-d-envie">Liste d'envie</a>
                                 </li>
                                 <?php if ($_SESSION['user']->id_roles == 1) { ?>
                                     <li>
@@ -68,7 +71,7 @@
                 <button class="navbar-toggler col-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon align-items-center"><i class="fas fa-bars"></i></span>
                 </button>
-                <a class="navbar-brand d-lg-none d-flex h2 col-sm-2 col text-center businessName" href="Accueil">CollectingPop</a>
+                <a class="navbar-brand d-lg-none d-flex h2 col-sm-2 col text-center m-0 businessName" href="Accueil">CollectingPop</a>
                 <form class=" navbar-brand d-lg-none d-md-flex d-none col">
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
@@ -93,9 +96,9 @@
                                     <a class="dropdown-item" href="Profil-1">Profil</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="Liste_d-envie">Liste d'envie</a>
+                                    <a class="dropdown-item" href="Liste-d-envie">Liste d'envie</a>
                                 </li>
-                                <?php if ($_SESSION['user']->id_roles == 1) { ?>
+                                <?php if (isset($_SESSION) && $_SESSION['user']->id_roles == 1) { ?>
                                     <li>
                                         <a class="dropdown-item text-secondary" href="Dashboard">Dashboard</a>
                                     </li>
@@ -110,17 +113,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="col-lg d-flex navbar-nav justify-content-between mx-5 h4 " id="firstNavbar">
                         <li class="nav-item d-flex align-items-center col text-center">
-                            <a class="nav-link col-lg col-11" href="Boutique-1" id="shop">Boutique </a>
+                            <a class="nav-link col-lg col-11" href="Boutique" id="shop">Boutique </a>
                         </li>
                         <li class="nav-item d-flex align-items-center col text-center">
-                            <a class="nav-link col-lg col-11" href="" id="category">Catégorie</a><i class="fas fa-caret-right text-white col-1 d-lg-none d-inline"></i>
+                            <a class="nav-link col-lg col-11" id="category">Catégorie</a><i class="fas fa-caret-right text-white col-1 d-lg-none d-inline"></i>
                         </li>
 
                         <li class="nav-item d-flex align-items-center col text-center">
-                            <a class="nav-link col-lg col-11" href="" id="exclusivity">Exclusivité </a><i class="fas fa-caret-right text-white col-1 d-lg-none d-inline"></i>
+                            <a class="nav-link col-lg col-11" id="exclusivity">Exclusivité </a><i class="fas fa-caret-right text-white col-1 d-lg-none d-inline"></i>
                         </li>
                         <li class="nav-item d-flex align-items-center col text-center">
-                            <a class="nav-link col-lg col-11" href="Nouveauté" id="comingSoon">Coming soon</a>
+                            <a class="nav-link col-lg col-11" href="Nouveauté" id="comingSoon">Nouveauté</a>
                         </li>
                     </ul>
                     <ul class="col-lg navbar-nav d-none animate__animated animate__fadeIn animate__fast bg-dark fixed-top" id="subNavbar">
